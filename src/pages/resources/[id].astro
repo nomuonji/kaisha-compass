@@ -2,14 +2,14 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { resources,events,topicMeta,sourceLabels,sortResources,type Resource } from "../../lib/data";
-import { digestFor } from "../../lib/resourceDigests";
+import { digestForResource } from "../../lib/resourceDigests";
 
 export function getStaticPaths(){
   return resources.map(resource=>({params:{id:resource.id},props:{resource}}));
 }
 
 const { resource }=Astro.props as { resource:Resource };
-const digest=digestFor(resource.id);
+const digest=digestForResource(resource);
 const relatedEvents=events.filter(event=>resource.eventIds.includes(event.id));
 const relatedResources=sortResources(
   resources.filter(candidate=>
@@ -18,8 +18,8 @@ const relatedResources=sortResources(
   )
 ).slice(0,5);
 
-const summary=digest?.summary ?? resource.why;
-const points=digest?.points ?? resource.tags.slice(0,4).map(tag=>"この資料で「"+tag+"」に関する確認を行う。");
+const summary=digest.summary;
+const points=digest.points;
 const schema={"@context":"https://schema.org","@type":"LearningResource",name:resource.title,description:summary,provider:{"@type":"Organization",name:resource.provider},url:resource.url,inLanguage:"ja"};
 ---
 <BaseLayout title={resource.title} description={summary} schema={schema}>
@@ -107,7 +107,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
                   <div>
                     <small>{sourceLabels[item.sourceType]} / {item.provider}</small>
                     <strong>{item.title}</strong>
-                    <p>{digestFor(item.id)?.summary ?? item.why}</p>
+                    <p>{digestForResource(item).summary}</p>
                   </div>
                   <a href={"/resources/"+item.id+"/"}>概要を見る →</a>
                 </div>
