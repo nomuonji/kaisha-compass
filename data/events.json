@@ -1,0 +1,62 @@
+[
+  {
+    "id": "foundation",
+    "month": "APR",
+    "title": "会社を設立する",
+    "summary": "登記だけでなく、税務・社会保険・口座まで設立直後の全体像をつかむ。"
+  },
+  {
+    "id": "first-contract",
+    "month": "MAY",
+    "title": "初めて仕事を受注する",
+    "summary": "契約、請求、売上計上、入金まで取引の流れを見る。"
+  },
+  {
+    "id": "bookkeeping",
+    "month": "JUN",
+    "title": "経費と帳簿を整える",
+    "summary": "会社のお金を記録する意味と、日々の経理の基礎を確認する。"
+  },
+  {
+    "id": "asset",
+    "month": "JUL",
+    "title": "高額なPCを購入する",
+    "summary": "一括経費ではなく固定資産になる場面から、減価償却を学ぶ。"
+  },
+  {
+    "id": "hire",
+    "month": "AUG",
+    "title": "初めて社員を雇う",
+    "summary": "雇用契約、社会保険、労働保険など採用時に発生する論点を横断する。"
+  },
+  {
+    "id": "payroll",
+    "month": "SEP",
+    "title": "初めて給与を払う",
+    "summary": "給与計算、社会保険料、源泉徴収を会社側の仕事として理解する。"
+  },
+  {
+    "id": "loan",
+    "month": "OCT",
+    "title": "銀行から資金を借りる",
+    "summary": "利益と現金の違い、事業計画、借入、資金繰りをつなげて考える。"
+  },
+  {
+    "id": "year-end",
+    "month": "DEC",
+    "title": "年末調整をする",
+    "summary": "給与を払う会社が年末に行う税務事務の位置づけを知る。"
+  },
+  {
+    "id": "director-change",
+    "month": "JAN",
+    "title": "役員構成を変更する",
+    "summary": "会社法上の決定と商業登記がどう接続するかを見る。"
+  },
+  {
+    "id": "closing",
+    "month": "MAR",
+    "title": "初めての決算を迎える",
+    "summary": "一年の取引を締め、決算書・法人税・翌期の経営へつなげる。"
+  }
+]

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="一社の会社運営を追いながら、法務・税務・労務・会計・財務を信頼できる教材で学ぶナビゲーションサイト。" />
+  <meta name="theme-color" content="#f4f0e8" />
+  <title>Kaisha Compass — 会社運営の学習地図</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Kaisha Compass トップ">
+      <span class="brand-mark">KC</span>
+      <span>Kaisha Compass</span>
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#year">会社の一年</a>
+      <a href="#topics">テーマ別</a>
+      <a href="#library">教材を探す</a>
+      <a href="#about">このサイトについて</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">会社運営の学習地図</p>
+        <h1>会社は、<br />教科書順には動かない。</h1>
+        <p class="lede">一社の会社を設立から決算まで追いながら、その場面で必要になる法務・税務・労務・会計・財務を、信頼できる外部教材で学びます。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#year">会社の一年から始める</a>
+          <a class="button secondary" href="#library">教材から探す</a>
+        </div>
+      </div>
+      <aside class="company-card" id="company-card" aria-live="polite">
+        <p class="card-kicker">CASE COMPANY</p>
+        <h2>読み込み中...</h2>
+      </aside>
+    </section>
+
+    <section class="section shell" id="year">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">12 MONTHS / ONE COMPANY</p>
+          <h2>一社の一年から学ぶ</h2>
+        </div>
+        <p>出来事を選ぶと、その場面で読むべき教材に絞り込まれます。</p>
+      </div>
+      <div class="timeline" id="timeline" aria-label="会社の一年"></div>
+    </section>
+
+    <section class="section shell" id="topics">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BY SITUATION</p>
+          <h2>状況から横断して学ぶ</h2>
+        </div>
+        <p>「税務だけ」ではなく、ひとつの会社イベントに複数の専門領域がどう関わるかを見ます。</p>
+      </div>
+      <div class="topic-grid" id="topic-grid"></div>
+    </section>
+
+    <section class="section shell library-section" id="library">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CURATED LIBRARY</p>
+          <h2>厳選教材ライブラリ</h2>
+        </div>
+        <p><span id="resource-count">0</span>件を表示</p>
+      </div>
+
+      <div class="filters" role="search">
+        <label class="search-box">
+          <span class="sr-only">教材を検索</span>
+          <input id="search-input" type="search" placeholder="例：社会保険、役員変更、資金繰り" autocomplete="off" />
+        </label>
+        <div class="filter-row" id="source-filters" aria-label="情報源で絞り込み"></div>
+        <button class="reset-button" id="reset-filters" type="button">絞り込みを解除</button>
+      </div>
+
+      <div class="active-context" id="active-context" hidden></div>
+      <div class="resource-grid" id="resource-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>該当する教材がありません。検索語や絞り込みを変更してください。</p>
+    </section>
+
+    <section class="section shell about" id="about">
+      <div>
+        <p class="eyebrow">EDITORIAL PRINCIPLE</p>
+        <h2>このサイトは「答え」より、<br />学ぶ順番をつくる。</h2>
+      </div>
+      <div class="about-copy">
+        <p>会社運営は、会社法・登記・税務・労務・会計など専門領域にまたがります。Kaisha Compassは、それらを薄く再解説するのではなく、実際の会社イベントを起点に「何を知る必要があり、どの資料を読めばよいか」を整理します。</p>
+        <p>一次情報を最優先し、民間の解説は理解を助ける補助教材として区別して表示します。制度は変更されるため、実際の手続ではリンク先の最新情報を確認してください。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer shell">
+    <div>
+      <strong>Kaisha Compass</strong>
+      <p>会社運営を、点ではなく流れで学ぶ。</p>
+    </div>
+    <p>Educational navigation, not professional advice.</p>
+  </footer>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
