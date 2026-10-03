@@ -952,3 +952,11 @@ a{color:inherit}button,input{font:inherit}button{color:inherit}
   .article-section.next-reading{padding-left:14px}
   .source-essay{padding:17px 15px}
 }
+
+
+/* Final semantic label alignment */
+.topic-type{color:var(--level-topic)}
+.page-level-topic .page-type-label{color:var(--level-topic)}
+.page-level-source .page-type-label{color:var(--level-source)}
+.filter-chip{font-family:var(--sans);font-size:10px;letter-spacing:0;text-transform:none}
+.reset-button{font-family:var(--sans);font-size:10px;letter-spacing:0;text-transform:none}
