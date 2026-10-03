@@ -185,6 +185,47 @@ Level 4 must remain visually different because it exits Kaisha Compass.
 
 ---
 
+## 2026-10-04 — D007: Use literal instructional language and fixed visual semantics
+
+**Status:** Accepted
+
+### Problem observed
+
+Even after the hierarchy was made explicit, some headings still used editorial or rhetorical language such as “原典を開かなくても、まずここまで分かる” and “30秒で把握する”.
+
+This made simple sections harder to identify. The visual treatment also relied too much on subtle styling, so users still had to read closely to distinguish a scene, topic, source summary, and external original.
+
+### Decision
+
+Use functional Japanese labels instead of metaphorical/editorial copy.
+
+Preferred section labels:
+- 概要
+- 重要ポイント
+- 実務上の手順
+- 資料要約
+- 関連資料
+- 外部原典
+
+Fix the visual semantics by hierarchy level:
+- 0 Overview = gray
+- 1 Scene = orange
+- 2 Topic = green
+- 3 Source summary = blue
+- 4 Original source = dark neutral + dashed border
+
+Repeat the same semantics in the hierarchy bar, destination badges, page labels, and relevant section borders.
+
+### Do not regress to
+
+- poetic, clever, or magazine-like section headings;
+- English editorial labels where a Japanese functional label is clearer;
+- subtle decorative differences that require close reading;
+- changing level colors independently in different components;
+- styling an external source like an ordinary internal link.
+
+---
+
 ## Current UX contract
 
 When evaluating a future UI change, ask in this order:
