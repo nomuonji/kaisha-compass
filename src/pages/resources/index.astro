@@ -6,8 +6,8 @@ import { resources,sortResources,stats } from "../../lib/data";
 const sorted=sortResources(resources);
 const schema={"@context":"https://schema.org","@type":"CollectionPage",name:"教材ライブラリ | Kaisha Compass",description:"会社運営に関する公式一次情報と実務解説を、学ぶ場面が分かる形で整理した教材ライブラリ。",inLanguage:"ja"};
 ---
-<BaseLayout level="source" levelDetail="資料庫" title="教材ライブラリ" description={"会社運営に必要な公式一次情報と実務解説を"+stats.resources+"件整理。法務・税務・労務・会計・財務・契約を横断して検索できます。"} schema={schema}>
-  <Breadcrumbs items={[{label:"教材ライブラリ"}]}/>
+<BaseLayout level="source" levelDetail="資料一覧" title="資料一覧" description={"会社運営に必要な公式一次情報と実務解説を"+stats.resources+"件整理。法務・税務・労務・会計・財務・契約を横断して検索できます。"} schema={schema}>
+  <Breadcrumbs items={[{label:"資料一覧"}]}/>
   <section class="page-hero shell"><p class="page-type-label source-type">レベル3 / 資料要約</p><h1>資料一覧</h1><p>公式資料と実務解説を検索・絞り込みできます。各資料の概要はサイト内で確認できます。</p><div class="page-metrics"><div><strong>{stats.resources}</strong><span>全資料</span></div><div><strong>{stats.official}</strong><span>一次情報</span></div><div><strong>{stats.practical}</strong><span>実務解説</span></div></div></section>
   <section class="library-section page-library"><div class="shell"><ResourceGrid resources={sorted} searchable/></div></section>
 </BaseLayout>
