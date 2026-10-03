@@ -1,0 +1,13 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { topicMeta,resourcesForTopic,type TopicId } from "../lib/data";
+---
+<section class="section atlas-section shell" id="topics">
+  <SectionHeading number="04" eyebrow="KNOWLEDGE ATLAS" title="領域から逆引きする" description="「いま税務だけ整理したい」「登記だけ確認したい」というときは、専門領域から教材を絞れます。"/>
+  <div class="topic-grid">
+    {Object.entries(topicMeta).map(([id,meta],index)=><a class="topic-card" href={"/topics/"+id+"/"} style={"--topic-color:"+meta.color}>
+      <span class="topic-meta"><span class="topic-index">{String(index+1).padStart(2,"0")}</span><span>{resourcesForTopic(id as TopicId).length} RESOURCES</span></span>
+      <h3>{meta.label}</h3><p>{meta.description}</p>
+    </a>)}
+  </div>
+</section>
