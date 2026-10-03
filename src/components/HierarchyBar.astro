@@ -1,0 +1,31 @@
+---
+type Level = "overview"|"scene"|"topic"|"source";
+interface Props { current:Level; detail?:string; }
+const { current,detail }=Astro.props;
+const levels=[
+  {id:"overview",n:"0",label:"全体",sub:"会社の一年"},
+  {id:"scene",n:"1",label:"場面",sub:"何が起きたか"},
+  {id:"topic",n:"2",label:"領域",sub:"制度で整理"},
+  {id:"source",n:"3",label:"資料要約",sub:"サイト内で把握"},
+  {id:"external",n:"4",label:"原典",sub:"外部サイト"}
+];
+const index=levels.findIndex(x=>x.id===current);
+---
+<div class="hierarchy-band">
+  <div class="shell hierarchy-inner">
+    <div class="hierarchy-current">
+      <span>YOU ARE HERE</span>
+      <strong>{levels[index]?.n}. {levels[index]?.label}</strong>
+      {detail&&<small>{detail}</small>}
+    </div>
+    <ol class="hierarchy-track" aria-label="サイトの情報階層">
+      {levels.map((level,i)=>
+        <li class:list={[level.id===current&&"current",i<index&&"passed",level.id==="external"&&"external"]}>
+          <span class="level-node">{level.n}</span>
+          <span class="level-copy"><strong>{level.label}</strong><small>{level.sub}</small></span>
+          {i<levels.length-1&&<span class="level-arrow" aria-hidden="true">→</span>}
+        </li>
+      )}
+    </ol>
+  </div>
+</div>
