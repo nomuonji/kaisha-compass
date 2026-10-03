@@ -10,11 +10,11 @@ const { resources,searchable=false }=Astro.props;
     <input data-resource-search type="search" placeholder="社会保険、役員変更、資金繰り…" autocomplete="off" />
   </label>
   <div class="filter-row" aria-label="情報源で絞り込み">
-    <button class="filter-chip active" type="button" data-source-filter="all">ALL</button>
-    <button class="filter-chip" type="button" data-source-filter="official">OFFICIAL</button>
-    <button class="filter-chip" type="button" data-source-filter="practical">PRACTICAL</button>
+    <button class="filter-chip active" type="button" data-source-filter="all">すべて</button>
+    <button class="filter-chip" type="button" data-source-filter="official">公式資料</button>
+    <button class="filter-chip" type="button" data-source-filter="practical">実務解説</button>
   </div>
-  <button class="reset-button" type="button" data-resource-reset>RESET</button>
+  <button class="reset-button" type="button" data-resource-reset>絞り込み解除</button>
 </div>}
 <div class="resource-grid" data-resource-grid>{resources.map((resource,index)=><ResourceCard resource={resource} index={index}/>)}</div>
 <p class="empty-state" data-resource-empty hidden>該当する教材がありません。検索語や絞り込みを変更してください。</p>
