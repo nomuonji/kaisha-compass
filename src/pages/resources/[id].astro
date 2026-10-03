@@ -23,7 +23,7 @@ const points=digest.points;
 const schema={"@context":"https://schema.org","@type":"LearningResource",name:resource.title,description:summary,provider:{"@type":"Organization",name:resource.provider},url:resource.url,inLanguage:"ja"};
 ---
 <BaseLayout title={resource.title} description={summary} schema={schema} level="source" levelDetail={resource.title}>
-  <Breadcrumbs items={[{label:"教材ライブラリ",href:"/resources/"},{label:resource.title}]}/>
+  <Breadcrumbs items={[{label:"資料一覧",href:"/resources/"},{label:resource.title}]}/>
 
   <article class="source-article shell">
     <header class="source-article-header">
