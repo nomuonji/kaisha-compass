@@ -1,0 +1,19 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { events,resourcesForEvent } from "../lib/data";
+---
+<section class="journey-section" id="journey">
+  <div class="shell">
+    <SectionHeading number="03" eyebrow="COMPANY JOURNEY" title="会社の一年をたどる" description="設立から決算・申告・定時株主総会まで。出来事を選ぶと、その場面で必要な教材へ進めます。" inverted/>
+    <div class="journey-frame">
+      <div class="timeline">
+        {events.map((event,index)=><a class="timeline-item" href={"/journey/"+event.id+"/"}>
+          <span class="timeline-month">{event.month}</span>
+          <span class="timeline-copy"><h3>{event.title}</h3><p>{event.summary}</p></span>
+          <span class="timeline-count">{String(index+1).padStart(2,"0")} · {resourcesForEvent(event.id).length} SRC</span>
+        </a>)}
+      </div>
+      <aside class="journey-note"><span class="note-index">HOW TO READ</span><h3>出来事から<br/>専門領域を横断する。</h3><p>たとえば「社員を雇う」なら、雇用契約だけでは終わりません。社会保険、雇用保険、給与計算、源泉徴収まで同時に動きます。</p><div class="note-route"><span>社員を雇う</span><b>→</b><span>労務</span><b>→</b><span>税務</span><b>→</b><span>会計</span></div></aside>
+    </div>
+  </div>
+</section>
