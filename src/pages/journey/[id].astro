@@ -25,7 +25,7 @@ const otherSources=linked.filter(resource=>!sourceNotes.some(note=>note.resource
 
 const schema={"@context":"https://schema.org","@type":"LearningResource",name:event.title,description:event.summary,inLanguage:"ja",learningResourceType:"case study"};
 ---
-<BaseLayout title={event.title} description={event.summary} schema={schema}>
+<BaseLayout title={event.title} description={event.summary} schema={schema} level="scene" levelDetail={event.title}>
   <Breadcrumbs items={[{label:"会社の一年",href:"/#journey"},{label:event.title}]}/>
 
   <article class="chapter shell">
