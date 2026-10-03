@@ -35,7 +35,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
         <small>{event.month}</small>
       </div>
       <div class="chapter-title">
-        <p class="overline">COMPANY STORY</p>
+        <p class="page-type-label scene-type">レベル1 / 場面</p>
         <h1>{event.title}</h1>
         <p class="chapter-deck">{event.summary}</p>
       </div>
@@ -43,7 +43,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
 
     <div class="chapter-reading">
       <aside class="chapter-margin">
-        <p>この章で出てくる領域</p>
+        <p>関連する専門領域</p>
         <nav>
           {topics.map(topic=><a class="typed-link compact" href={"/topics/"+topic+"/"}><span class="dest-tag topic">2 領域</span>{topicMeta[topic].label}</a>)}
         </nav>
@@ -54,14 +54,14 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
 
         {guide?.takeaway&&
           <aside class="chapter-thesis">
-            <span>この章の要点</span>
+            <span>要点</span>
             <p>{guide.takeaway}</p>
           </aside>
         }
 
         <section class="article-section">
           <p class="section-number">01</p>
-          <h2>この場面で、何を理解するか</h2>
+          <h2>重要ポイント</h2>
           <div class="prose-points">
             {guide?.keyPoints?.map(point=>
               <div>
@@ -74,7 +74,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
 
         <section class="article-section">
           <p class="section-number">02</p>
-          <h2>会社では、こういう順番で進む</h2>
+          <h2>実務上の手順</h2>
           <ol class="prose-steps">
             {guide?.steps?.map(step=>
               <li>
@@ -88,8 +88,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
         {sourceNotes.length>0&&
           <section class="article-section source-reading">
             <p class="section-number">03</p>
-            <h2>原典を開かなくても、まずここまで分かる</h2>
-            <p class="section-intro">以下は参照先の内容をKaisha Compass側で要約したものです。細かな要件・例外・最新様式を確認するときだけ原典へ進んでください。</p>
+            <h2>参照資料の要約</h2>
+            <p class="section-intro">参照先の内容を要約しています。実際の手続、期限、金額、例外要件を確定する場合は原典を確認してください。</p>
 
             <div class="source-essays">
               {sourceNotes.map(({resource,summary,points})=>
@@ -113,7 +113,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
         {otherSources.length>0&&
           <section class="article-section secondary-sources">
             <p class="section-number">04</p>
-            <h2>さらに確認したいときの資料</h2>
+            <h2>関連資料</h2>
             <div class="text-source-list">
               {otherSources.map(resource=>
                 <div class="text-source-row">
@@ -132,8 +132,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
     </div>
 
     <nav class="chapter-navigation" aria-label="章の移動">
-      {previous?<a class="previous" href={"/journey/"+previous.id+"/"}><small>← PREVIOUS</small><strong>{previous.title}</strong></a>:<span></span>}
-      {next?<a class="next" href={"/journey/"+next.id+"/"}><small>NEXT →</small><strong>{next.title}</strong></a>:<a class="next" href="/resources/"><small>REFERENCE →</small><strong>教材ライブラリへ</strong></a>}
+      {previous?<a class="previous" href={"/journey/"+previous.id+"/"}><small>← 前の場面</small><strong>{previous.title}</strong></a>:<span></span>}
+      {next?<a class="next" href={"/journey/"+next.id+"/"}><small>次の場面 →</small><strong>{next.title}</strong></a>:<a class="next" href="/resources/"><small>資料一覧 →</small><strong>資料一覧</strong></a>}
     </nav>
   </article>
 </BaseLayout>
