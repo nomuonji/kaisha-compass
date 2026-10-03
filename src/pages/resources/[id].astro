@@ -45,8 +45,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
 
       <div class="source-article-body">
         <section class="article-section first">
-          <p class="section-number">01</p>
-          <h2>概要</h2>
+          <p class="section-kind summary-kind"><span>01</span> 概要</p>
+          <h2>資料の要点</h2>
           <p class="source-summary">{summary}</p>
           <ul class="source-key-points">
             {points.map(point=><li>{point}</li>)}
@@ -54,8 +54,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
         </section>
 
         <section class="article-section">
-          <p class="section-number">02</p>
-          <h2>利用する場面</h2>
+          <p class="section-kind scene-kind"><span>02</span> 関連場面</p>
+          <h2>この資料が関係する場面</h2>
           <p class="section-intro">この資料が関係する会社運営上の場面です。</p>
           <div class="inline-scenes">
             {relatedEvents.map(event=>
@@ -72,7 +72,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
         </section>
 
         <section class="article-section">
-          <p class="section-number">03</p>
+          <p class="section-kind topic-kind"><span>03</span> 専門領域</p>
           <h2>関連する専門領域</h2>
           <div class="topic-text-links">
             {resource.topics.map(topic=>
@@ -85,8 +85,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
         </section>
 
         <section class="article-section original-source">
-          <p class="section-number">04</p>
-          <h2>外部の原典</h2>
+          <p class="section-kind external-kind"><span>04</span> 外部原典</p>
+          <h2>参照元の公式・実務資料</h2>
           <p>手続、金額、期限、適用要件を確定する場合は、参照元の最新情報を確認してください。</p>
           <a class="original-source-link" href={resource.url} target="_blank" rel="noopener noreferrer">
             <span>
@@ -99,8 +99,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
 
         {relatedResources.length>0&&
           <section class="article-section next-reading">
-            <p class="section-number">05</p>
-            <h2>関連資料</h2>
+            <p class="section-kind related-kind"><span>05</span> 関連資料</p>
+            <h2>関連する資料要約</h2>
             <div class="text-source-list">
               {relatedResources.map(item=>
                 <div class="text-source-row">
