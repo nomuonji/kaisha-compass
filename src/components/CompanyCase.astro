@@ -1,10 +1,19 @@
 ---
 import { company } from "../lib/data";
 ---
-<section class="case-section shell" id="case">
-  <div class="case-title"><p class="overline"><span>02</span> CASE FILE</p><h2>一社をずっと<br/>追いかける。</h2><p>制度を科目ごとに覚えるのではなく、「この会社で今なにが起きたか」を基準に知識をつなげます。</p></div>
-  <aside class="company-dossier">
-    <div class="dossier-head"><div><span class="dossier-id">CASE / KC-001</span><h3>{company.name}</h3><p>{company.description}</p></div><div class="dossier-seal">MODEL<br/>COMPANY</div></div>
-    <div class="company-facts">{company.facts.map(f=><div class="company-fact"><span>{f.label}</span><strong>{f.value}</strong></div>)}</div>
-  </aside>
+<section class="company-intro shell" id="case">
+  <p class="overline"><span>02</span> THE COMPANY WE FOLLOW</p>
+  <div class="company-intro-grid">
+    <div class="company-intro-title">
+      <h2>2026年4月、<br/>一社の会社が生まれる。</h2>
+    </div>
+    <div class="company-intro-prose">
+      <p><strong>{company.name}</strong>。Web制作と小規模SaaSを手がける、代表者1人から始まった会社です。</p>
+      <p>このサイトでは、この会社が設立され、最初の仕事を受け、経費を払い、社員を雇い、融資を受け、決算と申告を迎えるまでを追います。</p>
+      <p>制度を覚えるための架空設定ではなく、バラバラに見える会社法・税務・労務・会計が、現実の会社ではどう同時に動くのかを見るための一本の文脈です。</p>
+    </div>
+  </div>
+  <dl class="company-footnotes">
+    {company.facts.map(fact=><div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
+  </dl>
 </section>
