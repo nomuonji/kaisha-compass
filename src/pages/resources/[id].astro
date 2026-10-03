@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ResourceCard from "../../components/ResourceCard.astro";
+import { resources,events,topicMeta,sourceLabels,sortResources,type Resource } from "../../lib/data";
+export function getStaticPaths(){return resources.map(resource=>({params:{id:resource.id},props:{resource}}));}
+const { resource }=Astro.props as { resource:Resource };
+const relatedEvents=events.filter(event=>resource.eventIds.includes(event.id));
+const relatedResources=sortResources(resources.filter(candidate=>candidate.id!==resource.id&&candidate.topics.some(topic=>resource.topics.includes(topic)))).slice(0,4);
+const schema={"@context":"https://schema.org","@type":"LearningResource",name:resource.title,description:resource.why,provider:{"@type":"Organization",name:resource.provider},url:resource.url,inLanguage:"ja"};
+---
+<BaseLayout title={resource.title} description={resource.why} schema={schema}>
+  <Breadcrumbs items={[{label:"教材ライブラリ",href:"/resources/"},{label:resource.title}]}/>
+  <article class="resource-detail shell">
+    <header class="resource-detail-head">
+      <div><p class="overline">{sourceLabels[resource.sourceType].toUpperCase()} / {resource.provider}</p><h1>{resource.title}</h1><p class="resource-detail-why">{resource.why}</p></div>
+      <div class="resource-detail-meta"><dl><div><dt>TYPE</dt><dd>{sourceLabels[resource.sourceType]}</dd></div><div><dt>LEVEL</dt><dd>{resource.difficulty}</dd></div><div><dt>TIME</dt><dd>{resource.time}</dd></div><div><dt>CHECKED</dt><dd>{resource.lastCheckedAt??"—"}</dd></div>{resource.validAsOf&&<div><dt>VALID AS OF</dt><dd>{resource.validAsOf}</dd></div>}</dl><a class="action primary external-action" href={resource.url} target="_blank" rel="noopener noreferrer">外部資料を開く <span>↗</span></a></div>
+    </header>
+    <section class="resource-context"><div><p class="overline"><span>01</span> WHEN TO READ</p><h2>この資料を読む場面</h2></div><div class="scene-links compact-scenes">{relatedEvents.map(event=><a href={"/journey/"+event.id+"/"}><small>{event.month}</small><strong>{event.title}</strong><span>→</span></a>)}</div></section>
+    <section class="resource-context"><div><p class="overline"><span>02</span> KNOWLEDGE AREAS</p><h2>関連する領域</h2></div><div class="detail-topics large">{resource.topics.map(topic=><a href={"/topics/"+topic+"/"}>{topicMeta[topic].label}</a>)}</div></section>
+    <section class="resource-context"><div><p class="overline"><span>03</span> TAGS</p><h2>キーワード</h2></div><div class="tags large-tags">{resource.tags.map(tag=><span class="tag">{tag}</span>)}</div></section>
+  </article>
+  {relatedResources.length>0&&<section class="library-section page-library"><div class="shell"><div class="section-heading"><div><p class="overline"><span>04</span> NEXT SOURCES</p><h2>次に見る教材</h2></div><p>同じ領域にある、関連度の高い教材です。</p></div><div class="resource-grid">{relatedResources.map((item,index)=><ResourceCard resource={item} index={index}/>)}</div></div></section>}
+</BaseLayout>
