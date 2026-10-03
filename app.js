@@ -53,9 +53,11 @@ function renderTimeline(events, resources) {
     return `
       <button class="timeline-item" type="button" data-event-id="${event.id}">
         <span class="timeline-month">${event.month}</span>
-        <h3>${event.title}</h3>
-        <p>${event.summary}</p>
-        <p>${count}教材</p>
+        <span class="timeline-copy">
+          <h3>${event.title}</h3>
+          <p>${event.summary}</p>
+        </span>
+        <span class="timeline-count">${count} SRC</span>
       </button>
     `;
   }).join("");
