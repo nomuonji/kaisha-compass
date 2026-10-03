@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CompassHero from "../components/CompassHero.astro";
+import CompanyCase from "../components/CompanyCase.astro";
+import JourneyTimeline from "../components/JourneyTimeline.astro";
+import TopicAtlas from "../components/TopicAtlas.astro";
+import MethodSection from "../components/MethodSection.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import ResourceGrid from "../components/ResourceGrid.astro";
+import { resources,sortResources,stats } from "../lib/data";
+const featured=sortResources(resources).slice(0,12);
+const schema={"@context":"https://schema.org","@type":"WebSite",name:"Kaisha Compass",description:"会社運営を、点ではなく流れで学ぶ。会社の一年と信頼できる外部教材をつなぐ学習ナビゲーション。",inLanguage:"ja"};
+---
+<BaseLayout schema={schema}>
+  <CompassHero/><CompanyCase/><JourneyTimeline/><TopicAtlas/>
+  <section class="library-section" id="library"><div class="shell">
+    <SectionHeading number="05" eyebrow="CURATED LIBRARY" title="教材ライブラリ" description={stats.resources+"件の教材から、まず入口になる資料を表示しています。全件はライブラリで検索できます。"}/>
+    <ResourceGrid resources={featured}/>
+    <div class="section-cta"><a class="action primary" href="/resources/">全{stats.resources}件から探す <span>→</span></a></div>
+  </div></section>
+  <MethodSection/>
+</BaseLayout>
