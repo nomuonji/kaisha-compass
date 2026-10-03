@@ -1,22 +1,24 @@
 ---
 import type { Resource } from "../lib/data";
 import { sourceLabels } from "../lib/data";
+import { digestFor } from "../lib/resourceDigests";
 interface Props { resource:Resource; index?:number; }
 const { resource,index }=Astro.props;
+const digest=digestFor(resource.id);
+const summary=digest?.summary??resource.why;
 ---
 <article class:list={["resource-card",resource.sourceType]}
   data-resource-card data-source={resource.sourceType}
-  data-search={[resource.title,resource.provider,resource.why,...resource.tags,...resource.topics].join(" ").toLowerCase()}>
+  data-search={[resource.title,resource.provider,summary,...resource.tags,...resource.topics].join(" ").toLowerCase()}>
   <div class="resource-meta">
     <span class:list={["source-badge",resource.sourceType]}>{sourceLabels[resource.sourceType]}</span>
     <span class="resource-time">{index!==undefined&&<>{String(index+1).padStart(2,"0")} · </>}{resource.time} · {resource.difficulty}</span>
   </div>
   <h3><a href={"/resources/"+resource.id+"/"}>{resource.title}</a></h3>
   <p class="resource-provider">{resource.provider}</p>
-  <p class="resource-why">{resource.why}</p>
-  <div class="tags">{resource.tags.slice(0,5).map(tag=><span class="tag">{tag}</span>)}</div>
+  <p class="resource-why">{summary}</p>
   <div class="resource-actions">
-    <a class="resource-detail-link" href={"/resources/"+resource.id+"/"}>この教材の位置づけ</a>
-    <a class="resource-link" href={resource.url} target="_blank" rel="noopener noreferrer">資料を開く</a>
+    <a class="resource-detail-link" href={"/resources/"+resource.id+"/"}>要点を読む</a>
+    <a class="resource-link" href={resource.url} target="_blank" rel="noopener noreferrer">原典 ↗</a>
   </div>
 </article>
