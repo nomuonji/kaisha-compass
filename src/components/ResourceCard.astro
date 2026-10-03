@@ -1,11 +1,11 @@
 ---
 import type { Resource } from "../lib/data";
 import { sourceLabels } from "../lib/data";
-import { digestFor } from "../lib/resourceDigests";
+import { digestForResource } from "../lib/resourceDigests";
 interface Props { resource:Resource; index?:number; }
 const { resource,index }=Astro.props;
-const digest=digestFor(resource.id);
-const summary=digest?.summary??resource.why;
+const digest=digestForResource(resource);
+const summary=digest.summary;
 ---
 <article class:list={["resource-card",resource.sourceType]}
   data-resource-card data-source={resource.sourceType}
