@@ -87,7 +87,48 @@ Even there, each item should explain what the source contains before offering an
 The model company exists to connect otherwise separate disciplines.
 Present it as a company the reader follows, not as a simulation dashboard or game state.
 
-### 9. Framework and build
+### 9. Plain, explicit language
+
+Kaisha Compass is an instructional product, not an editorial magazine.
+
+Prefer direct labels that describe function:
+- 概要
+- 重要ポイント
+- 実務上の手順
+- 資料要約
+- 関連資料
+- 外部原典
+
+Avoid:
+- poetic or metaphorical headings;
+- copy that asks the reader to infer what a section does;
+- clever editorial phrases such as “原典を開かなくても、まずここまで分かる” or “30秒で把握する”;
+- English eyebrow text when a Japanese functional label is clearer.
+
+Headings should answer “what is in this section?” rather than create mood.
+
+### 10. Visual semantics are fixed
+
+The visual language must map directly to content type.
+
+Canonical level colors:
+- 0 Overview: gray
+- 1 Scene: orange
+- 2 Topic: green
+- 3 Source summary: blue
+- 4 Original source: dark neutral + dashed border
+
+Use the same level treatment in:
+- hierarchy bar;
+- destination badges;
+- page-type labels;
+- section borders where relevant.
+
+External originals must always use dashed treatment in addition to the level label.
+
+Do not introduce decorative colors with conflicting semantic meaning.
+
+### 11. Framework and build
 
 - Astro + TypeScript
 - static output
