@@ -47,3 +47,19 @@ The product does not try to replace specialist guidance with generic AI-written 
 4. Which practical explanation is useful as a supporting guide?
 
 Official sources are marked separately from practical explanations. Each resource stores a `lastCheckedAt` date; time-sensitive resources can also store `validAsOf`.
+
+
+## UX governance
+
+Kaisha Compass has an explicit non-regression contract.
+
+- `AGENTS.md` — mandatory product/UX invariants for future agents and contributors.
+- `docs/UX_DECISIONS.md` — dated decision history explaining why rejected structures should not be reintroduced.
+- `npm run check:ux` — automated contract check run by GitHub Actions before the Astro build.
+- `.github/pull_request_template.md` — hierarchy and external-link regression checklist.
+
+The current canonical hierarchy is:
+
+`0 Overview → 1 Scene → 2 Topic → 3 Source summary → 4 Original source (external)`
+
+Intentional changes to this model must update the decision log, agent contract, and automated check together.
