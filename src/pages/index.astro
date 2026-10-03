@@ -19,16 +19,16 @@ const schema={"@context":"https://schema.org","@type":"WebSite",name:"Kaisha Com
   <section class="topic-after-story">
     <div class="shell">
       <div class="story-transition">
-        <p class="overline"><span>04</span> AFTER THE STORY</p>
-        <h2>一度流れを読んだら、<br/>今度は必要なところへ戻る。</h2>
-        <p>会社の一年を通して全体像をつかんだ後は、法務・税務・労務・会計・財務・契約の各領域を索引として使えます。</p>
+        <p class="section-type-label topic-type">レベル2 / 専門領域</p>
+        <h2>専門領域から確認する</h2>
+        <p>法務・税務・労務・会計・財務・契約ごとに、関連する場面と資料を確認できます。</p>
       </div>
       <TopicAtlas/>
     </div>
   </section>
 
   <section class="library-section quiet-library" id="library"><div class="shell">
-    <SectionHeading number="05" eyebrow="REFERENCE LIBRARY" title="必要なら、資料庫へ" description={"ここは読む順番の最後です。"+stats.resources+"件の原典・実務解説を、確認用の資料庫として使えます。"}/>
+    <SectionHeading number="05" eyebrow="レベル3 / 資料要約" title="資料一覧" description={stats.resources+"件の公式資料・実務解説を検索できます。"}/>
     <ResourceGrid resources={featured}/>
     <div class="section-cta"><a class="action primary" href="/resources/">全{stats.resources}件の資料を見る <span>→</span></a></div>
   </div></section>
