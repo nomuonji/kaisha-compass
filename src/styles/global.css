@@ -618,3 +618,150 @@ a{color:inherit}button,input{font:inherit}button{color:inherit}
   .company-intro{padding-block:72px}
   .company-footnotes{grid-template-columns:repeat(2,1fr)}
 }
+
+
+/* Information hierarchy system */
+.nav a{display:inline-flex;align-items:center;gap:7px}
+.nav a small{
+  display:grid;place-items:center;width:17px;height:17px;border:1px solid var(--line-dark);
+  font-family:var(--mono);font-size:7px;color:var(--muted);line-height:1
+}
+
+.hierarchy-band{
+  position:sticky;top:78px;z-index:26;
+  border-bottom:1px solid var(--line-dark);
+  background:rgba(231,227,216,.96);
+  backdrop-filter:blur(14px)
+}
+.hierarchy-inner{
+  min-height:76px;display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:center
+}
+.hierarchy-current{
+  display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:center;
+  padding-right:24px;border-right:1px solid var(--line)
+}
+.hierarchy-current>span{
+  grid-column:1/-1;margin-bottom:3px;font-family:var(--mono);font-size:6px;
+  letter-spacing:.13em;color:var(--muted)
+}
+.hierarchy-current strong{
+  font-family:var(--serif);font-size:16px;font-weight:500;white-space:nowrap
+}
+.hierarchy-current small{
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:8px
+}
+.hierarchy-track{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  margin:0;padding:0;list-style:none
+}
+.hierarchy-track li{
+  display:grid;grid-template-columns:24px 1fr auto;gap:8px;align-items:center;min-width:0;
+  color:var(--muted)
+}
+.level-node{
+  display:grid;place-items:center;width:22px;height:22px;border:1px solid var(--line-dark);
+  font-family:var(--mono);font-size:7px;background:var(--paper-deep)
+}
+.level-copy{display:grid;min-width:0;line-height:1.15}
+.level-copy strong{font-size:9px;font-weight:800;white-space:nowrap}
+.level-copy small{margin-top:3px;font-size:7px;color:var(--muted);white-space:nowrap}
+.level-arrow{padding:0 6px;color:var(--line-dark);font-size:11px}
+.hierarchy-track li.current{color:var(--ink)}
+.hierarchy-track li.current .level-node{
+  color:var(--white);border-color:var(--forest);background:var(--forest);
+  box-shadow:0 0 0 4px rgba(23,63,49,.08)
+}
+.hierarchy-track li.current .level-copy strong{color:var(--forest)}
+.hierarchy-track li.passed .level-node{border-color:var(--forest);color:var(--forest)}
+.hierarchy-track li.external .level-node{border-style:dashed}
+.hierarchy-track li.external .level-copy strong::after{content:" ↗";font-size:7px;color:var(--rust)}
+
+.dest-tag{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-right:8px;padding:3px 6px;border:1px solid var(--rust);
+  background:rgba(184,93,54,.07);color:var(--rust);
+  font-family:var(--mono);font-size:7px;font-weight:800;letter-spacing:.04em;white-space:nowrap
+}
+.dest-tag.topic{
+  border-color:var(--forest);background:rgba(23,63,49,.06);color:var(--forest)
+}
+.dest-tag.source{
+  border-color:var(--blue);background:rgba(72,106,124,.07);color:var(--blue)
+}
+.dest-tag.external{
+  border-style:dashed;border-color:var(--ink-soft);background:transparent;color:var(--ink-soft)
+}
+.dest-tag.scene{border-color:var(--rust);color:var(--rust)}
+.typed-link{display:inline-flex;align-items:center;text-decoration:none}
+.typed-link.compact{display:flex;gap:0;align-items:center}
+.typed-link.external{color:var(--ink-soft)}
+.destination-eyebrow{
+  display:flex;align-items:center;margin-bottom:16px;color:var(--muted);
+  font-family:var(--mono);font-size:7px;letter-spacing:.08em
+}
+
+.story-footer .typed-link b{margin-left:16px;font-weight:400}
+.story-footer .typed-link .dest-tag{margin-right:10px}
+.resource-actions{grid-template-columns:1fr 1fr}
+.resource-actions .typed-link{justify-content:flex-start;line-height:1.35}
+.resource-actions .resource-link{justify-content:flex-end;text-align:right}
+.resource-actions .dest-tag{margin-right:6px}
+
+.chapter-margin .typed-link{display:flex;align-items:center;gap:3px}
+.chapter-margin .dest-tag{margin-right:5px}
+.source-essay>a.typed-link{display:inline-flex;align-items:center}
+.source-essay>a.typed-link b{font-weight:400}
+.text-source-row>a.typed-link{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.text-source-row>a.typed-link .dest-tag{margin:0}
+.inline-scenes a.typed-link small{display:flex;align-items:center;gap:7px}
+.inline-scenes .dest-tag{margin:0}
+.topic-text-links a.typed-link strong{display:flex;align-items:center;gap:8px}
+.topic-text-links .dest-tag{margin:0}
+.original-source-link .dest-tag{margin:0 8px 0 0}
+.scene-links a.typed-link small{display:flex;align-items:center;gap:7px}
+.scene-links .dest-tag{margin:0}
+
+/* Make external exits unmistakable */
+.original-source{
+  position:relative;margin-inline:-24px;padding-inline:24px;
+  border:1px dashed var(--line-dark);background:rgba(255,255,255,.24)
+}
+.original-source::before{
+  content:"ここから外部サイト";position:absolute;right:18px;top:16px;
+  font-family:var(--mono);font-size:7px;letter-spacing:.1em;color:var(--muted)
+}
+.original-source-link{border-style:dashed}
+.source-essay>a.external{border-bottom-style:dashed}
+
+/* Resource library is explicitly an index, not a reading chapter */
+.page-library::before{
+  content:"LEVEL 3 — 資料要約の索引";
+  display:block;width:min(1240px,calc(100% - 48px));margin:0 auto 26px;
+  font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--blue)
+}
+
+@media(max-width:980px){
+  .hierarchy-inner{grid-template-columns:1fr;gap:0;padding-block:10px}
+  .hierarchy-current{
+    display:flex;align-items:center;gap:10px;padding:0 0 8px;border-right:0;border-bottom:1px solid var(--line)
+  }
+  .hierarchy-current>span{margin:0}
+  .hierarchy-current small{max-width:45vw}
+  .hierarchy-track{padding-top:8px}
+  .level-copy small{display:none}
+}
+@media(max-width:680px){
+  .hierarchy-band{top:66px}
+  .hierarchy-inner{width:100%;padding-inline:13px}
+  .hierarchy-current{display:none}
+  .hierarchy-track{grid-template-columns:repeat(5,1fr);padding:8px 0}
+  .hierarchy-track li{display:flex;justify-content:center;gap:0}
+  .level-copy{display:none}
+  .level-arrow{padding:0 3px;font-size:8px}
+  .level-node{width:24px;height:24px}
+  .nav a small{display:none}
+  .resource-actions{grid-template-columns:1fr}
+  .resource-actions .resource-link{justify-content:flex-start;text-align:left}
+  .original-source{margin-inline:0;padding-inline:14px}
+  .original-source::before{position:static;display:block;margin-bottom:12px}
+}
