@@ -1,0 +1,39 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { events, resourcesForEvent } from "../lib/data";
+import { eventGuides } from "../lib/eventGuides";
+---
+<section class="reading-journey" id="journey">
+  <div class="shell reading-shell">
+    <SectionHeading
+      number="03"
+      eyebrow="THE FIRST YEAR"
+      title="一社の一年を、文章として読む"
+      description="制度名から探す前に、会社に何が起き、その結果どんな知識が必要になるのかを順番に追います。"
+    />
+    <div class="story-flow">
+      {events.map((event,index)=>{
+        const guide=eventGuides[event.id];
+        return <article class="story-chapter">
+          <div class="story-marker">
+            <span class="story-number">{String(index+1).padStart(2,"0")}</span>
+            <span class="story-month">{event.month}</span>
+          </div>
+          <div class="story-body">
+            <p class="story-kicker">{index===0?"会社が始まる":index===events.length-1?"一年を閉じ、次へ進む":"会社が動く"}</p>
+            <h3>{event.title}</h3>
+            <p class="story-summary">{guide?.intro?.[0] ?? event.summary}</p>
+            {guide?.takeaway && <p class="story-takeaway">{guide.takeaway}</p>}
+            {guide?.keyPoints?.length>0 && <div class="story-points">
+              {guide.keyPoints.slice(0,2).map(point=><p><strong>{point.title}</strong>{point.body}</p>)}
+            </div>}
+            <div class="story-footer">
+              <a href={"/journey/"+event.id+"/"}>この章を読む <span>→</span></a>
+              <small>{resourcesForEvent(event.id).length}の参照資料</small>
+            </div>
+          </div>
+        </article>
+      })}
+    </div>
+  </div>
+</section>
