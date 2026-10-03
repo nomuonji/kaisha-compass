@@ -10,7 +10,7 @@ const linked=sortResources(resourcesForTopic(topic));
 const relatedEvents=events.filter(event=>resourcesForEvent(event.id).some(resource=>resource.topics.includes(topic)));
 const schema={"@context":"https://schema.org","@type":"CollectionPage",name:meta.label,description:meta.description,inLanguage:"ja"};
 ---
-<BaseLayout title={meta.label} description={meta.description} schema={schema}>
+<BaseLayout title={meta.label} description={meta.description} schema={schema} level="topic" levelDetail={meta.label}>
   <Breadcrumbs items={[{label:"領域から探す",href:"/#topics"},{label:meta.label}]}/>
   <section class="topic-hero shell" style={"--topic-color:"+meta.color}><div><p class="overline">KNOWLEDGE ATLAS</p><h1>{meta.label}</h1><p>{meta.description}</p></div><div class="topic-hero-stat"><strong>{linked.length}</strong><span>RESOURCES</span></div></section>
   <section class="related-scenes shell"><p class="overline"><span>01</span> WHERE IT APPEARS</p><h2>この知識が必要になる場面</h2><div class="scene-links">{relatedEvents.map(event=><a href={"/journey/"+event.id+"/"}><small>{event.month}</small><strong>{event.title}</strong><span>→</span></a>)}</div></section>
