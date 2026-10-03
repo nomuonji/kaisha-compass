@@ -45,7 +45,7 @@ const absoluteOg = Astro.site ? new URL(ogImage, Astro.site) : ogImage;
   <title>{pageTitle}</title>
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 </head>
-<body>
+<body class={"page-level-"+level}>
   <div class="top-rule" aria-hidden="true"></div>
   <SiteHeader />
   <HierarchyBar current={level} detail={levelDetail} />
