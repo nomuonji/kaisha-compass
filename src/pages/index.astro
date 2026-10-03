@@ -2,21 +2,36 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CompassHero from "../components/CompassHero.astro";
 import CompanyCase from "../components/CompanyCase.astro";
-import JourneyTimeline from "../components/JourneyTimeline.astro";
+import ReadingJourney from "../components/ReadingJourney.astro";
 import TopicAtlas from "../components/TopicAtlas.astro";
 import MethodSection from "../components/MethodSection.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import ResourceGrid from "../components/ResourceGrid.astro";
 import { resources,sortResources,stats } from "../lib/data";
-const featured=sortResources(resources).slice(0,12);
+const featured=sortResources(resources).slice(0,8);
 const schema={"@context":"https://schema.org","@type":"WebSite",name:"Kaisha Compass",description:"会社運営を、点ではなく流れで学ぶ。会社の一年と信頼できる外部教材をつなぐ学習ナビゲーション。",inLanguage:"ja"};
 ---
 <BaseLayout schema={schema}>
-  <CompassHero/><CompanyCase/><JourneyTimeline/><TopicAtlas/>
-  <section class="library-section" id="library"><div class="shell">
-    <SectionHeading number="05" eyebrow="CURATED LIBRARY" title="教材ライブラリ" description={stats.resources+"件の教材から、まず入口になる資料を表示しています。全件はライブラリで検索できます。"}/>
+  <CompassHero/>
+  <CompanyCase/>
+  <ReadingJourney/>
+
+  <section class="topic-after-story">
+    <div class="shell">
+      <div class="story-transition">
+        <p class="overline"><span>04</span> AFTER THE STORY</p>
+        <h2>一度流れを読んだら、<br/>今度は必要なところへ戻る。</h2>
+        <p>会社の一年を通して全体像をつかんだ後は、法務・税務・労務・会計・財務・契約の各領域を索引として使えます。</p>
+      </div>
+      <TopicAtlas/>
+    </div>
+  </section>
+
+  <section class="library-section quiet-library" id="library"><div class="shell">
+    <SectionHeading number="05" eyebrow="REFERENCE LIBRARY" title="必要なら、資料庫へ" description={"ここは読む順番の最後です。"+stats.resources+"件の原典・実務解説を、確認用の資料庫として使えます。"}/>
     <ResourceGrid resources={featured}/>
-    <div class="section-cta"><a class="action primary" href="/resources/">全{stats.resources}件から探す <span>→</span></a></div>
+    <div class="section-cta"><a class="action primary" href="/resources/">全{stats.resources}件の資料を見る <span>→</span></a></div>
   </div></section>
+
   <MethodSection/>
 </BaseLayout>
