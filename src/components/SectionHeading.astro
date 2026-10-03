@@ -1,0 +1,8 @@
+---
+interface Props { number:string; eyebrow:string; title:string; description?:string; inverted?:boolean; }
+const { number,eyebrow,title,description,inverted=false }=Astro.props;
+---
+<div class:list={["section-heading",inverted&&"inverted"]}>
+  <div><p class="overline"><span>{number}</span> {eyebrow}</p><h2>{title}</h2></div>
+  {description&&<p>{description}</p>}
+</div>
