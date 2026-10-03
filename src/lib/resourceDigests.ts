@@ -1,3 +1,5 @@
+import type { Resource } from "./data";
+
 export interface ResourceDigest { summary:string; points:string[]; }
 
 export const resourceDigests: Record<string, ResourceDigest> = {
@@ -30,3 +32,78 @@ export const resourceDigests: Record<string, ResourceDigest> = {
 };
 
 export function digestFor(id:string){ return resourceDigests[id]; }
+
+export function digestForResource(resource:Resource):ResourceDigest{
+  const explicit=resourceDigests[resource.id];
+  if(explicit) return explicit;
+
+  const base=resource.why;
+  if(resource.provider.includes("国税庁") || resource.provider.includes("e-Tax")){
+    return {
+      summary: base+" 税務上の対象・要件・計算や届出の入口を、国税庁の一次情報で確認するための資料です。",
+      points:[
+        "対象になる取引・法人・支払などの範囲を確認する",
+        "期限・計算方法・保存要件など実務に必要な条件を確認する",
+        "申告や届出では、掲載年度と最新の様式・改正内容を確認する"
+      ]
+    };
+  }
+  if(resource.provider.includes("日本年金機構")){
+    return {
+      summary: base+" 社会保険の対象者、提出時期、様式、電子申請などを確認するための公式手続資料です。",
+      points:[
+        "どの事業所・従業員が対象になるかを確認する",
+        "提出時期と必要な届書・添付書類を確認する",
+        "資格取得・喪失や標準報酬月額など前後の手続とのつながりを見る"
+      ]
+    };
+  }
+  if(resource.provider.includes("厚生労働省") || resource.provider.includes("労働局")){
+    return {
+      summary: base+" 労働条件・雇用保険・労働時間など、雇用する会社側の義務と様式を確認するための公的資料です。",
+      points:[
+        "会社がいつ何を行う必要があるかを確認する",
+        "対象要件や提出様式・期限を確認する",
+        "実際の運用では最新の地域別情報や様式を使う"
+      ]
+    };
+  }
+  if(resource.provider.includes("法務") || resource.provider.includes("e-Gov")){
+    return {
+      summary: base+" 会社法・商業登記の制度や根拠を確認するための一次情報です。",
+      points:[
+        "誰が何を決定し、何が登記事項になるかを確認する",
+        "申請書・議事録・添付書類など手続の根拠をたどる",
+        "実務解説で全体像を理解した後の根拠確認に使う"
+      ]
+    };
+  }
+  if(resource.provider.includes("日本政策金融公庫") || resource.provider.includes("J-Net21") || resource.provider.includes("中小企業")){
+    return {
+      summary: base+" 中小企業の資金調達・資金繰り・会計や取引実務を、公的な経営支援情報から理解する資料です。",
+      points:[
+        "制度やツールの目的を先に理解する",
+        "自社の数字や取引条件に当てはめて考える",
+        "申込・診断・交渉など次の具体的行動へつなげる"
+      ]
+    };
+  }
+  if(resource.sourceType==="official"){
+    return {
+      summary: base+" 実際の手続や判断の基準を確認するための一次情報として使います。",
+      points:[
+        "制度の対象と要件を確認する",
+        "必要な手続・期限・書類を確認する",
+        "最新の改正・様式が反映されているか確認する"
+      ]
+    };
+  }
+  return {
+    summary: base+" 専門的な制度を実務の流れや具体例から理解するための補助教材です。",
+    points:[
+      "まず全体像と実務の流れをつかむ",
+      "具体例や用語の説明で一次情報を読みやすくする",
+      "期限・金額・適用可否を確定するときは公式情報へ戻る"
+    ]
+  };
+}
