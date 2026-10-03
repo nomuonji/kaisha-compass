@@ -27,7 +27,7 @@ export const topicMeta: Record<TopicId, { label: string; short: string; descript
   contracts: { label:"契約・取引", short:"契約", description:"受注、契約、請求、回収、価格交渉、取引適正化。", color:"#52705d" }
 };
 
-export const sourceLabels: Record<SourceType,string> = { official:"一次情報", practical:"実務解説" };
+export const sourceLabels: Record<SourceType,string> = { official:"公式資料", practical:"実務解説" };
 export const resourcesForEvent = (id:string) => resources.filter(r => r.eventIds.includes(id));
 export const resourcesForTopic = (topic:TopicId) => resources.filter(r => r.topics.includes(topic));
 export const topicsForEvent = (id:string) => [...new Set(resourcesForEvent(id).flatMap(r => r.topics))] as TopicId[];
