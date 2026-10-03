@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import HierarchyBar from "../components/HierarchyBar.astro";
 
 interface Props {
   title?: string;
@@ -9,13 +10,17 @@ interface Props {
   ogImage?: string;
   noindex?: boolean;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  level?: "overview"|"scene"|"topic"|"source";
+  levelDetail?: string;
 }
 const {
   title = "Kaisha Compass — 会社運営の学習地図",
   description = "一社の会社運営を追いながら、法務・税務・労務・会計・財務を信頼できる教材で学ぶナビゲーションサイト。",
   ogImage = "/og-default.svg",
   noindex = false,
-  schema
+  schema,
+  level = "overview",
+  levelDetail
 } = Astro.props;
 const pageTitle = title.includes("Kaisha Compass") ? title : title + " | Kaisha Compass";
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
@@ -43,6 +48,7 @@ const absoluteOg = Astro.site ? new URL(ogImage, Astro.site) : ogImage;
 <body>
   <div class="top-rule" aria-hidden="true"></div>
   <SiteHeader />
+  <HierarchyBar current={level} detail={levelDetail} />
   <main><slot /></main>
   <SiteFooter />
 </body>
