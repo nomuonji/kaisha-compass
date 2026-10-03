@@ -18,5 +18,7 @@ jobs:
           node-version: 22
       - name: Install
         run: npm install --no-audit --no-fund
+      - name: UX contract
+        run: npm run check:ux
       - name: Build
         run: npm run build
