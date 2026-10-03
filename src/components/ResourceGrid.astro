@@ -18,4 +18,4 @@ const { resources,searchable=false }=Astro.props;
 </div>}
 <div class="resource-grid" data-resource-grid>{resources.map((resource,index)=><ResourceCard resource={resource} index={index}/>)}</div>
 <p class="empty-state" data-resource-empty hidden>該当する教材がありません。検索語や絞り込みを変更してください。</p>
-{searchable&&<script src="/library.js"></script>}
+{searchable&&<script is:inline src="/library.js"></script>}
