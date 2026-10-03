@@ -1,64 +1,49 @@
 # Kaisha Compass
 
-**会社運営を、点ではなく流れで学ぶ。**
+会社運営を、点ではなく流れで学ぶ。
 
-Kaisha Compassは、一社の仮想会社を設立から決算まで追いながら、会社運営に必要な法務・税務・労務・会計・財務を、信頼できる外部教材で学ぶナビゲーションサイトです。
+Kaisha Compass は、一社の仮想会社を設立から申告・定時株主総会まで追いながら、法務・税務・労務・会計・財務を信頼できる外部教材で学ぶ静的学習サイトです。
 
-## 方針
+## Stack
 
-専門領域を自前で薄く解説することは主目的にしません。
+- Astro 7
+- TypeScript
+- Static Site Generation
+- JSON-based curated resource database
+- No client framework dependency
 
-- 会社で何が起きたか
-- その場面で何を知る必要があるか
-- どの一次情報・教材を読めばよいか
+## Information architecture
 
-を整理することに価値を置きます。
+- `/` — editorial landing page
+- `/journey/[id]/` — 15 company-event learning routes
+- `/topics/[topic]/` — 6 domain-specific resource maps
+- `/resources/` — searchable resource library
+- `/resources/[id]/` — 79 resource context/detail pages
+- `/sitemap.xml` — generated static sitemap
 
-## MVP
+## Development
 
-- 固定ケース会社「株式会社コンパスワークス」
-- 設立から申告・定時株主総会まで15イベント
-- イベントから教材への絞り込み
-- テーマ別ナビゲーション
-- 一次情報 / 実務解説の区別
-- 教材キーワード検索
-- JSONベースの教材DB（79件）
+~~~bash
+npm install
+npm run dev
+~~~
 
-## Run locally
+## Build
 
-ビルド不要です。JSONをfetchするため、ファイルを直接開かずローカルWebサーバーを使ってください。
+~~~bash
+npm run build
+npm run preview
+~~~
 
-```bash
-python -m http.server 8080
-```
+Set `SITE_URL` in the build environment to emit production canonical URLs and the production sitemap origin.
 
-その後、`http://localhost:8080` を開きます。
+## Editorial principle
 
-## Structure
+The product does not try to replace specialist guidance with generic AI-written summaries. Its value is navigation:
 
-```text
-.
-├── index.html
-├── styles.css
-├── app.js
-├── data/
-│   ├── company.json
-│   ├── events.json
-│   └── resources.json
-└── docs/
-    ├── CONTENT_MODEL.md
-    └── EDITORIAL_POLICY.md
-```
+1. What happened in the company?
+2. What knowledge domains become relevant?
+3. Which official source should be checked first?
+4. Which practical explanation is useful as a supporting guide?
 
-## Deployment
-
-完全な静的サイトです。GitHub Pages、Cloudflare Pages、Netlify等でそのまま配信できます。ビルドコマンドは不要です。
-
-## Editing resources
-
-教材の追加は `data/resources.json` に追記します。詳しい編集方針は `docs/EDITORIAL_POLICY.md` を参照してください。
-
-
-## Resource maintenance
-
-各教材は `lastCheckedAt` を持ち、年度依存の資料は `validAsOf` で適用時点を管理します。
+Official sources are marked separately from practical explanations. Each resource stores a `lastCheckedAt` date; time-sensitive resources can also store `validAsOf`.
