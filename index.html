@@ -4,104 +4,195 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="一社の会社運営を追いながら、法務・税務・労務・会計・財務を信頼できる教材で学ぶナビゲーションサイト。" />
-  <meta name="theme-color" content="#f4f0e8" />
+  <meta name="theme-color" content="#f2efe7" />
   <title>Kaisha Compass — 会社運営の学習地図</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <div class="top-rule" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Kaisha Compass トップ">
-      <span class="brand-mark">KC</span>
-      <span>Kaisha Compass</span>
+      <span class="brand-symbol" aria-hidden="true">
+        <svg viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r="20.5"></circle>
+          <path d="M22 8.5 27.2 22 22 35.5 16.8 22 22 8.5Z"></path>
+          <circle class="needle-dot" cx="22" cy="22" r="2.7"></circle>
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <strong>Kaisha Compass</strong>
+        <small>会社運営の学習地図</small>
+      </span>
     </a>
+
     <nav class="nav" aria-label="メインナビゲーション">
       <a href="#year">会社の一年</a>
-      <a href="#topics">テーマ別</a>
-      <a href="#library">教材を探す</a>
-      <a href="#about">このサイトについて</a>
+      <a href="#topics">領域から探す</a>
+      <a href="#library">教材ライブラリ</a>
+      <a href="#about">方針</a>
     </nav>
+
+    <a class="header-index" href="#library">
+      <span id="header-resource-count">79</span>
+      <small>RESOURCES</small>
+    </a>
   </header>
 
   <main id="top">
     <section class="hero shell">
       <div class="hero-copy">
-        <p class="eyebrow">会社運営の学習地図</p>
-        <h1>会社は、<br />教科書順には動かない。</h1>
-        <p class="lede">一社の会社を設立から決算まで追いながら、その場面で必要になる法務・税務・労務・会計・財務を、信頼できる外部教材で学びます。</p>
+        <p class="overline"><span>01</span> LEARN THE COMPANY, NOT THE SUBJECT</p>
+        <h1>会社運営を、<br><em>点ではなく流れで</em><br>学ぶ。</h1>
+        <p class="hero-lede">法律、税務、労務、会計。会社では、それらは別々には起きません。一社の一年を追いながら、その瞬間に読むべき一次情報と良質な教材へ進みます。</p>
         <div class="hero-actions">
-          <a class="button primary" href="#year">会社の一年から始める</a>
-          <a class="button secondary" href="#library">教材から探す</a>
+          <a class="action primary" href="#year">会社の一年をたどる <span>↓</span></a>
+          <a class="action text-link" href="#library">教材から直接探す <span>↗</span></a>
         </div>
       </div>
+
+      <div class="compass-stage" aria-label="Kaisha Compass の学習領域">
+        <div class="orbit orbit-a" aria-hidden="true"></div>
+        <div class="orbit orbit-b" aria-hidden="true"></div>
+        <div class="compass-dial">
+          <div class="dial-center">
+            <span>ONE COMPANY</span>
+            <strong id="hero-event-count">15</strong>
+            <small>SCENES</small>
+            <i></i>
+            <strong id="hero-resource-count">79</strong>
+            <small>SOURCES</small>
+          </div>
+        </div>
+        <span class="dial-topic pos-1">会社法・登記</span>
+        <span class="dial-topic pos-2">税務</span>
+        <span class="dial-topic pos-3">労務</span>
+        <span class="dial-topic pos-4">会計</span>
+        <span class="dial-topic pos-5">財務</span>
+        <span class="dial-topic pos-6">契約</span>
+      </div>
+    </section>
+
+    <section class="evidence-strip">
+      <div class="shell evidence-grid">
+        <div class="evidence-intro">
+          <span class="micro-label">SOURCE POLICY</span>
+          <p>自前の薄い解説ではなく、<strong>信頼できる外部資料への道筋</strong>をつくる。</p>
+        </div>
+        <div class="evidence-stat">
+          <strong id="official-count">64</strong>
+          <span>公式一次情報</span>
+        </div>
+        <div class="evidence-stat">
+          <strong id="practical-count">15</strong>
+          <span>実務解説</span>
+        </div>
+        <div class="evidence-stat">
+          <strong>2026.10</strong>
+          <span>最終整備</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section shell">
+      <div class="case-title">
+        <p class="overline"><span>02</span> CASE FILE</p>
+        <h2>一社をずっと<br>追いかける。</h2>
+        <p>制度を科目ごとに覚えるのではなく、「この会社で今なにが起きたか」を基準に知識をつなげます。</p>
+      </div>
+
       <aside class="company-card" id="company-card" aria-live="polite">
-        <p class="card-kicker">CASE COMPANY</p>
+        <p class="card-kicker">CASE / KC-001</p>
         <h2>読み込み中...</h2>
       </aside>
     </section>
 
-    <section class="section shell" id="year">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">12 MONTHS / ONE COMPANY</p>
-          <h2>一社の一年から学ぶ</h2>
+    <section class="journey-section" id="year">
+      <div class="shell">
+        <div class="section-heading inverted">
+          <div>
+            <p class="overline"><span>03</span> COMPANY JOURNEY</p>
+            <h2>会社の一年をたどる</h2>
+          </div>
+          <p>設立から決算・申告・定時株主総会まで。出来事を選ぶと、その場面で読むべき教材だけに絞り込まれます。</p>
         </div>
-        <p>出来事を選ぶと、その場面で読むべき教材に絞り込まれます。</p>
+
+        <div class="journey-frame">
+          <div class="timeline" id="timeline" aria-label="会社の一年"></div>
+          <aside class="journey-note">
+            <span class="note-index">HOW TO READ</span>
+            <h3>出来事から<br>専門領域を横断する。</h3>
+            <p>たとえば「社員を雇う」なら、雇用契約だけでは終わりません。社会保険、雇用保険、給与計算、源泉徴収まで同時に動きます。</p>
+            <div class="note-route">
+              <span>社員を雇う</span><b>→</b><span>労務</span><b>→</b><span>税務</span><b>→</b><span>会計</span>
+            </div>
+          </aside>
+        </div>
       </div>
-      <div class="timeline" id="timeline" aria-label="会社の一年"></div>
     </section>
 
-    <section class="section shell" id="topics">
+    <section class="section atlas-section shell" id="topics">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">BY SITUATION</p>
-          <h2>状況から横断して学ぶ</h2>
+          <p class="overline"><span>04</span> KNOWLEDGE ATLAS</p>
+          <h2>領域から逆引きする</h2>
         </div>
-        <p>「税務だけ」ではなく、ひとつの会社イベントに複数の専門領域がどう関わるかを見ます。</p>
+        <p>「いま税務だけ整理したい」「登記だけ確認したい」というときは、専門領域から教材を絞れます。</p>
       </div>
       <div class="topic-grid" id="topic-grid"></div>
     </section>
 
-    <section class="section shell library-section" id="library">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">CURATED LIBRARY</p>
-          <h2>厳選教材ライブラリ</h2>
+    <section class="library-section" id="library">
+      <div class="shell">
+        <div class="section-heading library-heading">
+          <div>
+            <p class="overline"><span>05</span> CURATED LIBRARY</p>
+            <h2>教材ライブラリ</h2>
+          </div>
+          <p><strong id="resource-count">0</strong> resources / official first</p>
         </div>
-        <p><span id="resource-count">0</span>件を表示</p>
-      </div>
 
-      <div class="filters" role="search">
-        <label class="search-box">
-          <span class="sr-only">教材を検索</span>
-          <input id="search-input" type="search" placeholder="例：社会保険、役員変更、資金繰り" autocomplete="off" />
-        </label>
-        <div class="filter-row" id="source-filters" aria-label="情報源で絞り込み"></div>
-        <button class="reset-button" id="reset-filters" type="button">絞り込みを解除</button>
-      </div>
+        <div class="filters" role="search">
+          <label class="search-box">
+            <span class="search-mark" aria-hidden="true">⌕</span>
+            <span class="sr-only">教材を検索</span>
+            <input id="search-input" type="search" placeholder="社会保険、役員変更、資金繰り…" autocomplete="off" />
+          </label>
+          <div class="filter-row" id="source-filters" aria-label="情報源で絞り込み"></div>
+          <button class="reset-button" id="reset-filters" type="button">RESET</button>
+        </div>
 
-      <div class="active-context" id="active-context" hidden></div>
-      <div class="resource-grid" id="resource-grid"></div>
-      <p class="empty-state" id="empty-state" hidden>該当する教材がありません。検索語や絞り込みを変更してください。</p>
+        <div class="active-context" id="active-context" hidden></div>
+        <div class="resource-grid" id="resource-grid"></div>
+        <p class="empty-state" id="empty-state" hidden>該当する教材がありません。検索語や絞り込みを変更してください。</p>
+      </div>
     </section>
 
-    <section class="section shell about" id="about">
-      <div>
-        <p class="eyebrow">EDITORIAL PRINCIPLE</p>
-        <h2>このサイトは「答え」より、<br />学ぶ順番をつくる。</h2>
+    <section class="method-section shell" id="about">
+      <div class="method-number">06</div>
+      <div class="method-title">
+        <p class="overline">EDITORIAL PRINCIPLE</p>
+        <h2>「答え」を増やすより、<br>迷わない順番をつくる。</h2>
       </div>
-      <div class="about-copy">
-        <p>会社運営は、会社法・登記・税務・労務・会計など専門領域にまたがります。Kaisha Compassは、それらを薄く再解説するのではなく、実際の会社イベントを起点に「何を知る必要があり、どの資料を読めばよいか」を整理します。</p>
-        <p>一次情報を最優先し、民間の解説は理解を助ける補助教材として区別して表示します。制度は変更されるため、実際の手続ではリンク先の最新情報を確認してください。</p>
+      <div class="method-copy">
+        <p>Kaisha Compassは、法務・税務・労務・会計を自前で薄く再解説するサイトではありません。実際の会社イベントを起点に「何を知る必要があり、どの資料を読めばよいか」を整理します。</p>
+        <div class="method-rule"><span>01</span><strong>一次情報を先に</strong><p>法務省、国税庁、厚労省、日本年金機構などを基準にする。</p></div>
+        <div class="method-rule"><span>02</span><strong>実務解説は補助線</strong><p>難しい制度を理解する民間解説を、公式資料とは分けて示す。</p></div>
+        <div class="method-rule"><span>03</span><strong>改正を追える構造</strong><p>各リンクの確認日と適用時点をデータとして持つ。</p></div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer shell">
-    <div>
-      <strong>Kaisha Compass</strong>
-      <p>会社運営を、点ではなく流れで学ぶ。</p>
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="brand-symbol small" aria-hidden="true">
+          <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="20.5"></circle><path d="M22 8.5 27.2 22 22 35.5 16.8 22 22 8.5Z"></path><circle class="needle-dot" cx="22" cy="22" r="2.7"></circle></svg>
+        </span>
+        <div><strong>Kaisha Compass</strong><span>会社運営を、点ではなく流れで学ぶ。</span></div>
+      </div>
+      <p>Educational navigation, not professional advice.</p>
     </div>
-    <p>Educational navigation, not professional advice.</p>
   </footer>
 
   <script src="./app.js" type="module"></script>
