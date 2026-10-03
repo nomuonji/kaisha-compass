@@ -213,7 +213,14 @@ function bindControls(events, resources) {
 
 async function init() {
   try {
-    const { company, events, resources } = await loadData();\n    const officialCount = resources.filter(r => r.sourceType === "official").length;\n    const practicalCount = resources.filter(r => r.sourceType === "practical").length;\n    document.querySelector("#header-resource-count").textContent = resources.length;\n    document.querySelector("#hero-resource-count").textContent = resources.length;\n    document.querySelector("#hero-event-count").textContent = events.length;\n    document.querySelector("#official-count").textContent = officialCount;\n    document.querySelector("#practical-count").textContent = practicalCount;
+    const { company, events, resources } = await loadData();
+    const officialCount = resources.filter(r => r.sourceType === "official").length;
+    const practicalCount = resources.filter(r => r.sourceType === "practical").length;
+    document.querySelector("#header-resource-count").textContent = resources.length;
+    document.querySelector("#hero-resource-count").textContent = resources.length;
+    document.querySelector("#hero-event-count").textContent = events.length;
+    document.querySelector("#official-count").textContent = officialCount;
+    document.querySelector("#practical-count").textContent = practicalCount;
     renderCompany(company);
     renderTimeline(events, resources);
     renderTopics(events, resources);
