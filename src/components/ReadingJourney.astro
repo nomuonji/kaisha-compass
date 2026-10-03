@@ -7,9 +7,9 @@ import { eventGuides } from "../lib/eventGuides";
   <div class="shell reading-shell">
     <SectionHeading
       number="03"
-      eyebrow="THE FIRST YEAR"
-      title="一社の一年を、文章として読む"
-      description="制度名から探す前に、会社に何が起き、その結果どんな知識が必要になるのかを順番に追います。"
+      eyebrow="レベル1 / 場面"
+      title="会社運営を時系列で確認する"
+      description="設立から決算・申告まで、会社で発生する主要な場面を順番に確認します。"
     />
     <div class="story-flow">
       {events.map((event,index)=>{
@@ -20,7 +20,7 @@ import { eventGuides } from "../lib/eventGuides";
             <span class="story-month">{event.month}</span>
           </div>
           <div class="story-body">
-            <p class="story-kicker">{index===0?"会社が始まる":index===events.length-1?"一年を閉じ、次へ進む":"会社が動く"}</p>
+            <p class="story-kicker">場面 {String(index+1).padStart(2,"0")} / {event.month}</p>
             <h3>{event.title}</h3>
             <p class="story-summary">{guide?.intro?.[0] ?? event.summary}</p>
             {guide?.takeaway && <p class="story-takeaway">{guide.takeaway}</p>}
@@ -28,8 +28,8 @@ import { eventGuides } from "../lib/eventGuides";
               {guide.keyPoints.slice(0,2).map(point=><p><strong>{point.title}</strong>{point.body}</p>)}
             </div>}
             <div class="story-footer">
-              <a class="typed-link scene-link" href={"/journey/"+event.id+"/"}><span class="dest-tag">1 場面</span>この章を読む <b>→</b></a>
-              <small>{resourcesForEvent(event.id).length}の参照資料</small>
+              <a class="typed-link scene-link" href={"/journey/"+event.id+"/"}><span class="dest-tag">1 場面</span>詳細を読む <b>→</b></a>
+              <small>{resourcesForEvent(event.id).length}件の関連資料</small>
             </div>
           </div>
         </article>
