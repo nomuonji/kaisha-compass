@@ -175,7 +175,7 @@ function renderResources(events, resources) {
     <article class="resource-card">
       <div class="resource-meta">
         <span class="source-badge ${resource.sourceType}">${sourceLabels[resource.sourceType]}</span>
-        <span class="resource-time">${resource.time} · ${resource.difficulty}</span>
+        <span class="resource-time">${resource.time} · ${resource.difficulty}${resource.lastCheckedAt ? ` · 確認 ${resource.lastCheckedAt}` : ""}</span>
       </div>
       <h3>${resource.title}</h3>
       <p class="resource-provider">${resource.provider}</p>

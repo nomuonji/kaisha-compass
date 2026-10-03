@@ -8,9 +8,19 @@
     "difficulty": "初級",
     "time": "15分",
     "why": "株式会社を作るときの手続全体を、まず一次情報で確認するための入口。",
-    "topics": ["company"],
-    "eventIds": ["foundation"],
-    "tags": ["会社設立", "株式会社", "登記", "法務省"]
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "foundation"
+    ],
+    "tags": [
+      "会社設立",
+      "株式会社",
+      "登記",
+      "法務省"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "houmukyoku-registration",
@@ -21,9 +31,20 @@
     "difficulty": "初級",
     "time": "10分",
     "why": "設立、役員変更、本店移転、商号・目的変更など、会社イベントから必要な登記を確認できる公式入口。",
-    "topics": ["company"],
-    "eventIds": ["foundation", "director-change"],
-    "tags": ["商業登記", "役員変更", "本店移転", "法務局"]
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "foundation",
+      "director-change"
+    ],
+    "tags": [
+      "商業登記",
+      "役員変更",
+      "本店移転",
+      "法務局"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "nta-new-corporation",
@@ -34,9 +55,20 @@
     "difficulty": "初級",
     "time": "10分",
     "why": "会社設立後に税務署へ何を出すのか、提出期限を含めて確認する。",
-    "topics": ["tax", "company"],
-    "eventIds": ["foundation"],
-    "tags": ["法人設立届出書", "青色申告", "税務署", "国税庁"]
+    "topics": [
+      "tax",
+      "company"
+    ],
+    "eventIds": [
+      "foundation"
+    ],
+    "tags": [
+      "法人設立届出書",
+      "青色申告",
+      "税務署",
+      "国税庁"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "freee-after-incorporation",
@@ -47,9 +79,21 @@
     "difficulty": "初級",
     "time": "15分",
     "why": "設立後の税務・社会保険・労働保険・口座開設を、初心者向けにまとめて把握する補助教材。",
-    "topics": ["company", "tax", "labor"],
-    "eventIds": ["foundation"],
-    "tags": ["設立後", "チェックリスト", "税務", "社会保険"]
+    "topics": [
+      "company",
+      "tax",
+      "labor"
+    ],
+    "eventIds": [
+      "foundation"
+    ],
+    "tags": [
+      "設立後",
+      "チェックリスト",
+      "税務",
+      "社会保険"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "yayoi-after-incorporation",
@@ -60,9 +104,21 @@
     "difficulty": "初級",
     "time": "15分",
     "why": "必須・必要に応じて・任意という切り分けで、設立直後の仕事を整理するのに向く。",
-    "topics": ["company", "tax", "labor"],
-    "eventIds": ["foundation"],
-    "tags": ["会社設立", "届出", "優先順位", "弥生"]
+    "topics": [
+      "company",
+      "tax",
+      "labor"
+    ],
+    "eventIds": [
+      "foundation"
+    ],
+    "tags": [
+      "会社設立",
+      "届出",
+      "優先順位",
+      "弥生"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "mhlw-working-conditions",
@@ -73,9 +129,20 @@
     "difficulty": "初級",
     "time": "10分",
     "why": "社員を雇うときの労働条件通知書など、最新の公式様式を確認する。",
-    "topics": ["labor", "contracts"],
-    "eventIds": ["hire"],
-    "tags": ["労働条件通知書", "雇用", "採用", "厚生労働省"]
+    "topics": [
+      "labor",
+      "contracts"
+    ],
+    "eventIds": [
+      "hire"
+    ],
+    "tags": [
+      "労働条件通知書",
+      "雇用",
+      "採用",
+      "厚生労働省"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "nenkin-new-application",
@@ -86,9 +153,20 @@
     "difficulty": "初級",
     "time": "10分",
     "why": "法人が社会保険の適用を受ける際に必要な届出と、資格取得届との関係を確認する。",
-    "topics": ["labor"],
-    "eventIds": ["foundation", "hire"],
-    "tags": ["社会保険", "厚生年金", "健康保険", "新規適用届"]
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "foundation",
+      "hire"
+    ],
+    "tags": [
+      "社会保険",
+      "厚生年金",
+      "健康保険",
+      "新規適用届"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "nta-withholding-table",
@@ -99,9 +177,22 @@
     "difficulty": "中級",
     "time": "15分",
     "why": "給与からいくら所得税を源泉徴収するか、実務で参照する公式税額表。",
-    "topics": ["tax", "labor", "accounting"],
-    "eventIds": ["payroll", "year-end"],
-    "tags": ["給与計算", "源泉徴収", "所得税", "税額表"]
+    "topics": [
+      "tax",
+      "labor",
+      "accounting"
+    ],
+    "eventIds": [
+      "payroll",
+      "year-end"
+    ],
+    "tags": [
+      "給与計算",
+      "源泉徴収",
+      "所得税",
+      "税額表"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "nta-withholding-guide",
@@ -112,9 +203,22 @@
     "difficulty": "中級",
     "time": "30分",
     "why": "給与、賞与、年末調整、納付まで、会社側の源泉徴収事務を体系的に確認できる。",
-    "topics": ["tax", "labor", "accounting"],
-    "eventIds": ["payroll", "year-end"],
-    "tags": ["源泉徴収", "年末調整", "給与", "国税庁"]
+    "topics": [
+      "tax",
+      "labor",
+      "accounting"
+    ],
+    "eventIds": [
+      "payroll",
+      "year-end"
+    ],
+    "tags": [
+      "源泉徴収",
+      "年末調整",
+      "給与",
+      "国税庁"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "jfc-startup-plan",
@@ -125,9 +229,20 @@
     "difficulty": "初級",
     "time": "20分",
     "why": "必要資金、調達方法、売上予測など、融資を受ける前に考えるべき事業計画の基本を学ぶ。",
-    "topics": ["finance"],
-    "eventIds": ["foundation", "loan"],
-    "tags": ["創業融資", "事業計画", "資金調達", "日本政策金融公庫"]
+    "topics": [
+      "finance"
+    ],
+    "eventIds": [
+      "foundation",
+      "loan"
+    ],
+    "tags": [
+      "創業融資",
+      "事業計画",
+      "資金調達",
+      "日本政策金融公庫"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "jnet-cashflow",
@@ -138,9 +253,21 @@
     "difficulty": "初級",
     "time": "15分",
     "why": "利益ではなく現金の流れを見る資金繰り表の役割と作り方を、公的な経営支援情報で確認する。",
-    "topics": ["finance", "accounting"],
-    "eventIds": ["loan", "closing"],
-    "tags": ["資金繰り表", "キャッシュフロー", "資金ショート", "J-Net21"]
+    "topics": [
+      "finance",
+      "accounting"
+    ],
+    "eventIds": [
+      "loan",
+      "closing"
+    ],
+    "tags": [
+      "資金繰り表",
+      "キャッシュフロー",
+      "資金ショート",
+      "J-Net21"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "yayoi-cashflow",
@@ -151,9 +278,21 @@
     "difficulty": "初級",
     "time": "15分",
     "why": "資金繰り表とキャッシュ・フロー計算書の違いを含め、実務目線で理解する補助教材。",
-    "topics": ["finance", "accounting"],
-    "eventIds": ["loan", "closing"],
-    "tags": ["資金繰り", "キャッシュフロー", "会計", "弥生"]
+    "topics": [
+      "finance",
+      "accounting"
+    ],
+    "eventIds": [
+      "loan",
+      "closing"
+    ],
+    "tags": [
+      "資金繰り",
+      "キャッシュフロー",
+      "会計",
+      "弥生"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "nta-tax-table-usage",
@@ -164,9 +303,20 @@
     "difficulty": "中級",
     "time": "10分",
     "why": "給与の支給方法や扶養控除等申告書の有無によって、どの源泉徴収税額表を使うか確認する。",
-    "topics": ["tax", "labor"],
-    "eventIds": ["payroll"],
-    "tags": ["給与計算", "月額表", "日額表", "源泉所得税"]
+    "topics": [
+      "tax",
+      "labor"
+    ],
+    "eventIds": [
+      "payroll"
+    ],
+    "tags": [
+      "給与計算",
+      "月額表",
+      "日額表",
+      "源泉所得税"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "labor-insurance",
@@ -177,9 +327,19 @@
     "difficulty": "初級",
     "time": "5分",
     "why": "労働者を1人でも雇用した場合に労働保険の手続が必要になる、という出発点を公式情報で押さえる。",
-    "topics": ["labor"],
-    "eventIds": ["hire"],
-    "tags": ["労災保険", "雇用保険", "労働保険", "採用"]
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire"
+    ],
+    "tags": [
+      "労災保険",
+      "雇用保険",
+      "労働保険",
+      "採用"
+    ],
+    "lastCheckedAt": "2026-10-03"
   },
   {
     "id": "freee-company-management",
@@ -190,8 +350,1559 @@
     "difficulty": "初級",
     "time": "10分",
     "why": "個別手続に入る前に、人・物・金・情報をどう扱うのが会社経営かを大づかみに理解する。",
-    "topics": ["finance", "accounting"],
-    "eventIds": ["foundation", "closing"],
-    "tags": ["会社経営", "経営資源", "基礎", "freee"]
+    "topics": [
+      "finance",
+      "accounting"
+    ],
+    "eventIds": [
+      "foundation",
+      "closing"
+    ],
+    "tags": [
+      "会社経営",
+      "経営資源",
+      "基礎",
+      "freee"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "egov-companies-act",
+    "title": "会社法",
+    "provider": "e-Gov 法令検索",
+    "url": "https://laws.e-gov.go.jp/law/417AC0000000086",
+    "sourceType": "official",
+    "difficulty": "上級",
+    "time": "参照用",
+    "why": "株主総会、取締役、役員報酬、計算書類などの根拠条文を原文で確認するための法令。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "officer-compensation",
+      "director-change",
+      "annual-meeting",
+      "closing"
+    ],
+    "tags": [
+      "会社法",
+      "株主総会",
+      "取締役",
+      "計算書類"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "egov-commercial-registration-act",
+    "title": "商業登記法",
+    "provider": "e-Gov 法令検索",
+    "url": "https://laws.e-gov.go.jp/law/338AC0000000125",
+    "sourceType": "official",
+    "difficulty": "上級",
+    "time": "参照用",
+    "why": "会社の設立・変更登記を支える商業登記制度の根拠法令を確認する。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "foundation",
+      "director-change"
+    ],
+    "tags": [
+      "商業登記法",
+      "変更登記",
+      "登記"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "houmukyoku-kabushiki",
+    "title": "株式会社の登記手続を場面別に探す",
+    "provider": "法務局",
+    "url": "https://houmukyoku.moj.go.jp/homu/houjin1.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "設立、役員変更、商号・目的変更、本店移転などを会社イベントから逆引きできる公式案内。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "foundation",
+      "director-change"
+    ],
+    "tags": [
+      "株式会社",
+      "役員変更",
+      "本店移転",
+      "商号変更"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "houmukyoku-registration-forms",
+    "title": "商業・法人登記の申請書様式・記載例",
+    "provider": "法務局",
+    "url": "https://houmukyoku.moj.go.jp/homu/COMMERCE_11-1.html?id=7",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "実務参照",
+    "why": "役員変更、本店移転、商号・目的変更、解散などの申請書と記載例を確認する。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "director-change",
+      "annual-meeting"
+    ],
+    "tags": [
+      "申請書",
+      "記載例",
+      "役員変更",
+      "本店移転"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "2026-05更新様式を含む"
+  },
+  {
+    "id": "houmukyoku-head-office-online",
+    "title": "株式会社の本店移転登記をオンライン申請する手順",
+    "provider": "法務局",
+    "url": "https://houmukyoku.moj.go.jp/homu/shogyo_online04.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "本店を移転したとき、代表取締役本人がオンライン申請する流れを確認する。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "director-change"
+    ],
+    "tags": [
+      "本店移転",
+      "オンライン申請",
+      "商業登記"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "moj-shareholder-list",
+    "title": "株主リストに関するよくあるご質問",
+    "provider": "法務省",
+    "url": "https://www.moj.go.jp/MINJI/minji06_00103.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "株主総会決議を添付して登記する場面で、株主リストを誰がどのように作るか確認する。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "director-change",
+      "annual-meeting"
+    ],
+    "tags": [
+      "株主リスト",
+      "株主総会",
+      "登記添付書類"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-corporate-number",
+    "title": "法人番号公表サイト",
+    "provider": "国税庁",
+    "url": "https://www.houjin-bangou.nta.go.jp/",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "検索ツール",
+    "why": "法人番号、商号、本店所在地など、公表されている法人の基本情報を検索・確認する。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "foundation",
+      "first-contract"
+    ],
+    "tags": [
+      "法人番号",
+      "会社情報",
+      "取引先確認"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-director-guide",
+    "title": "役員の種類・役割と変更手続",
+    "provider": "freee",
+    "url": "https://www.freee.co.jp/kb/kb-launch/director/",
+    "sourceType": "practical",
+    "difficulty": "初級",
+    "time": "15分",
+    "why": "取締役・監査役などの役割と、役員変更時に株主総会から登記まで何が起こるかを理解する。",
+    "topics": [
+      "company"
+    ],
+    "eventIds": [
+      "director-change",
+      "annual-meeting"
+    ],
+    "tags": [
+      "役員",
+      "取締役",
+      "監査役",
+      "役員変更"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-officer-compensation",
+    "title": "役員報酬の決め方と株主総会・取締役会の流れ",
+    "provider": "freee",
+    "url": "https://www.freee.co.jp/kb/kb-launch/compensation-for-directors/",
+    "sourceType": "practical",
+    "difficulty": "初級",
+    "time": "15分",
+    "why": "会社法上の決定プロセスと、税務上の役員報酬ルールをまとめて把握する。",
+    "topics": [
+      "company",
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "officer-compensation",
+      "annual-meeting"
+    ],
+    "tags": [
+      "役員報酬",
+      "株主総会",
+      "取締役会"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-officer-pay-rules",
+    "title": "役員報酬の税務ルールと変更できるタイミング",
+    "provider": "freee",
+    "url": "https://www.freee.co.jp/kb/kb-launch/yakuin-housyu/",
+    "sourceType": "practical",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "期首からの改定時期、定期同額給与、変更が認められる場面を実務目線で整理する。",
+    "topics": [
+      "tax",
+      "company"
+    ],
+    "eventIds": [
+      "officer-compensation"
+    ],
+    "tags": [
+      "役員報酬",
+      "定期同額給与",
+      "損金"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-officer-pay",
+    "title": "No.5211 役員に対する給与",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5211.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "定期同額給与、事前確定届出給与、業績連動給与など、役員給与を損金算入する要件を公式に確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "officer-compensation"
+    ],
+    "tags": [
+      "役員給与",
+      "定期同額給与",
+      "事前確定届出給与"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-officer-economic-benefit",
+    "title": "No.5202 役員等に対する経済的利益",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5202.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "会社が役員へ物品・住宅などの利益を与えたとき、給与としてどう扱われるかを確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "officer-compensation"
+    ],
+    "tags": [
+      "役員",
+      "経済的利益",
+      "損金"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-entertainment-expense",
+    "title": "No.5265 交際費等の範囲と損金不算入額",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5265.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "接待・贈答・飲食費が交際費になる範囲と、中小法人の損金算入ルールを確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "bookkeeping",
+      "closing"
+    ],
+    "tags": [
+      "交際費",
+      "飲食費",
+      "損金",
+      "法人税"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-small-depreciable",
+    "title": "No.5403 少額の減価償却資産の判定",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5403.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "購入した備品をその期の費用にできるか、減価償却資産として扱うかの基本を確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "asset",
+      "closing"
+    ],
+    "tags": [
+      "減価償却",
+      "固定資産",
+      "少額資産"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-small-asset-special",
+    "title": "No.5408 中小企業者等の少額減価償却資産の特例",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5408.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "中小企業が30万円未満の資産について利用できる特例の対象・申告要件を確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "asset",
+      "closing"
+    ],
+    "tags": [
+      "少額減価償却資産",
+      "中小企業",
+      "固定資産"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "掲載ページの適用期限要確認"
+  },
+  {
+    "id": "nta-loss-carryforward",
+    "title": "No.5762 欠損金の繰越控除",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5762.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "赤字が出た年度の欠損金を将来の所得と相殺する制度と要件を確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "欠損金",
+      "繰越控除",
+      "青色申告"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-loss-carryback",
+    "title": "No.5763 欠損金の繰戻しによる還付",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5763.htm",
+    "sourceType": "official",
+    "difficulty": "上級",
+    "time": "10分",
+    "why": "赤字年度の欠損金を前年度へ繰り戻して法人税の還付を受ける制度を確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "欠損金",
+      "繰戻し",
+      "法人税還付"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-invoice-system",
+    "title": "No.6498 適格請求書等保存方式（インボイス制度）",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6498.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "適格請求書発行事業者の登録、売手の義務、買手の仕入税額控除を一ページで確認する。",
+    "topics": [
+      "tax",
+      "contracts",
+      "accounting"
+    ],
+    "eventIds": [
+      "first-contract",
+      "invoice",
+      "bookkeeping"
+    ],
+    "tags": [
+      "インボイス",
+      "適格請求書",
+      "消費税"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "2026-04現在法令等"
+  },
+  {
+    "id": "nta-invoice-fields",
+    "title": "No.6497 仕入税額控除のために保存する帳簿・請求書の記載事項",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6497.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "受け取る請求書や帳簿に何を記載・保存する必要があるかを確認する。",
+    "topics": [
+      "tax",
+      "contracts",
+      "accounting"
+    ],
+    "eventIds": [
+      "invoice",
+      "bookkeeping"
+    ],
+    "tags": [
+      "請求書",
+      "帳簿",
+      "仕入税額控除",
+      "インボイス"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-taxable-sales-purchases",
+    "title": "No.6355 課税売上げと課税仕入れ",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6355.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "売上や経費が消費税上どのように分類されるか、課税仕入れの基本を確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "first-contract",
+      "bookkeeping",
+      "closing"
+    ],
+    "tags": [
+      "消費税",
+      "課税売上",
+      "課税仕入れ"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-input-tax-credit",
+    "title": "No.6451 仕入税額控除の対象となるもの",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6451.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "会社が支払った消費税のうち、何が仕入税額控除の対象になるかを確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "bookkeeping",
+      "asset",
+      "closing"
+    ],
+    "tags": [
+      "仕入税額控除",
+      "消費税",
+      "経費"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-input-tax-method",
+    "title": "No.6401 仕入控除税額の計算方法",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6401.htm",
+    "sourceType": "official",
+    "difficulty": "上級",
+    "time": "15分",
+    "why": "本則課税で仕入控除税額をどう計算するか、個別対応方式等を確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "仕入控除税額",
+      "本則課税",
+      "消費税申告"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-simplified-tax",
+    "title": "No.6505 簡易課税制度",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "中小事業者が消費税の簡易課税を選ぶ場合の要件、みなし仕入率、届出時期を確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "簡易課税",
+      "消費税",
+      "みなし仕入率"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-electronic-books",
+    "title": "電子帳簿等保存制度特設サイト",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/tokusetsu/index.htm",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "20分",
+    "why": "帳簿書類や電子取引データの保存方法を、制度別のQ&A・パンフレットから確認する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "invoice",
+      "bookkeeping"
+    ],
+    "tags": [
+      "電子帳簿保存法",
+      "電子取引",
+      "保存"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "etax-corporate-filing",
+    "title": "e-Tax 法人税確定申告等の手続",
+    "provider": "国税庁 e-Tax",
+    "url": "https://www.e-tax.nta.go.jp/tetsuzuki/shinkoku/shinkoku02.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "実務参照",
+    "why": "法人税・地方法人税等の申告で利用できるe-Tax手続と最新様式を確認する。",
+    "topics": [
+      "tax"
+    ],
+    "eventIds": [
+      "tax-filing"
+    ],
+    "tags": [
+      "e-Tax",
+      "法人税",
+      "確定申告"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "令和8年度様式"
+  },
+  {
+    "id": "nta-corporate-tax-guides",
+    "title": "法人税のあらまし・申告の手引",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/publication/pamph/01.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "体系学習",
+    "why": "年度ごとの法人税改正、申告の手引、別表の書き方へ進む公式ハブ。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "法人税",
+      "申告書",
+      "別表",
+      "手引"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-withholding-deadline",
+    "title": "No.2505 源泉所得税の納付期限と納期の特例",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2505.htm",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "給与等から預かった源泉所得税をいつ納めるか、小規模会社の納期の特例も含めて確認する。",
+    "topics": [
+      "tax",
+      "labor",
+      "accounting"
+    ],
+    "eventIds": [
+      "payroll",
+      "year-end"
+    ],
+    "tags": [
+      "源泉所得税",
+      "納付期限",
+      "納期の特例"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-professional-fees",
+    "title": "No.2798 弁護士・税理士等に支払う報酬の源泉徴収",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2798.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "士業へ報酬を支払う会社が、どの金額を源泉徴収し、いつ納付するかを確認する。",
+    "topics": [
+      "tax",
+      "accounting",
+      "contracts"
+    ],
+    "eventIds": [
+      "bookkeeping"
+    ],
+    "tags": [
+      "士業報酬",
+      "源泉徴収",
+      "外注"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nta-yearend-2026",
+    "title": "令和8年分 年末調整のしかた",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/publication/pamph/gensen/nencho2026/01.htm",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "体系学習",
+    "why": "2026年の年末調整について、手順・チェック表・Q&A・申告書記載例をまとめて確認する。",
+    "topics": [
+      "tax",
+      "labor"
+    ],
+    "eventIds": [
+      "year-end"
+    ],
+    "tags": [
+      "年末調整",
+      "令和8年",
+      "チェック表"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "2026年分"
+  },
+  {
+    "id": "nta-yearend-basics",
+    "title": "No.2662 年末調整のしかた",
+    "provider": "国税庁",
+    "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2662.htm",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "年末調整とは何を一致させる手続なのか、対象者も含めてまず概要を理解する。",
+    "topics": [
+      "tax",
+      "labor"
+    ],
+    "eventIds": [
+      "year-end"
+    ],
+    "tags": [
+      "年末調整",
+      "源泉徴収",
+      "給与"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "egov-corporate-tax-act",
+    "title": "法人税法",
+    "provider": "e-Gov 法令検索",
+    "url": "https://laws.e-gov.go.jp/document?lawid=340AC0000000034",
+    "sourceType": "official",
+    "difficulty": "上級",
+    "time": "参照用",
+    "why": "法人所得の計算・申告などについて、法人税の根拠条文を原文で確認する。",
+    "topics": [
+      "tax"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "法人税法",
+      "法令原文"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "egov-consumption-tax-act",
+    "title": "消費税法",
+    "provider": "e-Gov 法令検索",
+    "url": "https://laws.e-gov.go.jp/law/363AC0000000108",
+    "sourceType": "official",
+    "difficulty": "上級",
+    "time": "参照用",
+    "why": "課税対象、税額控除、申告・納付など消費税制度の根拠条文を原文で確認する。",
+    "topics": [
+      "tax"
+    ],
+    "eventIds": [
+      "invoice",
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "消費税法",
+      "法令原文",
+      "インボイス"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-business-owner-hub",
+    "title": "事業主・社会保険事務担当者向け手続ハブ",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/service/riyoushabetsu/jigyonushi/index.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "資格取得・喪失、被扶養者、算定基礎、月額変更、賞与など社会保険事務をまとめて探す入口。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "payroll",
+      "retirement"
+    ],
+    "tags": [
+      "社会保険",
+      "事業主",
+      "厚生年金",
+      "健康保険"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-hire-employee",
+    "title": "従業員を採用したときの資格取得届",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/shinsei/kounen/tekiyo/hihokensha/20140718.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "社員を採用して健康保険・厚生年金の被保険者にするときの届出と記入例を確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire"
+    ],
+    "tags": [
+      "資格取得届",
+      "採用",
+      "社会保険"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-retire-employee",
+    "title": "従業員が退職したときの資格喪失届",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/shinsei/kounen/tekiyo/hihokensha/20140722.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "退職時の健康保険・厚生年金の資格喪失届、資格確認書の扱い等を確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "retirement"
+    ],
+    "tags": [
+      "資格喪失届",
+      "退職",
+      "社会保険"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-dependent-change",
+    "title": "被扶養者を追加・削除・変更するとき",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/shinsei/kounen/tekiyo/hihokensha/20141224.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "社員の家族を健康保険の被扶養者に入れる・外す場面の届出と添付書類を確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "payroll",
+      "retirement"
+    ],
+    "tags": [
+      "被扶養者",
+      "健康保険",
+      "異動届"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-santei",
+    "title": "定時決定（算定基礎届）",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "20分",
+    "why": "毎年4〜6月の報酬から標準報酬月額を決め直す仕組みと提出期限を学ぶ。",
+    "topics": [
+      "labor",
+      "accounting"
+    ],
+    "eventIds": [
+      "payroll"
+    ],
+    "tags": [
+      "算定基礎届",
+      "標準報酬月額",
+      "社会保険料"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "令和8年度ガイドあり"
+  },
+  {
+    "id": "nenkin-monthly-change",
+    "title": "随時改定（月額変更届）",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "昇給・降給などで報酬が大きく変わったとき、社会保険料の標準報酬月額を変更する条件を確認する。",
+    "topics": [
+      "labor",
+      "accounting"
+    ],
+    "eventIds": [
+      "payroll",
+      "officer-compensation"
+    ],
+    "tags": [
+      "月額変更届",
+      "随時改定",
+      "昇給",
+      "社会保険料"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-bonus",
+    "title": "賞与を支給したときの賞与支払届",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/shinsei/kounen/tekiyo/shoyo/20140821.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "10分",
+    "why": "賞与に社会保険料を反映するための届出と、賞与不支給時の扱いを確認する。",
+    "topics": [
+      "labor",
+      "accounting"
+    ],
+    "eventIds": [
+      "payroll"
+    ],
+    "tags": [
+      "賞与支払届",
+      "賞与",
+      "社会保険"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-egov-examples",
+    "title": "社会保険の電子申請（e-Gov）入力例",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/denshibenri/denshishinsei/e-gov/",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "実務参照",
+    "why": "資格取得・喪失、算定基礎、月額変更、賞与など主要届書の電子申請入力例を確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "payroll",
+      "retirement"
+    ],
+    "tags": [
+      "e-Gov",
+      "電子申請",
+      "社会保険"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "nenkin-filing-program",
+    "title": "社会保険 届書作成プログラム",
+    "provider": "日本年金機構",
+    "url": "https://www.nenkin.go.jp/denshibenri/denshishinsei/program.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "実務ツール",
+    "why": "資格取得・喪失、算定基礎、月額変更、賞与等の届書を無料で作成・申請する公式ツールを知る。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "payroll",
+      "retirement"
+    ],
+    "tags": [
+      "届書作成プログラム",
+      "電子申請",
+      "社会保険"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "mhlw-employment-insurance-procedures",
+    "title": "事業主が行う雇用保険の手続",
+    "provider": "厚生労働省",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/koyou/jigyounushi/page15.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "15分",
+    "why": "新たに雇ったときの資格取得届と、離職時の資格喪失届・離職証明書まで一連の流れを確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "retirement"
+    ],
+    "tags": [
+      "雇用保険",
+      "資格取得届",
+      "資格喪失届",
+      "離職票"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "mhlw-employment-insurance-owner",
+    "title": "雇用保険 事業主向け手続一覧・手引",
+    "provider": "厚生労働省",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000151319.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "20分",
+    "why": "雇用保険の適用要件、提出期限、添付書類、資格取得・喪失の記入例をまとめて確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "retirement"
+    ],
+    "tags": [
+      "雇用保険",
+      "事業主",
+      "手続一覧"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "mhlw-minimum-wage",
+    "title": "地域別最低賃金の全国一覧",
+    "provider": "厚生労働省",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "5分",
+    "why": "採用時や給与改定時に、勤務地の最新最低賃金を必ず確認するための公式一覧。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "payroll"
+    ],
+    "tags": [
+      "最低賃金",
+      "給与",
+      "採用"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "令和8年度"
+  },
+  {
+    "id": "mhlw-model-work-rules",
+    "title": "モデル就業規則",
+    "provider": "厚生労働省",
+    "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/model/index.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "30分",
+    "why": "従業員が増えた会社で就業規則に何を定めるか、公式モデルと解説を参照する。",
+    "topics": [
+      "labor",
+      "contracts"
+    ],
+    "eventIds": [
+      "hire"
+    ],
+    "tags": [
+      "就業規則",
+      "労働基準法",
+      "10人以上"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "2025-12モデル"
+  },
+  {
+    "id": "tokyo-labor-36agreement",
+    "title": "36協定届の様式・記載例",
+    "provider": "東京労働局",
+    "url": "https://jsite.mhlw.go.jp/tokyo-roudoukyoku/hourei_seido_tetsuzuki/roudoukijun_keiyaku/36_kyoutei.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "法定労働時間を超えて時間外・休日労働をさせる場合の36協定届の様式と記載例を確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "payroll"
+    ],
+    "tags": [
+      "36協定",
+      "時間外労働",
+      "残業"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "mhlw-startup-labor",
+    "title": "スタートアップ労働条件：労務管理診断",
+    "provider": "厚生労働省",
+    "url": "https://www.startup-roudou.mhlw.go.jp/",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "診断ツール",
+    "why": "起業・新規事業者が自社の労働条件・労務管理をセルフチェックし、必要な届出へ進むための公式ツール。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "foundation",
+      "hire"
+    ],
+    "tags": [
+      "労務管理",
+      "診断",
+      "スタートアップ"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "egov-labor-standards-act",
+    "title": "労働基準法",
+    "provider": "e-Gov 法令検索",
+    "url": "https://laws.e-gov.go.jp/law/322AC0000000049",
+    "sourceType": "official",
+    "difficulty": "上級",
+    "time": "参照用",
+    "why": "労働条件、賃金、労働時間、解雇、就業規則などの根拠条文を原文で確認する。",
+    "topics": [
+      "labor"
+    ],
+    "eventIds": [
+      "hire",
+      "payroll",
+      "retirement"
+    ],
+    "tags": [
+      "労働基準法",
+      "賃金",
+      "解雇",
+      "労働時間"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "chusho-accounting-guide",
+    "title": "中小企業の会計に関する基本要領（中小会計要領）",
+    "provider": "中小企業庁",
+    "url": "https://www.chusho.meti.go.jp/zaimu/youryou/index.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "30分",
+    "why": "中小企業の実態に合わせた会計ルールを、Q&Aやパンフレットで体系的に学ぶ。",
+    "topics": [
+      "accounting"
+    ],
+    "eventIds": [
+      "bookkeeping",
+      "closing"
+    ],
+    "tags": [
+      "中小会計要領",
+      "決算書",
+      "会計ルール"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "smrj-financial-diagnosis",
+    "title": "経営自己診断システム",
+    "provider": "中小企業基盤整備機構",
+    "url": "https://k-sindan.smrj.go.jp/",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "診断ツール",
+    "why": "決算書の数値を入力して、財務指標と同業比較から会社の強み・課題を学ぶ無料ツール。",
+    "topics": [
+      "finance",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "annual-meeting"
+    ],
+    "tags": [
+      "経営分析",
+      "財務分析",
+      "決算書",
+      "無料ツール"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "jfc-loan-process",
+    "title": "創業予定者の融資手続の流れ",
+    "provider": "日本政策金融公庫",
+    "url": "https://www.jfc.go.jp/n/finance/flow/tetsudukij_c.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "相談・申込・面談・融資・返済まで、創業融資がどう進むかを公式の流れで確認する。",
+    "topics": [
+      "finance"
+    ],
+    "eventIds": [
+      "loan"
+    ],
+    "tags": [
+      "創業融資",
+      "融資申込",
+      "返済"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "jfc-small-business-process",
+    "title": "小規模事業者の融資利用手続",
+    "provider": "日本政策金融公庫",
+    "url": "https://www.jfc.go.jp/n/finance/flow/goriyou.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "既存の小規模法人が事業資金を借りるとき、必要資料や審査・契約・返済の流れを知る。",
+    "topics": [
+      "finance"
+    ],
+    "eventIds": [
+      "loan"
+    ],
+    "tags": [
+      "事業資金",
+      "融資",
+      "日本政策金融公庫"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "chusho-trading-fairness",
+    "title": "取引適正化・価格交渉・価格転嫁",
+    "provider": "中小企業庁",
+    "url": "https://www.chusho.meti.go.jp/keiei/torihiki/index.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "発注・受注関係で押さえるべき取引適正化制度、価格交渉、相談窓口をまとめて確認する。",
+    "topics": [
+      "contracts",
+      "finance"
+    ],
+    "eventIds": [
+      "first-contract",
+      "invoice"
+    ],
+    "tags": [
+      "取引適正化",
+      "価格転嫁",
+      "発注",
+      "受注"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "chusho-price-negotiation",
+    "title": "価格交渉・転嫁の支援ツール",
+    "provider": "中小企業庁",
+    "url": "https://www.chusho.meti.go.jp/keiei/torihiki/shien_tool.html",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "20分",
+    "why": "原価上昇などを取引価格へ反映するための価格交渉ハンドブックや根拠資料を使う。",
+    "topics": [
+      "contracts",
+      "finance"
+    ],
+    "eventIds": [
+      "first-contract"
+    ],
+    "tags": [
+      "価格交渉",
+      "原価",
+      "価格転嫁"
+    ],
+    "lastCheckedAt": "2026-10-03",
+    "validAsOf": "2026年版ハンドブック掲載"
+  },
+  {
+    "id": "jftc-freelance-law",
+    "title": "フリーランス法 特設サイト",
+    "provider": "公正取引委員会",
+    "url": "https://www.jftc.go.jp/freelancelaw_2025/",
+    "sourceType": "official",
+    "difficulty": "初級",
+    "time": "15分",
+    "why": "フリーランスへ業務委託するときの取引条件明示、支払期日、禁止行為など発注者の義務を確認する。",
+    "topics": [
+      "contracts",
+      "labor"
+    ],
+    "eventIds": [
+      "first-contract"
+    ],
+    "tags": [
+      "フリーランス法",
+      "業務委託",
+      "取引条件",
+      "支払期日"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "jftc-subcontract-law",
+    "title": "下請代金支払遅延等防止法",
+    "provider": "公正取引委員会",
+    "url": "https://www.jftc.go.jp/shitauke/legislation/act.html",
+    "sourceType": "official",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "対象となる取引での受領拒否、支払遅延、減額、買いたたきなどの禁止事項を確認する。",
+    "topics": [
+      "contracts"
+    ],
+    "eventIds": [
+      "first-contract",
+      "invoice"
+    ],
+    "tags": [
+      "下請法",
+      "支払遅延",
+      "減額",
+      "発注"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-invoice-flow",
+    "title": "請求書とは？発行から入金確認までの流れ",
+    "provider": "freee",
+    "url": "https://www.freee.co.jp/kb/kb-invoice/invoice-flow/",
+    "sourceType": "practical",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "受注後に請求書をいつ作り、何を書き、どう入金確認までつなげるかを初心者向けに整理する。",
+    "topics": [
+      "contracts",
+      "accounting"
+    ],
+    "eventIds": [
+      "invoice",
+      "first-contract"
+    ],
+    "tags": [
+      "請求書",
+      "入金",
+      "売掛金",
+      "取引"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-receivables",
+    "title": "売掛金管理の基本フロー",
+    "provider": "freee",
+    "url": "https://go.freee.co.jp/manage_accounts-receivable.html",
+    "sourceType": "practical",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "請求後の売掛金登録、入金消込、回収状況の確認という債権管理の流れを具体的に理解する。",
+    "topics": [
+      "accounting",
+      "finance",
+      "contracts"
+    ],
+    "eventIds": [
+      "invoice",
+      "first-contract"
+    ],
+    "tags": [
+      "売掛金",
+      "債権管理",
+      "入金消込"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "smarthr-payroll-2026",
+    "title": "給与計算のやり方・手順",
+    "provider": "SmartHR",
+    "url": "https://smarthr.jp/column/explanation/2026-payroll-howto/",
+    "sourceType": "practical",
+    "difficulty": "初級",
+    "time": "20分",
+    "why": "勤怠集計、支給額、控除、社会保険料、税金まで給与計算の全体像を実務順に理解する。",
+    "topics": [
+      "labor",
+      "accounting"
+    ],
+    "eventIds": [
+      "payroll"
+    ],
+    "tags": [
+      "給与計算",
+      "社会保険料",
+      "源泉所得税"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-payroll-bookkeeping",
+    "title": "役員報酬・給与・社会保険料の記帳方法",
+    "provider": "freee",
+    "url": "https://support.freee.co.jp/hc/ja/articles/13562328594457-5-1-%E5%BD%B9%E5%93%A1%E5%A0%B1%E9%85%AC%E3%82%84%E7%B5%A6%E4%B8%8E%E3%81%AE%E6%94%AF%E6%89%95%E3%81%84-%E7%A4%BE%E4%BC%9A%E4%BF%9D%E9%99%BA%E6%96%99%E7%AD%89%E3%81%AE%E7%B4%8D%E4%BB%98%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%99%E3%82%8B",
+    "sourceType": "practical",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "給与・役員報酬から社会保険料や源泉税を控除したとき、会社の帳簿にどう記録するかを具体例で学ぶ。",
+    "topics": [
+      "accounting",
+      "labor",
+      "tax"
+    ],
+    "eventIds": [
+      "officer-compensation",
+      "payroll",
+      "bookkeeping"
+    ],
+    "tags": [
+      "仕訳",
+      "役員報酬",
+      "給与",
+      "社会保険料"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-deductible-expense",
+    "title": "損金とは？費用・経費との違いと損金不算入",
+    "provider": "freee",
+    "url": "https://www.freee.co.jp/kb/kb-accounting/deductible-expense/",
+    "sourceType": "practical",
+    "difficulty": "中級",
+    "time": "15分",
+    "why": "会計上の費用と法人税上の損金が同じではないことを、役員報酬・交際費・減価償却などから理解する。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "bookkeeping",
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "損金",
+      "経費",
+      "法人税",
+      "税務調整"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-tax-saving",
+    "title": "法人の税負担を考えるときの基本",
+    "provider": "freee",
+    "url": "https://www.freee.co.jp/kb/kb-accounting/tax-saving/",
+    "sourceType": "practical",
+    "difficulty": "中級",
+    "time": "20分",
+    "why": "決算前の費用計上、役員報酬、少額資産などを題材に、税務上のタイミングと条件を理解する補助教材。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "法人税",
+      "決算",
+      "少額資産",
+      "役員報酬"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "freee-corporate-tax-forms",
+    "title": "法人税申告で登場する帳票・内訳書の全体像",
+    "provider": "freee",
+    "url": "https://support.freee.co.jp/hc/ja/articles/47358972707481-%E6%B3%95%E4%BA%BA%E7%A8%8E%E3%81%AE%E5%AF%BE%E5%BF%9C%E5%B8%B3%E7%A5%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6-%E4%BB%A4%E5%92%8C7%E5%B9%B44%E6%9C%881%E6%97%A5%E4%BB%A5%E5%BE%8C%E7%B5%82%E4%BA%86%E4%BA%8B%E6%A5%AD%E5%B9%B4%E5%BA%A6%E5%90%91%E3%81%91",
+    "sourceType": "practical",
+    "difficulty": "上級",
+    "time": "参照用",
+    "why": "売掛金、固定資産、借入金、人件費などが法人税申告の内訳書へどう現れるか、申告書の構造を掴む。",
+    "topics": [
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "closing",
+      "tax-filing"
+    ],
+    "tags": [
+      "法人税申告",
+      "内訳書",
+      "決算書"
+    ],
+    "lastCheckedAt": "2026-10-03"
+  },
+  {
+    "id": "smarthr-retirement-payroll",
+    "title": "退職時の給与・社会保険・後続手続",
+    "provider": "SmartHR",
+    "url": "https://support.smarthr.jp/ja/help/articles/f3a4b5c6-d7e8-4f9a-8b1c-2d3e4f5a6b7c/",
+    "sourceType": "practical",
+    "difficulty": "初級",
+    "time": "10分",
+    "why": "退職日、資格喪失日、最終給与、源泉徴収票など、退職時に複数領域がどうつながるかを理解する。",
+    "topics": [
+      "labor",
+      "tax",
+      "accounting"
+    ],
+    "eventIds": [
+      "retirement"
+    ],
+    "tags": [
+      "退職",
+      "最終給与",
+      "資格喪失",
+      "源泉徴収票"
+    ],
+    "lastCheckedAt": "2026-10-03"
   }
 ]

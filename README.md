@@ -17,12 +17,12 @@ Kaisha Compassは、一社の仮想会社を設立から決算まで追いなが
 ## MVP
 
 - 固定ケース会社「株式会社コンパスワークス」
-- 設立から初決算まで10イベント
+- 設立から申告・定時株主総会まで15イベント
 - イベントから教材への絞り込み
 - テーマ別ナビゲーション
 - 一次情報 / 実務解説の区別
 - 教材キーワード検索
-- JSONベースの教材DB
+- JSONベースの教材DB（79件）
 
 ## Run locally
 
@@ -57,3 +57,8 @@ python -m http.server 8080
 ## Editing resources
 
 教材の追加は `data/resources.json` に追記します。詳しい編集方針は `docs/EDITORIAL_POLICY.md` を参照してください。
+
+
+## Resource maintenance
+
+各教材は `lastCheckedAt` を持ち、年度依存の資料は `validAsOf` で適用時点を管理します。
