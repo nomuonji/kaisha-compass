@@ -45,7 +45,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
       <aside class="chapter-margin">
         <p>この章で出てくる領域</p>
         <nav>
-          {topics.map(topic=><a href={"/topics/"+topic+"/"}>{topicMeta[topic].label}</a>)}
+          {topics.map(topic=><a class="typed-link compact" href={"/topics/"+topic+"/"}><span class="dest-tag topic">2 領域</span>{topicMeta[topic].label}</a>)}
         </nav>
       </aside>
 
@@ -103,7 +103,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
                   <ul>
                     {points.map(point=><li>{point}</li>)}
                   </ul>
-                  <a href={resource!.url} target="_blank" rel="noopener noreferrer">原典で確認する <span>↗</span></a>
+                  <a class="typed-link external" href={resource!.url} target="_blank" rel="noopener noreferrer"><span class="dest-tag external">4 原典</span>外部サイトで確認 <b>↗</b></a>
                 </article>
               )}
             </div>
@@ -122,7 +122,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
                     <strong>{resource.title}</strong>
                     <p>{resource.why}</p>
                   </div>
-                  <a href={"/resources/"+resource.id+"/"}>概要を見る →</a>
+                  <a class="typed-link" href={"/resources/"+resource.id+"/"}><span class="dest-tag source">3 資料要約</span>概要を見る →</a>
                 </div>
               )}
             </div>
