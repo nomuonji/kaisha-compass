@@ -60,8 +60,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
         }
 
         <section class="article-section">
-          <p class="section-number">01</p>
-          <h2>重要ポイント</h2>
+          <p class="section-kind summary-kind"><span>01</span> 重要ポイント</p>
+          <h2>この場面で確認する事項</h2>
           <div class="prose-points">
             {guide?.keyPoints?.map(point=>
               <div>
@@ -73,8 +73,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
         </section>
 
         <section class="article-section">
-          <p class="section-number">02</p>
-          <h2>実務上の手順</h2>
+          <p class="section-kind procedure-kind"><span>02</span> 手順</p>
+          <h2>実務上の進め方</h2>
           <ol class="prose-steps">
             {guide?.steps?.map(step=>
               <li>
@@ -87,8 +87,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
 
         {sourceNotes.length>0&&
           <section class="article-section source-reading">
-            <p class="section-number">03</p>
-            <h2>参照資料の要約</h2>
+            <p class="section-kind source-kind"><span>03</span> 資料要約</p>
+            <h2>参照資料の内容</h2>
             <p class="section-intro">参照先の内容を要約しています。実際の手続、期限、金額、例外要件を確定する場合は原典を確認してください。</p>
 
             <div class="source-essays">
@@ -112,8 +112,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
 
         {otherSources.length>0&&
           <section class="article-section secondary-sources">
-            <p class="section-number">04</p>
-            <h2>関連資料</h2>
+            <p class="section-kind related-kind"><span>04</span> 関連資料</p>
+            <h2>追加で確認できる資料</h2>
             <div class="text-source-list">
               {otherSources.map(resource=>
                 <div class="text-source-row">
