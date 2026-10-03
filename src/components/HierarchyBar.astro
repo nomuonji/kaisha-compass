@@ -3,27 +3,27 @@ type Level = "overview"|"scene"|"topic"|"source";
 interface Props { current:Level; detail?:string; }
 const { current,detail }=Astro.props;
 const levels=[
-  {id:"overview",n:"0",label:"全体",sub:"会社の一年"},
-  {id:"scene",n:"1",label:"場面",sub:"何が起きたか"},
-  {id:"topic",n:"2",label:"領域",sub:"制度で整理"},
-  {id:"source",n:"3",label:"資料要約",sub:"サイト内で把握"},
-  {id:"external",n:"4",label:"原典",sub:"外部サイト"}
+  {id:"overview",n:"0",label:"全体",sub:"サイト全体の構造"},
+  {id:"scene",n:"1",label:"場面",sub:"会社で起きること"},
+  {id:"topic",n:"2",label:"領域",sub:"専門分野で整理"},
+  {id:"source",n:"3",label:"資料要約",sub:"資料の内容を確認"},
+  {id:"external",n:"4",label:"外部原典",sub:"参照元サイト"}
 ];
 const index=levels.findIndex(x=>x.id===current);
 ---
-<div class="hierarchy-band">
+<div class="hierarchy-band" aria-label="情報階層">
   <div class="shell hierarchy-inner">
-    <div class="hierarchy-current">
-      <span>YOU ARE HERE</span>
+    <div class={"hierarchy-current level-"+current}>
+      <span>現在のページ</span>
       <strong>{levels[index]?.n}. {levels[index]?.label}</strong>
       {detail&&<small>{detail}</small>}
     </div>
-    <ol class="hierarchy-track" aria-label="サイトの情報階層">
+    <ol class="hierarchy-track">
       {levels.map((level,i)=>
-        <li class:list={[level.id===current&&"current",i<index&&"passed",level.id==="external"&&"external"]}>
+        <li class:list={["level-"+level.id,level.id===current&&"current",i<index&&"passed",level.id==="external"&&"external"]}>
           <span class="level-node">{level.n}</span>
           <span class="level-copy"><strong>{level.label}</strong><small>{level.sub}</small></span>
-          {i<levels.length-1&&<span class="level-arrow" aria-hidden="true">→</span>}
+          {i<levels.length-1&&<span class="level-arrow" aria-hidden="true">›</span>}
         </li>
       )}
     </ol>
