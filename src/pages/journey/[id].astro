@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ResourceGrid from "../../components/ResourceGrid.astro";
+import { events,resourcesForEvent,sortResources,topicsForEvent,topicMeta,type CompanyEvent } from "../../lib/data";
+export function getStaticPaths(){return events.map(event=>({params:{id:event.id},props:{event}}));}
+const { event }=Astro.props as { event:CompanyEvent };
+const linked=sortResources(resourcesForEvent(event.id));
+const topics=topicsForEvent(event.id);
+const schema={"@context":"https://schema.org","@type":"LearningResource",name:event.title,description:event.summary,inLanguage:"ja",learningResourceType:"case study"};
+---
+<BaseLayout title={event.title} description={event.summary} schema={schema}>
+  <Breadcrumbs items={[{label:"会社の一年",href:"/#journey"},{label:event.title}]}/>
+  <section class="event-hero shell">
+    <div class="event-date"><span>{event.month}</span><small>CASE SCENE</small></div>
+    <div class="event-hero-copy"><p class="overline">COMPANY JOURNEY</p><h1>{event.title}</h1><p>{event.summary}</p><div class="detail-topics">{topics.map(topic=><a href={"/topics/"+topic+"/"}>{topicMeta[topic].label}</a>)}</div></div>
+    <div class="event-count-panel"><strong>{linked.length}</strong><span>RELATED<br/>SOURCES</span></div>
+  </section>
+  <section class="learning-route shell">
+    <div class="route-intro"><p class="overline"><span>01</span> READING ORDER</p><h2>この場面で、<br/>何から読むか。</h2><p>一次情報を優先し、難易度が低いものから並べています。すべて読む必要はありません。</p></div>
+    <ol class="route-list">{linked.slice(0,5).map((resource,index)=><li><span>{String(index+1).padStart(2,"0")}</span><div><small>{resource.sourceType==="official"?"一次情報":"実務解説"} / {resource.provider}</small><a href={"/resources/"+resource.id+"/"}>{resource.title}</a><p>{resource.why}</p></div></li>)}</ol>
+  </section>
+  <section class="library-section page-library"><div class="shell"><div class="section-heading"><div><p class="overline"><span>02</span> ALL SOURCES</p><h2>関連教材</h2></div><p>{event.title}に紐づく教材を、一次情報から表示しています。</p></div><ResourceGrid resources={linked}/></div></section>
+</BaseLayout>
