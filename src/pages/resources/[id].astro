@@ -27,7 +27,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
 
   <article class="source-article shell">
     <header class="source-article-header">
-      <p class="overline">{sourceLabels[resource.sourceType].toUpperCase()} / {resource.provider}</p>
+      <p class="page-type-label source-type">レベル3 / 資料要約 · {sourceLabels[resource.sourceType]} · {resource.provider}</p>
       <h1>{resource.title}</h1>
       <p class="source-article-lead">{summary}</p>
     </header>
@@ -46,7 +46,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
       <div class="source-article-body">
         <section class="article-section first">
           <p class="section-number">01</p>
-          <h2>30秒で把握する</h2>
+          <h2>概要</h2>
           <p class="source-summary">{summary}</p>
           <ul class="source-key-points">
             {points.map(point=><li>{point}</li>)}
@@ -55,8 +55,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
 
         <section class="article-section">
           <p class="section-number">02</p>
-          <h2>いつ、この資料を見るか</h2>
-          <p class="section-intro">この資料を最初から最後まで読む必要はありません。会社の次の場面で、該当部分を確認するために使います。</p>
+          <h2>利用する場面</h2>
+          <p class="section-intro">この資料が関係する会社運営上の場面です。</p>
           <div class="inline-scenes">
             {relatedEvents.map(event=>
               <a class="typed-link scene-destination" href={"/journey/"+event.id+"/"}>
@@ -73,7 +73,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
 
         <section class="article-section">
           <p class="section-number">03</p>
-          <h2>どの知識につながるか</h2>
+          <h2>関連する専門領域</h2>
           <div class="topic-text-links">
             {resource.topics.map(topic=>
               <a class="typed-link topic-destination" href={"/topics/"+topic+"/"}>
@@ -86,8 +86,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
 
         <section class="article-section original-source">
           <p class="section-number">04</p>
-          <h2>原典で確認する</h2>
-          <p>ここまでで概要は把握できます。実際に手続する、金額や期限を確定する、例外要件を確認するときは、必ず参照元の最新情報を確認してください。</p>
+          <h2>外部の原典</h2>
+          <p>手続、金額、期限、適用要件を確定する場合は、参照元の最新情報を確認してください。</p>
           <a class="original-source-link" href={resource.url} target="_blank" rel="noopener noreferrer">
             <span>
               <small>{resource.provider}</small>
@@ -100,7 +100,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
         {relatedResources.length>0&&
           <section class="article-section next-reading">
             <p class="section-number">05</p>
-            <h2>続けて読むなら</h2>
+            <h2>関連資料</h2>
             <div class="text-source-list">
               {relatedResources.map(item=>
                 <div class="text-source-row">
