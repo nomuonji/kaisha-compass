@@ -1,24 +1,139 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import ResourceGrid from "../../components/ResourceGrid.astro";
 import { events,resourcesForEvent,sortResources,topicsForEvent,topicMeta,type CompanyEvent } from "../../lib/data";
-export function getStaticPaths(){return events.map(event=>({params:{id:event.id},props:{event}}));}
+import { eventGuides } from "../../lib/eventGuides";
+
+export function getStaticPaths(){
+  return events.map(event=>({params:{id:event.id},props:{event}}));
+}
+
 const { event }=Astro.props as { event:CompanyEvent };
+const guide=eventGuides[event.id];
 const linked=sortResources(resourcesForEvent(event.id));
 const topics=topicsForEvent(event.id);
+const currentIndex=events.findIndex(item=>item.id===event.id);
+const previous=currentIndex>0?events[currentIndex-1]:undefined;
+const next=currentIndex<events.length-1?events[currentIndex+1]:undefined;
+
+const sourceNotes=(guide?.sourceNotes??[]).map(note=>({
+  ...note,
+  resource:linked.find(resource=>resource.id===note.resourceId)
+})).filter(item=>item.resource);
+
+const otherSources=linked.filter(resource=>!sourceNotes.some(note=>note.resourceId===resource.id));
+
 const schema={"@context":"https://schema.org","@type":"LearningResource",name:event.title,description:event.summary,inLanguage:"ja",learningResourceType:"case study"};
 ---
 <BaseLayout title={event.title} description={event.summary} schema={schema}>
   <Breadcrumbs items={[{label:"会社の一年",href:"/#journey"},{label:event.title}]}/>
-  <section class="event-hero shell">
-    <div class="event-date"><span>{event.month}</span><small>CASE SCENE</small></div>
-    <div class="event-hero-copy"><p class="overline">COMPANY JOURNEY</p><h1>{event.title}</h1><p>{event.summary}</p><div class="detail-topics">{topics.map(topic=><a href={"/topics/"+topic+"/"}>{topicMeta[topic].label}</a>)}</div></div>
-    <div class="event-count-panel"><strong>{linked.length}</strong><span>RELATED<br/>SOURCES</span></div>
-  </section>
-  <section class="learning-route shell">
-    <div class="route-intro"><p class="overline"><span>01</span> READING ORDER</p><h2>この場面で、<br/>何から読むか。</h2><p>一次情報を優先し、難易度が低いものから並べています。すべて読む必要はありません。</p></div>
-    <ol class="route-list">{linked.slice(0,5).map((resource,index)=><li><span>{String(index+1).padStart(2,"0")}</span><div><small>{resource.sourceType==="official"?"一次情報":"実務解説"} / {resource.provider}</small><a href={"/resources/"+resource.id+"/"}>{resource.title}</a><p>{resource.why}</p></div></li>)}</ol>
-  </section>
-  <section class="library-section page-library"><div class="shell"><div class="section-heading"><div><p class="overline"><span>02</span> ALL SOURCES</p><h2>関連教材</h2></div><p>{event.title}に紐づく教材を、一次情報から表示しています。</p></div><ResourceGrid resources={linked}/></div></section>
+
+  <article class="chapter shell">
+    <header class="chapter-header">
+      <div class="chapter-index">
+        <span>{String(currentIndex+1).padStart(2,"0")}</span>
+        <small>{event.month}</small>
+      </div>
+      <div class="chapter-title">
+        <p class="overline">COMPANY STORY</p>
+        <h1>{event.title}</h1>
+        <p class="chapter-deck">{event.summary}</p>
+      </div>
+    </header>
+
+    <div class="chapter-reading">
+      <aside class="chapter-margin">
+        <p>この章で出てくる領域</p>
+        <nav>
+          {topics.map(topic=><a href={"/topics/"+topic+"/"}>{topicMeta[topic].label}</a>)}
+        </nav>
+      </aside>
+
+      <div class="chapter-prose">
+        {guide?.intro?.map(paragraph=><p class="lead-paragraph">{paragraph}</p>)}
+
+        {guide?.takeaway&&
+          <aside class="chapter-thesis">
+            <span>この章の要点</span>
+            <p>{guide.takeaway}</p>
+          </aside>
+        }
+
+        <section class="article-section">
+          <p class="section-number">01</p>
+          <h2>この場面で、何を理解するか</h2>
+          <div class="prose-points">
+            {guide?.keyPoints?.map(point=>
+              <div>
+                <h3>{point.title}</h3>
+                <p>{point.body}</p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section class="article-section">
+          <p class="section-number">02</p>
+          <h2>会社では、こういう順番で進む</h2>
+          <ol class="prose-steps">
+            {guide?.steps?.map(step=>
+              <li>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </li>
+            )}
+          </ol>
+        </section>
+
+        {sourceNotes.length>0&&
+          <section class="article-section source-reading">
+            <p class="section-number">03</p>
+            <h2>原典を開かなくても、まずここまで分かる</h2>
+            <p class="section-intro">以下は参照先の内容をKaisha Compass側で要約したものです。細かな要件・例外・最新様式を確認するときだけ原典へ進んでください。</p>
+
+            <div class="source-essays">
+              {sourceNotes.map(({resource,summary,points})=>
+                <article class="source-essay">
+                  <div class="source-essay-head">
+                    <span>{resource!.sourceType==="official"?"一次情報":"実務解説"}</span>
+                    <small>{resource!.provider}</small>
+                  </div>
+                  <h3>{resource!.title}</h3>
+                  <p>{summary}</p>
+                  <ul>
+                    {points.map(point=><li>{point}</li>)}
+                  </ul>
+                  <a href={resource!.url} target="_blank" rel="noopener noreferrer">原典で確認する <span>↗</span></a>
+                </article>
+              )}
+            </div>
+          </section>
+        }
+
+        {otherSources.length>0&&
+          <section class="article-section secondary-sources">
+            <p class="section-number">04</p>
+            <h2>さらに確認したいときの資料</h2>
+            <div class="text-source-list">
+              {otherSources.map(resource=>
+                <div class="text-source-row">
+                  <div>
+                    <small>{resource.sourceType==="official"?"一次情報":"実務解説"} / {resource.provider}</small>
+                    <strong>{resource.title}</strong>
+                    <p>{resource.why}</p>
+                  </div>
+                  <a href={"/resources/"+resource.id+"/"}>概要を見る →</a>
+                </div>
+              )}
+            </div>
+          </section>
+        }
+      </div>
+    </div>
+
+    <nav class="chapter-navigation" aria-label="章の移動">
+      {previous?<a class="previous" href={"/journey/"+previous.id+"/"}><small>← PREVIOUS</small><strong>{previous.title}</strong></a>:<span></span>}
+      {next?<a class="next" href={"/journey/"+next.id+"/"}><small>NEXT →</small><strong>{next.title}</strong></a>:<a class="next" href="/resources/"><small>REFERENCE →</small><strong>教材ライブラリへ</strong></a>}
+    </nav>
+  </article>
 </BaseLayout>
