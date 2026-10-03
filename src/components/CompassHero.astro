@@ -1,24 +1,18 @@
 ---
-import { stats, topicMeta } from "../lib/data";
 ---
-<section class="hero shell">
-  <div class="hero-copy">
-    <p class="overline"><span>01</span> LEARN THE COMPANY, NOT THE SUBJECT</p>
-    <h1>会社運営を、<br/><em>点ではなく流れで</em><br/>学ぶ。</h1>
-    <p class="hero-lede">法律、税務、労務、会計。会社では、それらは別々には起きません。一社の一年を追いながら、その瞬間に読むべき一次情報と良質な教材へ進みます。</p>
-    <div class="hero-actions"><a class="action primary" href="#journey">会社の一年をたどる <span>↓</span></a><a class="action text-link" href="/resources/">教材から直接探す <span>↗</span></a></div>
+<section class="reader-hero shell">
+  <div class="reader-hero-copy">
+    <p class="overline"><span>01</span> A COMPANY, READ FROM START TO FINISH</p>
+    <h1>会社を運営すると、<br/>実際には何が起きるのか。</h1>
+    <p class="reader-lede">会社法、税務、労務、会計を別々の教科として並べるのではなく、一社の会社が生まれ、仕事を受け、人を雇い、決算を迎えるまでを順番に読みます。</p>
+    <p class="reader-lede secondary">必要なところでは、国税庁・法務省・厚生労働省などの一次情報を要約して本文の中に織り込みます。原典は「確認したいとき」に開けば十分です。</p>
+    <a class="reader-start" href="#case">この会社から始める <span>↓</span></a>
   </div>
-  <div class="compass-stage" aria-label="Kaisha Compass の学習領域">
-    <div class="orbit orbit-a" aria-hidden="true"></div><div class="orbit orbit-b" aria-hidden="true"></div>
-    <div class="compass-dial"><div class="dial-center"><span>ONE COMPANY</span><strong>{stats.events}</strong><small>SCENES</small><i></i><strong>{stats.resources}</strong><small>SOURCES</small></div></div>
-    {Object.entries(topicMeta).map(([id,meta],index)=><a class={"dial-topic pos-"+(index+1)} href={"/topics/"+id+"/"}>{meta.short}</a>)}
-  </div>
-</section>
-<section class="evidence-strip">
-  <div class="shell evidence-grid">
-    <div class="evidence-intro"><span class="micro-label">SOURCE POLICY</span><p>自前の薄い解説ではなく、<strong>信頼できる外部資料への道筋</strong>をつくる。</p></div>
-    <div class="evidence-stat"><strong>{stats.official}</strong><span>公式一次情報</span></div>
-    <div class="evidence-stat"><strong>{stats.practical}</strong><span>実務解説</span></div>
-    <div class="evidence-stat"><strong>2026.10</strong><span>最終整備</span></div>
-  </div>
+  <aside class="hero-reading-card">
+    <span class="hero-reading-label">HOW TO USE</span>
+    <p>上から読む。</p>
+    <p>会社の出来事を理解する。</p>
+    <p>その場面で必要な制度を知る。</p>
+    <p>最後に原典で確認する。</p>
+  </aside>
 </section>
