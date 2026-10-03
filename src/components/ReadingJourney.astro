@@ -28,7 +28,7 @@ import { eventGuides } from "../lib/eventGuides";
               {guide.keyPoints.slice(0,2).map(point=><p><strong>{point.title}</strong>{point.body}</p>)}
             </div>}
             <div class="story-footer">
-              <a href={"/journey/"+event.id+"/"}>この章を読む <span>→</span></a>
+              <a class="typed-link scene-link" href={"/journey/"+event.id+"/"}><span class="dest-tag">1 場面</span>この章を読む <b>→</b></a>
               <small>{resourcesForEvent(event.id).length}の参照資料</small>
             </div>
           </div>
