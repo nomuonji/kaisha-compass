@@ -1,0 +1,18 @@
+---
+export const prerender=false;
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {listFeatures} from "../../lib/portal-cms";
+import "../../styles/cms-features.css";
+const items=await listFeatures();
+---
+<BaseLayout title="補足解説 | Kaisha Compass" description="会社の一年と専門領域を学んだあとに読む、制度と実務の補足解説。" noindex={items.length===0} level="topic" levelDetail="補足解説">
+  <div class="shell cms-feature-shell">
+    <p class="section-type-label topic-type">補足解説</p>
+    <h1>実務と制度の補足解説</h1>
+    <p class="cms-feature-intro">会社の一年を追う<a href="/#journey">15の場面</a>を主な学習経路として残し、各場面から派生する論点を記事で補足します。</p>
+    {items.length?<div class="cms-feature-list">{items.map(item=><article class="cms-feature-card">
+      <h2><a href={`/features/${item.slug}/`}>{item.title}</a></h2><p>{item.summary}</p>
+      <p class="cms-feature-date">{item.publishedAt?.slice(0,10)||""}</p>
+    </article>)}</div>:<p class="cms-feature-empty">公開中の補足解説はありません。会社の一年と資料一覧は引き続き利用できます。</p>}
+  </div>
+</BaseLayout>

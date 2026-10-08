@@ -142,6 +142,13 @@ Do not introduce decorative colors with conflicting semantic meaning.
 
 Before considering a UX change complete, run the UX contract check and Astro build.
 
+## Additive Public CMS boundary
+
+- `/features/` is a separate My Portal CMS source (`siteId: kaisha-compass`) for supplemental articles only.
+- Existing 15 scenes, scene navigation, resource digests, topic taxonomy, source links, and SEO control remain GitHub/Sites Operator owned.
+- Agent HQ's publishing Manager/Worker work is limited to CMS records, not repository changes.
+- See `docs/PORTAL_CMS_CONTRACT.md`. Changes to the site renderer itself are separate engineering tasks, validated before merge.
+
 ## Change discipline
 
 If a future change intentionally contradicts one of these rules:
