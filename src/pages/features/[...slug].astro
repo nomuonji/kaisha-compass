@@ -1,0 +1,22 @@
+---
+export const prerender=false;
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {getFeature,renderFeature} from "../../lib/portal-cms";
+import "../../styles/cms-features.css";
+const item=await getFeature(Astro.params.slug||"");
+if(!item)Astro.response.status=404;
+const html=item?renderFeature(item.bodyMarkdown):"";
+---
+<BaseLayout title={item?.seo?.title||item?.title||"記事が見つかりません"} description={item?.seo?.description||item?.summary||"該当する補足解説はありません。"} noindex={!item||item?.seo?.noindex===true} level="topic" levelDetail="補足解説">
+  <div class="shell cms-feature-shell">
+    <p class="cms-feature-breadcrumb"><a href="/">概要</a> › <a href="/features/">補足解説</a> › {item?.title||"見つかりません"}</p>
+    {item?<article class="cms-feature-article">
+      <p class="section-type-label topic-type">補足解説</p>
+      <h1>{item.title}</h1>
+      <p class="cms-feature-intro">{item.summary}</p>
+      {item.publishedAt&&<p class="cms-feature-date">公開 {item.publishedAt.slice(0,10)}</p>}
+      <div class="cms-feature-body" set:html={html}/>
+      <p><a href="/features/">補足解説一覧へ戻る</a></p>
+    </article>:<section><h1>記事が見つかりません</h1><a href="/features/">補足解説一覧へ戻る</a></section>}
+  </div>
+</BaseLayout>
