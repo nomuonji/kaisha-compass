@@ -9,6 +9,10 @@ It is a reading-first learning site that uses one company's first year as the na
 
 The database exists behind the interface. The interface must follow human reading and orientation.
 
+## Required context for Agent HQ editorial work
+
+Before creating or editing any reader-facing text, fetch the **current main** versions of this file, `docs/EDITORIAL_POLICY.md`, `docs/UX_DECISIONS.md`, and `docs/HQ_EDITORIAL_OPERATIONS.md`. The site is an independent publication: HQ task IDs, Worker QA notes and other operational details must never appear in its public pages. Preserve Sites Operator's separate SEO ownership.
+
 ## Non-regression UX contract
 
 ### 1. Reading before browsing
