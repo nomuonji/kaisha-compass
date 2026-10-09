@@ -1,0 +1,31 @@
+/* Kaisha Compass: the existing 0→1→2→3→4 hierarchy remains canonical.
+ * A separate, subordinate scene sequence helps people continue the company story. */
+.chapter-orientation{margin:25px auto 24px;padding:25px;background:var(--white);border-left:4px solid var(--level-scene);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.chapter-orientation-main{display:flex;align-items:end;justify-content:space-between;gap:20px}
+.chapter-orientation-main h2{font:600 clamp(19px,2.2vw,27px)/1.4 var(--serif);margin:7px 0 12px;color:var(--ink)}
+.chapter-orientation-main p:last-child{font-size:12px;color:var(--muted);line-height:1.75;margin:0}
+.chapter-orientation-all{white-space:nowrap}
+.chapter-orientation-rail{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));gap:3px;list-style:none;padding:0;margin:23px 0 17px}
+.chapter-orientation-rail li{min-width:0}
+.chapter-orientation-rail a,.chapter-orientation-rail span{height:63px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--paper-deep);border-bottom:3px solid var(--line-dark);font:800 12px/1 var(--mono);text-decoration:none}
+.chapter-orientation-rail a:hover{background:#ecdecf;border-color:var(--level-scene)}
+.chapter-orientation-rail li.is-current span{color:var(--white);background:var(--level-scene);border-bottom-color:#6d341d}
+.chapter-orientation-rail small{font:700 8px/1 var(--mono);opacity:.8}
+.chapter-orientation-index{padding:0;border-top:1px solid var(--line)}
+.chapter-orientation-index>summary{font-weight:800;cursor:pointer;padding:12px 0;font-size:12px;color:var(--ink-soft)}
+.chapter-orientation-index>summary:focus-visible{outline:2px solid var(--level-scene)}
+.chapter-orientation-index ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.chapter-orientation-index li a{display:flex;align-items:center;flex-wrap:wrap;gap:8px 11px;text-decoration:none;font-size:11px;padding:11px 9px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.55;height:100%}
+.chapter-orientation-index li a:hover{background:#f2eadf}
+.chapter-orientation-index li a[aria-current="page"]{background:#f3e3d5;border-bottom:2px solid var(--level-scene)}
+.chapter-orientation-index li strong{font-weight:750}
+.chapter-orientation-index li small{margin-left:auto;font:700 10px/1 var(--mono);color:var(--muted)}
+.chapter-in-page{display:flex;flex-wrap:wrap;align-items:center;gap:9px 19px;margin-block:18px 35px;padding:15px 20px;border-top:2px solid var(--level-scene);border-bottom:1px solid var(--line);background:#f9f3eb}
+.chapter-in-page strong{font-size:11px;margin-right:12px;color:var(--ink);font-weight:850}
+.chapter-in-page a{font-size:12px;font-weight:750;color:var(--ink-soft);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.chapter-in-page a:hover{color:var(--level-scene)}
+.resource-in-page{border-top-color:var(--level-source);background:#eff4f5;margin-top:24px}
+.resource-in-page a:hover{color:var(--level-source)}
+.chapter-prose .article-section[id],.source-article-body .article-section[id]{scroll-margin-top:120px}
+@media(max-width:850px){.chapter-orientation-main{align-items:start;flex-direction:column}.chapter-orientation-rail{grid-template-columns:repeat(15,minmax(26px,1fr));overflow-x:auto}.chapter-orientation-rail a,.chapter-orientation-rail span{height:54px}.chapter-orientation-index ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.chapter-orientation{padding:16px}.chapter-orientation-index ol{grid-template-columns:1fr}.chapter-in-page{padding:14px;gap:10px}.chapter-in-page strong{width:100%;font-size:12px}.chapter-in-page a{font-size:11px}.chapter-orientation-rail{grid-template-columns:repeat(15,28px);overflow-x:auto}.chapter-orientation-rail li{min-width:28px}}
