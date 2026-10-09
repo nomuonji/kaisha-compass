@@ -39,6 +39,10 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
       <a href="#source-topics">専門領域 ↓</a>
       <a href="#source-original">外部原典 ↗</a>
     </nav>
+    <div class="source-at-a-glance">
+      <div><span class="dest-tag source">3 資料要約</span><strong>参照資料について</strong><p>元の資料の役割と要点を先に確認し、必要な場合に外部の原典へ進んでください。</p></div>
+      <dl><div><dt>掲載元</dt><dd>{resource.provider}</dd></div><div><dt>資料の種類</dt><dd>{sourceLabels[resource.sourceType]}</dd></div><div><dt>最終確認日</dt><dd>{resource.lastCheckedAt??"記録なし"}</dd></div></dl>
+    </div>
     <div class="source-article-layout">
       <aside class="source-meta-rail">
         <dl>
