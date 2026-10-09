@@ -1,0 +1,27 @@
+---
+import type {CompanyEvent} from "../lib/data";
+interface Props{ events:CompanyEvent[]; currentId:string }
+const {events,currentId}=Astro.props as Props;
+const index=events.findIndex(event=>event.id===currentId);
+---
+<nav class="chapter-orientation shell" aria-label="会社の一年の現在位置">
+  <div class="chapter-orientation-main">
+    <div>
+      <p class="page-type-label scene-type">レベル1 / 場面</p>
+      <h2>会社の一年：第{index+1}場面 / 全{events.length}場面</h2>
+      <p>会社運営の話を順に読んでいます。下の一覧から別の場面にも移動できます。</p>
+    </div>
+    <a class="typed-link chapter-orientation-all" href="/#journey"><span class="dest-tag scene">1 場面</span>全場面を順に見る →</a>
+  </div>
+  <ol class="chapter-orientation-rail" aria-label="全場面へのリンク">
+    {events.map((event,i)=><li class:list={[event.id===currentId&&"is-current"]}>
+      {event.id===currentId
+        ? <span aria-current="step" title={event.title}><b>{String(i+1).padStart(2,"0")}</b><small>{event.month}</small></span>
+        : <a title={event.title} href={"/journey/"+event.id+"/"} aria-label={"第"+(i+1)+"場面 "+event.title}><b>{String(i+1).padStart(2,"0")}</b><small>{event.month}</small></a>}
+    </li>)}
+  </ol>
+  <details class="chapter-orientation-index">
+    <summary>場面の一覧を開く（全{events.length}場面）</summary>
+    <ol>{events.map((event,i)=><li><a href={"/journey/"+event.id+"/"} aria-current={event.id===currentId?"page":undefined}><span class="dest-tag scene">1 場面</span><strong>{String(i+1).padStart(2,"0")} {event.title}</strong><small>{event.month}</small></a></li>)}</ol>
+  </details>
+</nav>
