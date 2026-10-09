@@ -32,6 +32,13 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
       <p class="source-article-lead">{summary}</p>
     </header>
 
+    <nav class="chapter-in-page resource-in-page shell" aria-label="資料要約の目次">
+      <strong>この資料の読み方</strong>
+      <a href="#source-summary">資料の要点 ↓</a>
+      {relatedEvents.length>0&&<a href="#source-scenes">使う場面 ↓</a>}
+      <a href="#source-topics">専門領域 ↓</a>
+      <a href="#source-original">外部原典 ↗</a>
+    </nav>
     <div class="source-article-layout">
       <aside class="source-meta-rail">
         <dl>
@@ -44,7 +51,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
       </aside>
 
       <div class="source-article-body">
-        <section class="article-section first">
+        <section class="article-section first" id="source-summary">
           <p class="section-kind summary-kind"><span>01</span> 概要</p>
           <h2>資料の要点</h2>
           <p class="source-summary">{summary}</p>
@@ -53,7 +60,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
           </ul>
         </section>
 
-        <section class="article-section">
+        <section class="article-section" id="source-scenes">
           <p class="section-kind scene-kind"><span>02</span> 関連場面</p>
           <h2>この資料が関係する場面</h2>
           <p class="section-intro">この資料が関係する会社運営上の場面です。</p>
@@ -71,7 +78,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
           </div>
         </section>
 
-        <section class="article-section">
+        <section class="article-section" id="source-topics">
           <p class="section-kind topic-kind"><span>03</span> 専門領域</p>
           <h2>関連する専門領域</h2>
           <div class="topic-text-links">
@@ -84,7 +91,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:re
           </div>
         </section>
 
-        <section class="article-section original-source">
+        <section class="article-section original-source" id="source-original">
           <p class="section-kind external-kind"><span>04</span> 外部原典</p>
           <h2>参照元の公式・実務資料</h2>
           <p>手続、金額、期限、適用要件を確定する場合は、参照元の最新情報を確認してください。</p>
