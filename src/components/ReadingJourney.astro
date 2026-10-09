@@ -1,38 +1,54 @@
 ---
 import SectionHeading from "./SectionHeading.astro";
-import { events, resourcesForEvent } from "../lib/data";
-import { eventGuides } from "../lib/eventGuides";
+import {events,resourcesForEvent} from "../lib/data";
+import {eventGuides} from "../lib/eventGuides";
 ---
-<section class="reading-journey" id="journey">
-  <div class="shell reading-shell">
-    <SectionHeading
-      number="03"
-      eyebrow="レベル1 / 場面"
-      title="会社運営を時系列で確認する"
-      description="設立から決算・申告まで、会社で発生する主要な場面を順番に確認します。"
-    />
-    <div class="story-flow">
+<section class="reading-journey reading-yearbook" id="journey">
+  <div class="shell">
+    <SectionHeading number="03" eyebrow="レベル1 / 場面" title="会社運営を時系列で確認する" description="設立から決算・申告まで。会社で発生する主要な場面を、ひとつの会社の経過に沿って学びます。"/>
+    <div class="yearbook-cover">
+      <div class="yearbook-cover-heading">
+        <span>COMPANY CASE / LEARNING SEQUENCE</span>
+        <h3>会社の一年を、<br>15の場面で読む。</h3>
+        <p>会社設立、受注、採用、給与、決算。各場面でなにが起き、どんな制度と資料を確認する必要があるか、順を追って読み進められます。</p>
+        <a href="/journey/foundation/" class="yearbook-begin"><span class="dest-tag scene">1 場面</span>第1場面「会社を設立する」から読む →</a>
+      </div>
+      <div class="yearbook-cover-table" aria-labelledby="yearbook-index-title">
+        <h4 id="yearbook-index-title">場面一覧 / 全{events.length}場面</h4>
+        <ol>
+          {events.map((event,index)=><li><a href={"#scene-"+event.id}>
+            <small>{String(index+1).padStart(2,"0")}</small><span>{event.title}</span><b>{event.month}</b>
+          </a></li>)}
+        </ol>
+      </div>
+    </div>
+    <div class="yearbook-notes">
       {events.map((event,index)=>{
         const guide=eventGuides[event.id];
-        return <article class="story-chapter">
-          <div class="story-marker">
-            <span class="story-number">{String(index+1).padStart(2,"0")}</span>
-            <span class="story-month">{event.month}</span>
-          </div>
-          <div class="story-body">
-            <p class="story-kicker">場面 {String(index+1).padStart(2,"0")} / {event.month}</p>
-            <h3>{event.title}</h3>
-            <p class="story-summary">{guide?.intro?.[0] ?? event.summary}</p>
-            {guide?.takeaway && <p class="story-takeaway">{guide.takeaway}</p>}
-            {guide?.keyPoints?.length>0 && <div class="story-points">
-              {guide.keyPoints.slice(0,2).map(point=><p><strong>{point.title}</strong>{point.body}</p>)}
-            </div>}
-            <div class="story-footer">
-              <a class="typed-link scene-link" href={"/journey/"+event.id+"/"}><span class="dest-tag">1 場面</span>詳細を読む <b>→</b></a>
-              <small>{resourcesForEvent(event.id).length}件の関連資料</small>
+        return <article class="yearbook-chapter" id={"scene-"+event.id}>
+          <header class="yearbook-chapter-ribbon">
+            <span class="yearbook-chapter-id">{String(index+1).padStart(2,"0")}</span>
+            <div><small>レベル1 / 場面</small><strong>{event.month}</strong></div>
+            <a href="#journey" aria-label="場面一覧に戻る">↑ 場面一覧</a>
+          </header>
+          <div class="yearbook-chapter-body">
+            <div class="yearbook-chapter-main">
+              <h3>{event.title}</h3>
+              <p>{guide?.intro?.[0] ?? event.summary}</p>
+              {guide?.takeaway&&<div class="yearbook-takeaway"><strong>この場面の要点</strong><span>{guide.takeaway}</span></div>}
+              <div class="yearbook-chapter-continue">
+                <a class="typed-link" href={"/journey/"+event.id+"/"}><span class="dest-tag scene">1 場面</span>手順と資料要約を読む →</a>
+                <span>関連資料 {resourcesForEvent(event.id).length}件</span>
+              </div>
             </div>
+            <aside class="yearbook-chapter-syllabus">
+              <span>この場面で確認する事項</span>
+              {guide?.keyPoints?.length
+                ? <ol>{guide.keyPoints.slice(0,3).map(point=><li>{point.title}</li>)}</ol>
+                : <p>章の本文に、確認事項と関連する資料をまとめています。</p>}
+            </aside>
           </div>
-        </article>
+        </article>;
       })}
     </div>
   </div>
