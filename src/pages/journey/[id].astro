@@ -42,6 +42,10 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
       </div>
     </header>
 
+    {guide?.keyPoints?.length>0&&<section class="scene-learning-map" aria-labelledby="scene-learning-title">
+      <div><p class="page-type-label scene-type">レベル1 / 場面</p><h2 id="scene-learning-title">この場面で学ぶこと</h2></div>
+      <ol>{guide.keyPoints.slice(0,4).map((point,i)=><li><span>{String(i+1).padStart(2,"0")}</span><strong>{point.title}</strong></li>)}</ol>
+    </section>}
     <ChapterOrientation events={events} currentId={event.id}/>
     <nav class="chapter-in-page shell" aria-label="この場面の内容">
       <strong>この章の内容</strong>

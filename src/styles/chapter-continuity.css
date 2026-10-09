@@ -29,3 +29,100 @@
 .chapter-prose .article-section[id],.source-article-body .article-section[id]{scroll-margin-top:120px}
 @media(max-width:850px){.chapter-orientation-main{align-items:start;flex-direction:column}.chapter-orientation-rail{grid-template-columns:repeat(15,minmax(26px,1fr));overflow-x:auto}.chapter-orientation-rail a,.chapter-orientation-rail span{height:54px}.chapter-orientation-index ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.chapter-orientation{padding:16px}.chapter-orientation-index ol{grid-template-columns:1fr}.chapter-in-page{padding:14px;gap:10px}.chapter-in-page strong{width:100%;font-size:12px}.chapter-in-page a{font-size:11px}.chapter-orientation-rail{grid-template-columns:repeat(15,28px);overflow-x:auto}.chapter-orientation-rail li{min-width:28px}}
+
+/* Kaisha Compass publication reader — the company chronology is the central
+ * content, not an index of database records. Strict level semantics maintained. */
+.reading-yearbook{padding-block:clamp(60px,7vw,105px);background:#e9e5da}
+.reading-yearbook .shell{max-width:1200px}
+.reading-yearbook .section-heading{max-width:1000px}
+.yearbook-cover{margin:39px 0 35px;display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.87fr);border-top:5px solid var(--forest);background:#fcfaf4;box-shadow:9px 10px 0 #d3d0c4}
+.yearbook-cover-heading{padding:clamp(28px,5vw,62px);display:flex;flex-direction:column;align-items:start;background:#263b32;color:#f1eee5}
+.yearbook-cover-heading>span{font:750 10px/1.5 var(--mono);letter-spacing:.12em;color:#bfcbb8}
+.yearbook-cover-heading h3{font:500 clamp(39px,5vw,68px)/1.37 var(--serif);letter-spacing:-.06em;margin:32px 0 27px;color:#fff5e6}
+.yearbook-cover-heading p{max-width:42ch;font-size:14px;line-height:2.05;color:#d4dfd1;margin:0}
+.yearbook-begin{margin-top:38px;padding:13px 17px;background:#f9ead9;color:#1b3426;border:1px solid #f3f0e8;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;font-weight:800;text-decoration:none}
+.yearbook-begin:hover{background:#fff}
+.yearbook-begin .dest-tag{background:#eed6bd;border-color:#b8653d;color:#813c21}
+.yearbook-cover-table{padding:26px 28px 31px;border-left:1px solid #a0a898;min-width:0}
+.yearbook-cover-table h4{font:800 12px/1.6 var(--sans);margin:0 0 19px;color:#405a46}
+.yearbook-cover-table ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.yearbook-cover-table li{border-bottom:1px solid var(--line);border-right:1px solid var(--line);min-width:0}
+.yearbook-cover-table li a{display:grid;grid-template-columns:23px minmax(0,1fr);gap:6px;padding:12px;text-decoration:none;height:100%;align-items:start}
+.yearbook-cover-table li a:hover{background:#eaf0e5}
+.yearbook-cover-table li small{font:750 12px/1.3 var(--mono);color:var(--level-scene)}
+.yearbook-cover-table li span{font-size:11px;font-weight:750;line-height:1.6}
+.yearbook-cover-table li b{grid-column:2;font:750 9px/1.3 var(--mono);color:var(--muted)}
+.yearbook-notes{position:relative;margin-top:50px}
+.yearbook-chapter{scroll-margin-top:100px;display:grid;grid-template-columns:105px minmax(0,1fr);min-height:365px;background:#fdfbf6;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:17px}
+.yearbook-chapter-ribbon{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:26px 6px;background:#c36f4b;color:#fffdf9;text-align:center}
+.yearbook-chapter-id{font:550 clamp(38px,4.2vw,59px)/1 var(--serif)}
+.yearbook-chapter-ribbon>div{display:grid;gap:6px;margin:22px 0;text-align:center}
+.yearbook-chapter-ribbon small{font:800 9px/1.6 var(--sans);color:#fff7e9}
+.yearbook-chapter-ribbon strong{font:650 21px/1.2 var(--serif)}
+.yearbook-chapter-ribbon>a{font-size:10px;color:#fff6e6;text-decoration:underline;text-underline-offset:4px;margin-top:auto}
+.yearbook-chapter-body{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(200px,.55fr)}
+.yearbook-chapter-main{padding:clamp(24px,3vw,43px)}
+.yearbook-chapter-main h3{margin:0;font:550 clamp(29px,3.5vw,44px)/1.4 var(--serif);letter-spacing:-.045em}
+.yearbook-chapter-main>p{max-width:65ch;margin:17px 0 0;font-size:15px;line-height:2;color:var(--ink-soft)}
+.yearbook-takeaway{display:grid;gap:9px;padding:18px 0;margin-top:23px;border-top:1px solid var(--line)}
+.yearbook-takeaway strong{font:800 11px/1.5 var(--sans);color:#a25132}
+.yearbook-takeaway span{font:500 16px/1.9 var(--serif)}
+.yearbook-chapter-continue{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-top:29px;padding-top:18px;border-top:2px solid #ad754f}
+.yearbook-chapter-continue a{text-decoration:none;font-size:12px;font-weight:800;color:var(--ink)}
+.yearbook-chapter-continue>span{font:750 10px/1.4 var(--mono);color:var(--muted)}
+.yearbook-chapter-syllabus{border-left:1px solid var(--line);background:#eeede5;padding:clamp(20px,2.2vw,31px)}
+.yearbook-chapter-syllabus>span{font:800 12px/1.5 var(--sans);color:#566f54}
+.yearbook-chapter-syllabus ol{list-style:none;padding:0;margin:17px 0}
+.yearbook-chapter-syllabus li{border-top:1px solid #c5c9bb;padding:11px 0;font-size:13px;font-weight:700;line-height:1.7}
+.yearbook-chapter-syllabus li::before{content:"・";color:var(--level-scene);margin-right:7px}
+.yearbook-chapter-syllabus>p{font-size:12px;line-height:1.8;color:var(--muted)}
+.chapter.shell{width:min(1180px,calc(100% - 48px));padding-top:31px}
+.chapter .chapter-header{display:grid;grid-template-columns:190px minmax(0,1fr);gap:0;background:#fbf9f2;border:1px solid var(--line);border-top:6px solid var(--level-scene);padding:0}
+.chapter .chapter-index{display:flex;flex-direction:column;justify-content:center;align-items:center;background:#dc8c61;padding:40px 15px}
+.chapter .chapter-index span{font:500 clamp(67px,8.4vw,118px)/1 var(--serif);color:#fff5e5}
+.chapter .chapter-index small{margin:16px 0 0;font:800 13px/1 var(--mono);letter-spacing:.13em;color:#452819}
+.chapter .chapter-title{padding:clamp(26px,4vw,54px)}
+.chapter .chapter-title h1{font-size:clamp(43px,5.7vw,73px);line-height:1.32;max-width:19ch}
+.chapter .chapter-deck{max-width:63ch;font-size:17px;line-height:1.95}
+.scene-learning-map{display:grid;grid-template-columns:.65fr 1.35fr;gap:28px;background:#f8f0e8;border-top:1px solid #c9b9a2;padding:24px 31px;margin-top:0}
+.scene-learning-map h2{font:500 clamp(20px,2.2vw,28px)/1.4 var(--serif);margin:12px 0}
+.scene-learning-map ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.scene-learning-map li{display:flex;align-items:center;gap:12px;background:#fffaf3;border-left:3px solid var(--level-scene);padding:15px;min-width:0}
+.scene-learning-map li span{font:800 10px/1.5 var(--mono);color:var(--level-scene)}
+.scene-learning-map li strong{font-size:13px;line-height:1.6}
+.chapter .chapter-reading{grid-template-columns:230px minmax(0,750px);gap:clamp(25px,4vw,62px);padding-top:37px;justify-content:center}
+.chapter .chapter-margin{position:sticky;border-top:4px solid var(--level-topic);background:#f0f1e9;padding:18px;top:117px}
+.chapter .chapter-margin p{font-size:12px;font-weight:800;color:var(--ink)}
+.chapter .chapter-margin a{display:flex;align-items:center;gap:10px;padding:12px 3px;font-size:12px}
+.chapter .chapter-prose{background:#fffcf6;border:1px solid var(--line);padding:clamp(23px,3vw,40px)}
+.chapter .chapter-prose>.lead-paragraph{font-size:clamp(17px,2.1vw,22px);line-height:2.1}
+.chapter .chapter-thesis{border:0;border-left:5px solid var(--level-scene);background:#f6ede5;padding:25px 30px}
+.chapter .article-section h2{font-size:clamp(25px,2.8vw,36px)}
+.chapter .prose-points>div{border-left:3px solid var(--level-scene);padding:10px 20px;background:#faf2e8}
+.chapter .prose-points h3{font-size:16px}
+.chapter .prose-points p,.chapter .prose-steps p{font-size:14px;line-height:1.95;color:#3d5046}
+.chapter .prose-steps{counter-reset:steps}
+.chapter .source-essay{background:#f2f7f6;padding:24px;border-left:4px solid var(--level-source)}
+.chapter .source-essay-head span{font-weight:800}
+.chapter .chapter-navigation{margin-top:40px;border-top:4px solid var(--level-scene)}
+.source-article.shell{width:min(1180px,calc(100% - 48px));padding-top:31px}
+.source-article-header{max-width:none!important;background:#f9fbfc;border-top:5px solid var(--level-source);border-bottom:1px solid var(--line);padding:clamp(25px,4vw,51px)}
+.source-article-header h1{max-width:23ch;line-height:1.28}
+.source-article-lead{font-size:clamp(16px,2vw,21px);max-width:65ch;line-height:2}
+.source-at-a-glance{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;background:#eaf3f6;border-top:1px solid #b6d0d7;padding:25px 28px;margin-top:0}
+.source-at-a-glance>div:first-child{display:grid;align-content:start;justify-items:start;gap:12px}
+.source-at-a-glance>div:first-child>strong{font:500 25px/1.45 var(--serif)}
+.source-at-a-glance>div:first-child>p{font-size:12px;line-height:1.85;margin:0;color:var(--ink-soft)}
+.source-at-a-glance dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0}
+.source-at-a-glance dl>div{display:grid;align-content:center;gap:7px;padding:11px;border-left:1px solid #a9c2cb}
+.source-at-a-glance dt{font:700 10px/1.4 var(--sans);color:#547280}
+.source-at-a-glance dd{margin:0;font-size:13px;line-height:1.6;overflow-wrap:anywhere;font-weight:700}
+.source-article .source-article-layout{grid-template-columns:200px minmax(0,760px);gap:32px;padding-top:32px}
+.source-article .source-meta-rail{padding:19px;background:#edf2f4;border-top:4px solid var(--level-source)}
+.source-article .source-article-body{border:1px solid var(--line);background:#fffefa;padding:clamp(23px,3vw,40px)}
+.source-article .source-key-points li{font-size:14px;line-height:1.9}
+.source-article .article-section h2{font-size:clamp(25px,2.8vw,37px)}
+.source-article .original-source{border:2px dashed var(--level-external);background:#f0f1ee;padding:26px;margin-top:25px}
+@media(max-width:900px){.yearbook-cover{grid-template-columns:1fr}.yearbook-cover-heading{padding:30px}.yearbook-cover-table{border-left:0}.yearbook-chapter-body{grid-template-columns:1fr}.yearbook-chapter-syllabus{border-left:0;border-top:1px solid var(--line)}.chapter .chapter-reading,.source-article .source-article-layout{grid-template-columns:1fr}.chapter .chapter-margin,.source-article .source-meta-rail{position:static}.chapter .chapter-margin nav{display:flex;flex-wrap:wrap;gap:10px}}
+@media(max-width:600px){.reading-yearbook{padding-block:40px 58px}.yearbook-cover-heading h3{font-size:clamp(35px,9vw,53px)}.yearbook-cover-table{padding:19px}.yearbook-cover-table ol{grid-template-columns:1fr}.yearbook-chapter{grid-template-columns:59px minmax(0,1fr)}.yearbook-chapter-id{font-size:34px}.yearbook-chapter-ribbon{padding:17px 2px}.yearbook-chapter-ribbon small{font-size:8px}.yearbook-chapter-ribbon strong{font-size:15px}.yearbook-chapter-ribbon>a{font-size:8px}.yearbook-chapter-main,.yearbook-chapter-syllabus{padding:17px}.yearbook-chapter-main h3{font-size:25px}.yearbook-chapter-main p{font-size:13px}.yearbook-chapter-main .typed-link{font-size:10px}.chapter.shell,.source-article.shell{width:min(100% - 24px,1180px)}.chapter .chapter-header{grid-template-columns:70px minmax(0,1fr)}.chapter .chapter-index{padding:25px 4px}.chapter .chapter-index span{font-size:45px}.chapter .chapter-index small{font-size:9px}.chapter .chapter-title{padding:20px 15px}.chapter .chapter-title h1{font-size:clamp(30px,8vw,42px)}.chapter .chapter-deck{font-size:14px}.scene-learning-map{grid-template-columns:1fr;padding:18px}.scene-learning-map ol{grid-template-columns:1fr}.chapter .chapter-prose,.source-article .source-article-body{padding:20px 16px}.source-at-a-glance{grid-template-columns:1fr;padding:17px}.source-at-a-glance dl{grid-template-columns:1fr}.source-at-a-glance dl>div{border-left:0;border-top:1px solid #a9c2cb}.source-article-header{padding:22px 16px}.source-article-header h1{font-size:clamp(29px,7.6vw,43px)}}
+@media(prefers-reduced-motion:reduce){.yearbook-cover-table a,.yearbook-chapter a{transition:none}}
