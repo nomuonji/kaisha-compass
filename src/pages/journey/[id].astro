@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { events,resourcesForEvent,sortResources,topicsForEvent,topicMeta,type CompanyEvent } from "../../lib/data";
 import { eventGuides } from "../../lib/eventGuides";
+import ChapterOrientation from "../../components/ChapterOrientation.astro";
 
 export function getStaticPaths(){
   return events.map(event=>({params:{id:event.id},props:{event}}));
@@ -41,6 +42,14 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
       </div>
     </header>
 
+    <ChapterOrientation events={events} currentId={event.id}/>
+    <nav class="chapter-in-page shell" aria-label="この場面の内容">
+      <strong>この章の内容</strong>
+      <a href="#chapter-points">重要ポイント ↓</a>
+      <a href="#chapter-steps">実務上の手順 ↓</a>
+      {sourceNotes.length>0&&<a href="#chapter-sources">資料要約 ↓</a>}
+      {otherSources.length>0&&<a href="#chapter-other-sources">関連資料 ↓</a>}
+    </nav>
     <div class="chapter-reading">
       <aside class="chapter-margin">
         <p>関連する専門領域</p>
@@ -59,7 +68,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
           </aside>
         }
 
-        <section class="article-section">
+        <section class="article-section" id="chapter-points">
           <p class="section-kind summary-kind"><span>01</span> 重要ポイント</p>
           <h2>この場面で確認する事項</h2>
           <div class="prose-points">
@@ -72,7 +81,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
           </div>
         </section>
 
-        <section class="article-section">
+        <section class="article-section" id="chapter-steps">
           <p class="section-kind procedure-kind"><span>02</span> 手順</p>
           <h2>実務上の進め方</h2>
           <ol class="prose-steps">
@@ -86,7 +95,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
         </section>
 
         {sourceNotes.length>0&&
-          <section class="article-section source-reading">
+          <section class="article-section source-reading" id="chapter-sources">
             <p class="section-kind source-kind"><span>03</span> 資料要約</p>
             <h2>参照資料の内容</h2>
             <p class="section-intro">参照先の内容を要約しています。実際の手続、期限、金額、例外要件を確定する場合は原典を確認してください。</p>
@@ -111,7 +120,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
         }
 
         {otherSources.length>0&&
-          <section class="article-section secondary-sources">
+          <section class="article-section secondary-sources" id="chapter-other-sources">
             <p class="section-kind related-kind"><span>04</span> 関連資料</p>
             <h2>追加で確認できる資料</h2>
             <div class="text-source-list">
