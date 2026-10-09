@@ -25,6 +25,7 @@ const {
 const pageTitle = title.includes("Kaisha Compass") ? title : title + " | Kaisha Compass";
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 const absoluteOg = Astro.site ? new URL(ogImage, Astro.site) : ogImage;
+const shouldTrack = import.meta.env.PROD && Astro.url.hostname === "kaisha-compass.antonbase.com";
 ---
 <!doctype html>
 <html lang="ja">
@@ -44,6 +45,17 @@ const absoluteOg = Astro.site ? new URL(ogImage, Astro.site) : ogImage;
   <meta name="twitter:card" content="summary_large_image" />
   <title>{pageTitle}</title>
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  {shouldTrack && (
+    <>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBZ6F1EPDR"></script>
+      <script is:inline define:vars={{ measurementId: "G-XBZ6F1EPDR" }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag("js", new Date());
+        gtag("config", measurementId);
+      </script>
+    </>
+  )}
 </head>
 <body class={"page-level-"+level}>
   <div class="top-rule" aria-hidden="true"></div>
