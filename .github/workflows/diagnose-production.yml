@@ -1,0 +1,40 @@
+name: Diagnose production 404
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/diagnose-production.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: DNS and real HTTP response
+        shell: bash
+        run: |
+          set +e
+          echo "UTC: $(date -u -Iseconds)"
+          echo "== DNS records =="
+          for name in kaisha-compass.antonbase.com antonbase.com; do
+            echo "---- $name ----"
+            dig "$name" A +short
+            dig "$name" AAAA +short
+            dig "$name" CNAME +short
+          done
+          for path in / /practice/ /practice/kk-or-gk/ /company-law/ /robots.txt; do
+            echo "========== $path =========="
+            curl -L -sS --connect-timeout 8 --max-time 17 \
+              -D /tmp/headers -o /tmp/body \
+              -w 'HTTP=%{http_code} URL=%{url_effective} IP=%{remote_ip} SIZE=%{size_download} REDIRECTS=%{num_redirects}\n' \
+              "https://kaisha-compass.antonbase.com$path"
+            echo "---- response headers ----"
+            sed -n '1,24p' /tmp/headers 2>/dev/null
+            echo "---- first 600 bytes of body ----"
+            head -c 600 /tmp/body 2>/dev/null
+            echo ""
+          done

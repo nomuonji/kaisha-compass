@@ -18,7 +18,7 @@
 3. **Cloudflare Astro adapterは事前生成ページを `dist/client/` に出力する。** `wrangler.jsonc` の `assets.directory` は必ず `./dist/client` を指す（`./dist` だとホーム・記事の `index.html` を配信できず404になる）。オンデマンドSSRのサーバー生成物は `dist/server/`。
 4. デプロイコマンドは `npx wrangler deploy` を基本とする。ルートの `wrangler.jsonc` にある `build.command` が `npm run build` と `node scripts/check-deploy-assets.mjs` を必ず実行するため、WranglerがAstroをビルドしてからアップロードする。
 5. Cloudflare側で `npm run build` も指定している場合は二重ビルドになる。動作には問題ないが、冗長なのでクラウド側のビルドコマンドを空にするか、こちらの事前ビルドを運用ルールに合わせて統一すること。同期設定を確認するまでは変更しない。
-6. Worker の Routes / Custom Domains に `kaisha-compass.antonbase.com` が正しく関連付けられていることも確認する。GitHubのcanonical URL設定はDNS/Cloudflare routeを自動作成しない。
+6. 404を防ぐため `wrangler.jsonc` の `routes: [{pattern:"kaisha-compass.antonbase.com",custom_domain:true}]` で既存の `kaisha-compass` Workerのカスタムドメイン割り当てを明示する。`wrangler deploy` によるデプロイ時にこの割り当てをCloudflareへ反映する。既存Workers.devを無効化しないため `workers_dev:true` も明記。権限不足や他Workerへのドメイン割り当て競合があるとデプロイエラーになるため、Cloudflareログと Domains & Routesで検証する。
 
 ## 404の切り分け
 
