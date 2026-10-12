@@ -249,6 +249,30 @@ Use a reading index grouped by legal subjects, not a database dashboard. Study a
 
 ---
 
+## 2026-10-12 — D009: Make business-operation practice a second, complementary topic-level study route
+
+**Status:** Accepted
+
+### Problem
+
+The first 15 scenes and exam-centered company-law articles are useful but not sufficient to answer a future founder's immediate questions: what to decide before incorporating, how to pay themselves, how to read cash flow, how to document ownership changes, and how law constrains daily decisions.
+
+### Decision
+
+Add `/practice/` and statically generated `/practice/[slug]/` pages as 25 practical scenario essays in four phases: before incorporation, first operations, growth and governance, and year-end/closing. Each explains the setting, the working sequence, documents/records, corresponding law, a common misconception, a self-check and official references.
+
+**The paths complement rather than replace** the company-year scene narrative and exam law articles. Use topic-level semantics (level 2), one model company, links to applicable scene (level 1) and legal topic/article (level 2), with primary sources as level 4 dashed outbound links. Never place the new collection ahead of the model-company story on the homepage.
+
+### Safeguards
+
+- Practice documents are illustrative unless their legal necessity is explicitly supported.
+- Distinguish commercial preferences, company-law validity, registration and tax treatment.
+- Require a concrete decision and genuine content before adding another page.
+- Keep Sites Operator SEO authority and My Portal CMS `/features/` separate.
+- Dates in the articles are edit timestamps, not full legal audit certifications.
+
+---
+
 ## Current UX contract
 
 When evaluating a future UI change, ask in this order:
