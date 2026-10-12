@@ -1,0 +1,32 @@
+name: Probe redesigned resources on production
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/resource-production-probe.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Check source digest live HTTP, explanations and CSS
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://kaisha-compass.antonbase.com"
+          for pair in "nta-new-corporation:ここで押さえる3つのポイント" "moj-incorporation:会社のどんなときに使う？" "houmukyoku-head-office-online:原典で確認したいこと"; do
+            slug="${pair%%:*}"
+            phrase="${pair#*:}"
+            url="$base/resources/$slug/"
+            status=$(curl -L -sS -o /tmp/resource-html -w '%{http_code}' --connect-timeout 8 --max-time 20 "$url")
+            echo "$status $url"
+            test "$status" = "200"
+            grep -Fq "$phrase" /tmp/resource-html
+            grep -Fq "4 原典" /tmp/resource-html
+            grep -Fq 'source-reader' /tmp/resource-html
+          done
+          echo "Published resource summaries responded with HTTP200 and new reader content."
