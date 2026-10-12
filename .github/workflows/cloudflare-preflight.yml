@@ -1,0 +1,48 @@
+name: Cloudflare deploy access preflight
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/cloudflare-preflight.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check non-secret deployment prerequisites
+        shell: bash
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_API_TOKEN_ALT: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -uo pipefail
+          if [ -n "$CF_ACCOUNT_ID" ]; then
+            echo "GitHub CLOUDFLARE_ACCOUNT_ID: PRESENT"
+          else
+            echo "GitHub CLOUDFLARE_ACCOUNT_ID: MISSING"
+          fi
+          if [ -n "$CF_API_TOKEN" ]; then
+            echo "GitHub CLOUDFLARE_API_TOKEN: PRESENT"
+          else
+            echo "GitHub CLOUDFLARE_API_TOKEN: MISSING"
+          fi
+          if [ -n "$CF_API_TOKEN_ALT" ]; then
+            echo "GitHub CF_API_TOKEN: PRESENT"
+          else
+            echo "GitHub CF_API_TOKEN: MISSING"
+          fi
+          TOKEN="$CF_API_TOKEN"
+          if [ -z "$TOKEN" ]; then TOKEN="$CF_API_TOKEN_ALT"; fi
+          if [ -n "$CF_ACCOUNT_ID" ] && [ -n "$TOKEN" ]; then
+            status=$(curl -sS -o /dev/null -w '%{http_code}' -X GET \
+              "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/workers/scripts/kaisha-compass" \
+              -H "Authorization: Bearer $TOKEN" --max-time 20)
+            echo "Cloudflare existing Worker read HTTP: $status"
+          else
+            echo "No GitHub Actions credentials to deploy or inspect Cloudflare Worker"
+          fi
