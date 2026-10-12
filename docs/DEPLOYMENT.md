@@ -15,14 +15,15 @@
 
 1. Cloudflare ダッシュボードの **Workers & Pages → kaisha-compass → Settings → Builds** で GitHub `nomuonji/kaisha-compass` が接続されていることを確認。
 2. Production branch は `main`。Root directory はリポジトリ直下。
-3. デプロイコマンドは `npx wrangler deploy` を基本とする。ルートの `wrangler.jsonc` にある `build.command` が `npm run build` と `node scripts/check-deploy-assets.mjs` を必ず実行するため、WranglerがAstroをビルドしてからアップロードする。
-4. Cloudflare側で `npm run build` も指定している場合は二重ビルドになる。動作には問題ないが、冗長なのでクラウド側のビルドコマンドを空にするか、こちらの事前ビルドを運用ルールに合わせて統一すること。同期設定を確認するまでは変更しない。
-5. Worker の Routes / Custom Domains に `kaisha-compass.antonbase.com` が正しく関連付けられていることも確認する。GitHubのcanonical URL設定はDNS/Cloudflare routeを自動作成しない。
+3. **Cloudflare Astro adapterは事前生成ページを `dist/client/` に出力する。** `wrangler.jsonc` の `assets.directory` は必ず `./dist/client` を指す（`./dist` だとホーム・記事の `index.html` を配信できず404になる）。オンデマンドSSRのサーバー生成物は `dist/server/`。
+4. デプロイコマンドは `npx wrangler deploy` を基本とする。ルートの `wrangler.jsonc` にある `build.command` が `npm run build` と `node scripts/check-deploy-assets.mjs` を必ず実行するため、WranglerがAstroをビルドしてからアップロードする。
+5. Cloudflare側で `npm run build` も指定している場合は二重ビルドになる。動作には問題ないが、冗長なのでクラウド側のビルドコマンドを空にするか、こちらの事前ビルドを運用ルールに合わせて統一すること。同期設定を確認するまでは変更しない。
+6. Worker の Routes / Custom Domains に `kaisha-compass.antonbase.com` が正しく関連付けられていることも確認する。GitHubのcanonical URL設定はDNS/Cloudflare routeを自動作成しない。
 
 ## 404の切り分け
 
 1. GitHub Actions の `Validate Astro` でUX・Astro build・deploy assetsの3段階が全て成功しているか。
-2. `dist/practice/index.html`・`dist/company-law/index.html` と個別ページの生成が成功しているか。
+2. `dist/client/practice/index.html`・`dist/client/company-law/index.html` と個別ページの生成が成功しているか。
 3. Cloudflare Workers Buildsの production build が **最新 main commit** を対象に成功したか。古いコミットの成功を新しい教材の反映証明にしない。
 4. Cloudflare Workerの最新本番デプロイが同じコミットか。失敗時はbuild logとdeploy logを確認する。
 5. Workerの workers.dev URLとカスタムドメインの両方を比較する。前者だけ表示できるならドメイン/ルート設定、両者で旧ページや404なら未反映・ビルド・アセット配信を疑う。
