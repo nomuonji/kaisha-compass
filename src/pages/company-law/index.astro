@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import {companyLawLessons,lawStudyGroups,lawStudyUpdatedAt,lawLessonPath} from "../../lib/companyLawLessons";
+import "../../styles/company-law.css";
+const first=companyLawLessons.slice(0,3);
+const schema={"@context":"https://schema.org","@type":"CollectionPage",name:"会社法・商業登記の学習記事",description:"司法書士試験の会社法・商業登記法を、条文・事例・確認問題とともに体系的に学ぶ。",inLanguage:"ja"};
+---
+<BaseLayout title="会社法・商業登記の学習記事" description="会社法と商業登記を、機関設計・株主総会・株式・役員・登記の論点別に学ぶ司法書士試験向け読み物。条文・具体例・誤答しやすい点・確認問題つき。" schema={schema} level="topic" levelDetail="会社法・商業登記の教材">
+  <Breadcrumbs items={[{label:"概要",href:"/"},{label:"会社法・商業登記"}]}/>
+  <div class="law-shell">
+    <section class="law-cover" aria-labelledby="law-title">
+      <div class="law-cover-main">
+        <p class="law-kicker"><span class="dest-tag topic">2 領域</span> COMPANY LAW / STUDY LIBRARY</p>
+        <h1 id="law-title">会社法を、<br/>登記までつなげて学ぶ。</h1>
+        <p class="law-lede">条文を一つずつ暗記していると、会社の機関や株式の制度がばらばらに見えてきます。ここでは「誰が決めるか」「何が効力を生むか」「何を登記するか」を手がかりに、制度同士をつなぎ直します。</p>
+        <a class="law-cover-start" href="#lessons">学習記事を選ぶ <span aria-hidden="true">↓</span></a>
+      </div>
+      <aside class="law-cover-aside">
+        <p class="law-aside-head">この教材の読み方</p>
+        <ol>
+          <li><strong>条文</strong><span>まず根拠と制度の輪郭を押さえる</span></li>
+          <li><strong>事例</strong><span>何が起きる場面かを想像する</span></li>
+          <li><strong>確認問題</strong><span>よくある誤答を見破る</span></li>
+          <li><strong>原典</strong><span>必要なときに現行法令へ戻る</span></li>
+        </ol>
+        <p class="law-date">記事編集日：{lawStudyUpdatedAt}　※法改正・判例・最新の登記先例等は原典で再確認してください。</p>
+      </aside>
+    </section>
+    <section class="law-intro-rail" aria-label="学習経路の選択">
+      <div><span class="law-rail-number">A</span><strong>会社の一年から</strong><p>「設立した」「役員が変わった」という出来事から制度を学ぶ。</p><a href="/#journey"><span class="dest-tag scene">1 場面</span>会社の一年を読む →</a></div>
+      <div><span class="law-rail-number">B</span><strong>試験の論点から</strong><p>機関・株主総会・株式・登記を横断して弱点を整理する。</p><a href="#lessons"><span class="dest-tag topic">2 領域</span>記事一覧へ進む ↓</a></div>
+    </section>
+    <section class="law-study-index" id="lessons" aria-labelledby="law-index-title">
+      <div class="law-section-heading">
+        <p>会社法・商業登記法 / 論点別</p>
+        <h2 id="law-index-title">学習記事一覧</h2>
+        <span>基礎から登記実務まで、全{companyLawLessons.length}本。</span>
+      </div>
+      <div class="law-index-layout">
+        <nav class="law-index-toc" aria-label="論点一覧">
+          <strong>論点から移動</strong>
+          {lawStudyGroups.map((group,index)=><a href={`#law-group-${index+1}`}><span>{String(index+1).padStart(2,"0")}</span>{group}</a>)}
+        </nav>
+        <div class="law-index-sections">
+          {lawStudyGroups.map((group,index)=>{
+            const items=companyLawLessons.filter(item=>item.group===group);
+            return <section class="law-index-group" id={`law-group-${index+1}`} aria-label={group}>
+              <div class="law-group-title"><span>{String(index+1).padStart(2,"0")}</span><h3>{group}</h3><small>{items.length}本</small></div>
+              <div class="law-lesson-list">{items.map(item=><a href={lawLessonPath(item.slug)} class="law-lesson-link">
+                <span class="law-lesson-main"><strong>{item.title}</strong><small>{item.lead}</small></span>
+                <span class="law-lesson-end"><small>{item.refs}</small><b aria-hidden="true">↗</b></span>
+              </a>)}</div>
+            </section>;
+          })}
+        </div>
+      </div>
+    </section>
+    <section class="law-index-after"><div><p class="law-kicker">一次情報を必ず確認する</p><h2>条文から登記までの距離を縮める。</h2><p>教材は受験学習用の整理です。個別の申請では、商業登記法・商業登記規則・法務局の最新様式・通達等を確認してください。</p></div><div><a href="https://laws.e-gov.go.jp/law/417AC0000000086" target="_blank" rel="noopener noreferrer" class="law-official-link"><span class="dest-tag external">4 原典</span>e-Govで会社法を確認 ↗</a><a href="https://houmukyoku.moj.go.jp/homu/COMMERCE_11-1.html" target="_blank" rel="noopener noreferrer" class="law-official-link"><span class="dest-tag external">4 原典</span>法務局の申請書様式 ↗</a></div></section>
+  </div>
+</BaseLayout>

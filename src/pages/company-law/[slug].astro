@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import {companyLawLessons,lawLessonPath,lawStudyUpdatedAt,type CompanyLawLesson} from "../../lib/companyLawLessons";
+import "../../styles/company-law.css";
+export function getStaticPaths(){return companyLawLessons.map(lesson=>({params:{slug:lesson.slug},props:{lesson}}));}
+const {lesson}=Astro.props as {lesson:CompanyLawLesson};
+const index=companyLawLessons.findIndex(item=>item.slug===lesson.slug);
+const before=index>0?companyLawLessons[index-1]:undefined;
+const after=index<companyLawLessons.length-1?companyLawLessons[index+1]:undefined;
+const schema={"@context":"https://schema.org","@type":"LearningResource",name:lesson.title,description:lesson.lead,educationalLevel:"司法書士試験学習",inLanguage:"ja",dateModified:lawStudyUpdatedAt,about:{ "@type":"Thing",name:"日本の会社法・商業登記法"}};
+---
+<BaseLayout title={lesson.title} description={lesson.lead+" 根拠条文、具体例、ひっかけ論点、確認問題を掲載。"} schema={schema} level="topic" levelDetail={lesson.group}>
+  <Breadcrumbs items={[{label:"概要",href:"/"},{label:"会社法・商業登記",href:"/company-law/"},{label:lesson.group}]}/>
+  <div class="law-shell">
+    <div class="law-reading-head">
+      <a class="law-back-link" href="/company-law/">← 会社法・商業登記の教材一覧</a>
+      <p class="law-kicker"><span class="dest-tag topic">2 領域</span> {lesson.group} / 受験学習記事</p>
+      <h1>{lesson.title}</h1>
+      <p class="law-article-lede">{lesson.lead}</p>
+      <div class="law-article-meta"><span>根拠：{lesson.refs}</span><span>編集日：{lawStudyUpdatedAt}</span></div>
+    </div>
+    <div class="law-reading-grid">
+      <aside class="law-article-side" aria-label="記事内目次">
+        <strong>この記事で確認すること</strong>
+        <nav>{lesson.sections.map(([heading],i)=><a href={`#point-${i+1}`}><span>{String(i+1).padStart(2,"0")}</span>{heading}</a>)}<a href="#exam-check"><span>Q</span>確認問題</a><a href="#primary-sources"><span>↗</span>一次資料</a></nav>
+        <a href="/company-law/" class="law-sidebar-all">すべての記事に戻る ←</a>
+      </aside>
+      <article class="law-article">
+        <div class="law-article-opening"><strong>学習の入口</strong><p>{lesson.lead}</p><p>以下は受験学習のための整理です。個別の法的判断・登記申請には現行法令と最新の登記実務資料を確認してください。</p></div>
+        {lesson.sections.map(([heading,body],i)=><section class="law-prose-section" id={`point-${i+1}`}>
+          <div class="law-point-heading"><span>{String(i+1).padStart(2,"0")}</span><h2>{heading}</h2></div>
+          <p>{body}</p>
+        </section>)}
+        <section class="law-example" aria-labelledby="law-example-title"><p class="law-note-label">事例で考える</p><h2 id="law-example-title">この場面では、どう判断するか</h2><p>{lesson.case}</p></section>
+        <section class="law-trap"><p class="law-note-label">誤答しやすい点</p><p>{lesson.pitfall}</p></section>
+        <section class="law-quiz" id="exam-check"><p class="law-note-label">知識を確認する</p><h2>確認問題</h2><p class="law-quiz-question">{lesson.quiz}</p><details><summary>答えと解説を開く</summary><p>{lesson.answer}</p></details></section>
+        <section class="law-sources" id="primary-sources"><p class="law-note-label">根拠を確かめる</p><h2>参照する一次資料</h2><p>条文の改正履歴と施行時点を確認し、現行の規定を参照してください。</p><div>{lesson.sources.map(([name,url])=><a href={url} target="_blank" rel="noopener noreferrer" class="law-official-link"><span class="dest-tag external">4 原典</span>{name}<span aria-hidden="true">↗</span></a>)}</div></section>
+      </article>
+    </div>
+    <nav class="law-reading-next" aria-label="前後の学習記事">
+      {before?<a href={lawLessonPath(before.slug)}><small>← 前の記事</small><strong>{before.title}</strong></a>:<a href="/company-law/"><small>← 一覧へ</small><strong>学習記事一覧</strong></a>}
+      {after?<a href={lawLessonPath(after.slug)}><small>次の記事 →</small><strong>{after.title}</strong></a>:<a href="/company-law/"><small>一覧へ →</small><strong>ほかの論点を見る</strong></a>}
+    </nav>
+  </div>
+</BaseLayout>
