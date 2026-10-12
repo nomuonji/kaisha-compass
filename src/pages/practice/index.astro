@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import {practicalGuides,practicePhases,practicalGuideHref,practiceLastEdited} from "../../lib/practicalGuides";
+import "../../styles/practice.css";
+const schema={"@context":"https://schema.org","@type":"CollectionPage",name:"会社を作って運営する実務ケース",description:"一つの仮想会社の創業と経営を題材に、会社法・商業登記・税務・契約を実務から学ぶ連続教材",inLanguage:"ja"};
+---
+<BaseLayout title="会社を作って運営する実務ケース" description="会社設立前の資本設計、定款、契約、役員報酬、採用、資金繰り、増資、定時株主総会まで、25の実例を通じて会社法を学ぶ。" schema={schema} level="topic" levelDetail="会社運営の実務">
+  <Breadcrumbs items={[{label:"概要",href:"/"},{label:"会社運営の実務"}]}/>
+  <div class="practice-shell">
+    <header class="practice-cover">
+      <div class="practice-cover-copy">
+        <p class="practice-eyebrow"><span class="dest-tag topic">2 領域</span> 会社運営の実務 / ケース教材</p>
+        <h1>会社を作る。<br/>会社を続ける。</h1>
+        <p class="practice-cover-lede">会社を作りたい人に必要なのは、手続の名前だけではありません。誰と出資するか、契約を誰が結ぶか、報酬をどう決めるか、資金が足りないときどうするか。現実の経営判断から会社法へ進みます。</p>
+        <div class="practice-cover-links"><a class="practice-primary" href="#course">最初のケースから学ぶ <span aria-hidden="true">↓</span></a><a class="practice-secondary" href="/company-law/"><span class="dest-tag topic">2 領域</span>条文・試験対策から調べる →</a></div>
+      </div>
+      <aside class="practice-cover-note"><div class="practice-note-head">教材の主人公</div><strong>株式会社<br/>コンパスワークス</strong><p>代表者1人から始まるWeb制作・小規模SaaSの仮想会社。設立後に出会う経営判断を順に考えます。</p><dl><div><dt>事業</dt><dd>Web制作・SaaS</dd></div><div><dt>設立時資本金</dt><dd>300万円</dd></div><div><dt>決算期</dt><dd>3月</dd></div></dl><small>状況は学習用の架空の事例です。実際の手続は会社の条件と最新資料を確認してください。</small></aside>
+    </header>
+    <section class="practice-reading-guide" aria-label="学習方法">
+      <div><b>01</b><strong>困った場面から入る</strong><span>会社に何が起きたのか</span></div>
+      <div><b>02</b><strong>実際の手順を考える</strong><span>決定・書類・お金の流れ</span></div>
+      <div><b>03</b><strong>会社法で裏付ける</strong><span>決議と代表権・登記</span></div>
+      <div><b>04</b><strong>自分で判断してみる</strong><span>確認問題と原典</span></div>
+    </section>
+    <section id="course" class="practice-course" aria-labelledby="practice-course-title">
+      <header class="practice-section-head"><p class="practice-eyebrow">ケースで学ぶ会社運営</p><h2 id="practice-course-title">経営の順に読む</h2><p>最初から順番に読むことも、いま知りたい場面から始めることもできます。各記事には必要書類、根拠条文、確認問題があります。</p></header>
+      {practicePhases.map((phase,idx)=>{
+        const items=practicalGuides.filter(guide=>guide.phase===phase.name);
+        return <section class="practice-phase" aria-labelledby={`practice-phase-${phase.id}`}>
+          <header class="practice-phase-header"><span class="practice-phase-count">{String(idx+1).padStart(2,"0")}</span><div><span>PHASE {idx+1}</span><h3 id={`practice-phase-${phase.id}`}>{phase.label}</h3><p>{phase.description}</p></div><small>{items.length}記事</small></header>
+          <div class="practice-lesson-list">{items.map((item,i)=><a href={practicalGuideHref(item.slug)} class="practice-case-link">
+            <span class="practice-case-n">{String(i+1).padStart(2,"0")}</span>
+            <span class="practice-case-main"><strong>{item.title}</strong><small>{item.lead}</small></span>
+            <span class="practice-case-arrow" aria-hidden="true">↗</span>
+          </a>)}</div>
+        </section>;
+      })}
+    </section>
+    <section class="practice-end-note"><div><h2>読むだけで終わらせない</h2><p>会社運営のケースでは「どんな書類が残るか」まで確認できます。会社法の規定を正確に勉強したいときは、試験対策ライブラリと法令原典を行き来してください。</p><small>編集日：{practiceLastEdited}。掲載日は法改正についての全面的な校閲完了日ではありません。</small></div><nav aria-label="他の教材"><a href="/#journey"><span class="dest-tag scene">1 場面</span>会社の一年を読む →</a><a href="/company-law/"><span class="dest-tag topic">2 領域</span>会社法・商業登記の教材 →</a><a href="/resources/"><span class="dest-tag source">3 資料要約</span>公式資料一覧 →</a></nav></section>
+  </div>
+</BaseLayout>

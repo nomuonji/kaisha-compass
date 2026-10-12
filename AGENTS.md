@@ -151,6 +151,15 @@ Before considering a UX change complete, run the UX contract check and Astro bui
 - The edit date is not a certificate of complete legal review. Verify currently effective provisions before claiming recent changes or legal/registration exceptions.
 - The study library is GitHub-owned and independent from the Public CMS `/features/`.
 
+## Additive company operation practice course
+
+- `/practice/` and `/practice/[slug]/` are a level-2 practical learning course with 25 curated business cases about founding and running a company.
+- Canonical guide content is `src/lib/practicalGuidesA.ts`, `src/lib/practicalGuidesB.ts` with curriculum/scene mappings in `src/lib/practicalGuides.ts`. Preserve real case content, not just a card index.
+- The model company is still the narrative spine; the 15 existing scene chapters remain first on the homepage. Connect each practical case to the company-year scene and relevant `/company-law/` lesson when possible.
+- Require problem scenario, substantive ordered practical explanation, example document evidence, statutory boundary, likely misconception, interactive self-check, and official sources.
+- Be explicit whether a document is an example, good practice, or legally mandatory; never assume identical filing requirements for all corporate types.
+- Use existing topic-level navigation and external-source link semantics. New course does not create a new hierarchy level and is GitHub-owned, not My Portal's `/features/` CMS.
+
 ## Additive Public CMS boundary
 
 - `/features/` is a separate My Portal CMS source (`siteId: kaisha-compass`) for supplemental articles only.

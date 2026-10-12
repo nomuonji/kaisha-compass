@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/company-law.css";
+import "../styles/practice.css";
 import CompassHero from "../components/CompassHero.astro";
 import CompanyCase from "../components/CompanyCase.astro";
 import ReadingJourney from "../components/ReadingJourney.astro";
@@ -16,6 +17,20 @@ const schema={"@context":"https://schema.org","@type":"WebSite",name:"Kaisha Com
   <CompassHero/>
   <CompanyCase/>
   <ReadingJourney/>
+  <section class="shell practice-home-teaser" aria-labelledby="practice-home-title">
+    <div>
+      <p class="section-type-label topic-type">レベル2 / 実務を通じた専門学習</p>
+      <h2 id="practice-home-title">会社を作る前から、<br/>経営者の判断を練習する。</h2>
+      <p>共同創業、資本金、役員報酬、初めての契約、取引先との紛争、増資、決算。コンパスワークスの25のケースから、何を決め、どの書類を残すかを学べます。</p>
+      <a href="/practice/"><span class="dest-tag topic">2 領域</span>会社運営の実務ケースを読む →</a>
+    </div>
+    <aside aria-label="実務ケースのテーマ">
+      <span>01　設立前の意思決定</span>
+      <span>02　会社のお金と契約</span>
+      <span>03　株主・取締役と資金調達</span>
+      <span>04　決算・定時総会と事業変更</span>
+    </aside>
+  </section>
   <section class="shell law-home-feature" aria-labelledby="home-law-title">
     <div>
       <p class="section-type-label topic-type">レベル2 / 専門領域内の学習記事</p>

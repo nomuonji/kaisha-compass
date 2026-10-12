@@ -4,6 +4,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { events,resourcesForEvent,sortResources,topicsForEvent,topicMeta,type CompanyEvent } from "../../lib/data";
 import { eventGuides } from "../../lib/eventGuides";
 import ChapterOrientation from "../../components/ChapterOrientation.astro";
+import {practicalGuides,practiceSceneBySlug,practicalGuideHref} from "../../lib/practicalGuides";
 
 export function getStaticPaths(){
   return events.map(event=>({params:{id:event.id},props:{event}}));
@@ -13,6 +14,7 @@ const { event }=Astro.props as { event:CompanyEvent };
 const guide=eventGuides[event.id];
 const linked=sortResources(resourcesForEvent(event.id));
 const topics=topicsForEvent(event.id);
+const relatedPractice=practicalGuides.filter(item=>practiceSceneBySlug[item.slug]===event.id).slice(0,4);
 const currentIndex=events.findIndex(item=>item.id===event.id);
 const previous=currentIndex>0?events[currentIndex-1]:undefined;
 const next=currentIndex<events.length-1?events[currentIndex+1]:undefined;
@@ -97,6 +99,20 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:ev
             )}
           </ol>
         </section>
+
+        {relatedPractice.length>0&&
+          <section class="article-section" aria-labelledby="related-practice-title">
+            <p class="section-kind related-kind"><span>+</span> 実務ケース</p>
+            <h2 id="related-practice-title">自分の会社で起きたらどうするか</h2>
+            <p class="section-intro">この場面を、自分が会社の経営者として判断するための具体的な教材です。</p>
+            <div class="text-source-list">
+              {relatedPractice.map(item=><div class="text-source-row">
+                <div><strong>{item.title}</strong><p>{item.lead}</p></div>
+                <a class="typed-link" href={practicalGuideHref(item.slug)}><span class="dest-tag topic">2 領域</span>ケースを読む →</a>
+              </div>)}
+            </div>
+          </section>
+        }
 
         {sourceNotes.length>0&&
           <section class="article-section source-reading" id="chapter-sources">
