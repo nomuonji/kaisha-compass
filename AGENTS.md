@@ -142,6 +142,15 @@ Do not introduce decorative colors with conflicting semantic meaning.
 
 Before considering a UX change complete, run the UX contract check and Astro build.
 
+## Additive company-law study library
+
+- `/company-law/` and `/company-law/[slug]/` are level-2 topic learning routes for judicial-scrivener candidates.
+- The canonical edited lesson data is `src/lib/companyLawLessons.ts`. The original 15-scene company year remains the primary narrative path.
+- Use shared destination vocabulary and dashed level-4 links for original law sources; do not introduce a new hierarchy level.
+- Every lesson includes statutory references, substantive prose, a worked example, a common trap, a self-check question and official source links.
+- The edit date is not a certificate of complete legal review. Verify currently effective provisions before claiming recent changes or legal/registration exceptions.
+- The study library is GitHub-owned and independent from the Public CMS `/features/`.
+
 ## Additive Public CMS boundary
 
 - `/features/` is a separate My Portal CMS source (`siteId: kaisha-compass`) for supplemental articles only.
