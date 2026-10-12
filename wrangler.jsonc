@@ -14,5 +14,12 @@
   },
   "build": {
     "command": "npm run build && node scripts/check-deploy-assets.mjs"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "kaisha-compass.antonbase.com",
+      "custom_domain": true
+    }
+  ],
+  "workers_dev": true
 }
