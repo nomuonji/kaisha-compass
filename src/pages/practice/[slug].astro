@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import {practicalGuides,practicalGuideHref,practiceSceneBySlug,practiceLastEdited,type PracticalGuide} from "../../lib/practicalGuides";
+import "../../styles/practice.css";
+export function getStaticPaths(){return practicalGuides.map(guide=>({params:{slug:guide.slug},props:{guide}}));}
+const {guide}=Astro.props as {guide:PracticalGuide};
+const index=practicalGuides.findIndex(item=>item.slug===guide.slug);
+const prev=practicalGuides[index-1],next=practicalGuides[index+1];
+const sceneId=practiceSceneBySlug[guide.slug];
+const schema={"@context":"https://schema.org","@type":"LearningResource",name:guide.title,description:guide.lead,inLanguage:"ja",learningResourceType:"ケース教材",dateModified:practiceLastEdited};
+---
+<BaseLayout title={guide.title} description={guide.lead} schema={schema} level="topic" levelDetail={guide.phase}>
+  <Breadcrumbs items={[{label:"概要",href:"/"},{label:"会社運営の実務",href:"/practice/"},{label:guide.phase}]}/>
+  <div class="practice-shell">
+    <header class="practice-article-head">
+      <a href="/practice/" class="practice-back">← 会社運営の実務一覧</a>
+      <p class="practice-eyebrow"><span class="dest-tag topic">2 領域</span> 実務ケース / {guide.phase}</p>
+      <h1>{guide.title}</h1>
+      <p class="practice-article-lede">{guide.lead}</p>
+      <span class="practice-edit-date">編集日 {practiceLastEdited} / ケース教材</span>
+    </header>
+    <div class="practice-article-layout">
+      <aside class="practice-article-nav"><strong>この記事の順番</strong><nav>
+        <a href="#situation">会社に起きたこと</a>
+        {guide.steps.map(([name],i)=><a href={`#step-${i+1}`}>{String(i+1).padStart(2,"0")} {name}</a>)}
+        <a href="#practice-documents">残す書類</a><a href="#practice-legal">法律の見方</a><a href="#practice-question">理解度チェック</a><a href="#practice-sources">一次資料</a>
+      </nav><a href="/practice/">実務ケース一覧へ ←</a></aside>
+      <article class="practice-article-body">
+        <section class="practice-situation" id="situation"><span>会社に起きたこと</span><h2>こんなとき、どうする？</h2><p>{guide.situation}</p></section>
+        <section class="practice-action" aria-label="実務上の進め方"><p class="practice-chapter-label">実務上の進め方</p>
+          {guide.steps.map(([title,body],i)=><section id={`step-${i+1}`} class="practice-step"><header><span>{String(i+1).padStart(2,"0")}</span><h2>{title}</h2></header><p>{body}</p></section>)}
+        </section>
+        <section id="practice-documents" class="practice-documents"><p class="practice-chapter-label">そのとき残す書類・記録</p><h2>決めたことを後から説明できるようにする</h2><ul>{guide.artifacts.map(item=><li><span aria-hidden="true">□</span>{item}</li>)}</ul><small>これらは学習上の検討項目です。すべての事例に同じ書類が法定で必要という意味ではありません。添付要件は最新の公式様式と事案に応じて確認してください。</small></section>
+        <section id="practice-legal" class="practice-legal"><p class="practice-chapter-label">会社法とのつながり</p><h2>誰が、何を決めるのか</h2><p>{guide.statute}</p><div class="practice-misread"><strong>間違えやすい考え方</strong><p>{guide.trap}</p></div>{guide.relatedLaw&&<a class="practice-law-link" href={`/company-law/${guide.relatedLaw}/`}><span class="dest-tag topic">2 領域</span>関連する会社法の受験教材を読む →</a>}</section>
+        <section id="practice-question" class="practice-quiz"><p class="practice-chapter-label">自分で判断する</p><h2>確認問題</h2><p class="practice-question">{guide.quiz}</p><details><summary>答えを確かめる <span>＋</span></summary><p>{guide.answer}</p></details></section>
+        <section id="practice-sources" class="practice-sources"><p class="practice-chapter-label">外部原典</p><h2>根拠を確認する</h2><p>制度改正、適用時期、例外、会社の機関構成による違いは原典で確認してください。</p><div>{guide.links.map(([label,url])=><a href={url} target="_blank" rel="noopener noreferrer"><span class="dest-tag external">4 原典</span>{label} <span aria-hidden="true">↗</span></a>)}</div></section>
+        {sceneId&&<section class="practice-related-scene"><p class="practice-chapter-label">会社の一年とつなぐ</p><a href={`/journey/${sceneId}/`}><span class="dest-tag scene">1 場面</span>この出来事に関連する会社の一年の章へ →</a></section>}
+      </article>
+    </div>
+    <nav class="practice-prev-next" aria-label="前後の実務ケース">
+      {prev?<a href={practicalGuideHref(prev.slug)}><small>← 前のケース</small><strong>{prev.title}</strong></a>:<a href="/practice/"><small>← 一覧へ</small><strong>実務ケース一覧</strong></a>}
+      {next?<a href={practicalGuideHref(next.slug)}><small>次のケース →</small><strong>{next.title}</strong></a>:<a href="/practice/"><small>一覧へ →</small><strong>実務ケース一覧</strong></a>}
+    </nav>
+    <p class="practice-disclaimer">このサイトの事例は学習用のモデルです。現実の登記・法律・税務判断にそのまま使用せず、適用時点の法令、公式資料と専門家の助言を確認してください。</p>
+  </div>
+</BaseLayout>
