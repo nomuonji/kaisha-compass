@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run build:astro && node scripts/prepare-pages-output.mjs",
     "preview": "astro preview",
-    "check:ux": "node scripts/check-ux-contract.mjs"
+    "check:ux": "node scripts/check-ux-contract.mjs",
+    "build:astro": "astro build"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.3",
