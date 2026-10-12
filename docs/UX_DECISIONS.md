@@ -284,3 +284,32 @@ When evaluating a future UI change, ask in this order:
 5. Are indexes/search presented as tools after context, rather than the primary mental model?
 
 If any answer becomes "no", treat the change as a UX regression unless a new recorded decision explicitly supersedes this contract.
+
+---
+
+## 2026-10-12 — D010: Make source digests practical reading pages, not stacked metadata panels
+
+**Status:** Accepted
+
+### Problem
+
+The resource detail page duplicated its summary and reference metadata, placed tiny text in several colored/boxed panels, and repeatedly described its own hierarchy without answering which part of the source helps a real company. Topic cards and extra related sources crowded the main reading flow. The fallback digest template was presented in almost the same way as a source-specific editorial summary.
+
+### Decision
+
+Keep the fixed `3 資料要約 → 4 原典` model, but make each resource detail readable in the following order:
+
+1. **この資料で分かること** — a prominent, concise answer and visible provider.
+2. **確認ポイント** — three readable explanations; distinguish curated source-specific summaries from generic questions to check in the original.
+3. **会社のどんなときに使う？** — concrete editorial `resource.why` followed by scene links and compact topic links.
+4. **原典** — a visually dashed, clearly external link for current legal requirements and original forms.
+5. **関連資料** — only a short optional further-reading list.
+
+Show each data point only once. Reading text and tap targets must work on desktop and mobile; avoid 7–10px metadata as primary information. Keep primary chapter/scene context, source authority, and the original source link unambiguous.
+
+### Do not regress to
+
+- repeated lead / summary text and separate duplicate metadata rails;
+- equal visual priority for metadata, topic cards, reading points, and outbound links;
+- presenting generic fallback bullets as if they were manually researched specific content;
+- removing the visible provider, source type, external-link treatment, or last-checked context.
