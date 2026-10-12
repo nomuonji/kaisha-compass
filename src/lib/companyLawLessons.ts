@@ -1,10 +1,12 @@
+import { llcLessons } from "./llcLessons";
+
 export interface CompanyLawLesson {
  slug:string; group:string; title:string; lead:string; refs:string;
  sections:[string,string][]; case:string; pitfall:string; quiz:string; answer:string;
  sources:[string,string][];
 }
 export const lawStudyUpdatedAt="2026-10-12";
-export const lawStudyGroups=["設立・定款","会社の分類","機関設計","株主総会","役員","株式","商業登記","資本・計算"];
+export const lawStudyGroups=["設立・定款","会社の分類","合同会社","機関設計","株主総会","役員","株式","商業登記","資本・計算"];
 export const companyLawLessons:CompanyLawLesson[]=[
   {
     "slug": "articles-of-incorporation",
@@ -462,9 +464,9 @@ export const companyLawLessons:CompanyLawLesson[]=[
   },
   {
     "slug": "llc-company",
-    "group": "会社の分類",
-    "title": "株式会社と合同会社──社員・出資・代表の違い",
-    "lead": "合同会社の『社員』は従業員ではなく、持分会社の出資者。",
+    "group": "合同会社",
+    "title": "合同会社とは何か──株式会社との違いと基本構造",
+    "lead": "合同会社は全員有限責任の持分会社。株式がないこと、社員と業務執行社員・代表社員が分かれることから理解する。",
     "refs": "会社法575・576・590・599条",
     "sections": [
       [
@@ -490,6 +492,7 @@ export const companyLawLessons:CompanyLawLesson[]=[
         "https://laws.e-gov.go.jp/law/417AC0000000086"
       ]
     ]
-  }
+  },
+  ...llcLessons
 ];
 export const lawLessonPath=(slug:string)=>`/company-law/${slug}/`;
