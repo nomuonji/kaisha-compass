@@ -226,6 +226,29 @@ Repeat the same semantics in the hierarchy bar, destination badges, page labels,
 
 ---
 
+## 2026-10-12 — D008: Add a company-law exam study library as a topic-level route
+
+**Status:** Accepted
+
+### Problem
+
+The existing company-year narrative teaches operational context, but judicial-scrivener candidates need focused articles connecting statutory rules, company organs, resolution requirements, registration and frequently confused distinctions.
+
+### Decision
+
+Keep the existing company-year narrative first. Add `/company-law/` as a curated level-2 topic study library with statically generated individual lessons. Each lesson includes statutory references, a concrete example, a misconception to avoid, a self-check question with an answer, and links to original law or ministry sources.
+
+Use a reading index grouped by legal subjects, not a database dashboard. Study articles are level-2 topic learning pages, not a new hierarchy level or a replacement for level-3 resource summaries. Official source exits remain level 4 with dashed styling.
+
+### Guardrails
+
+- Keep home order: model company → company-year scenes → study library → topic and resource indexes.
+- Keep existing scenes, resource digests, My Portal `/features/` and Sites Operator SEO ownership intact.
+- Do not publish thin fact lists as lessons; require readable, source-aware explanations.
+- Distinguish editorial update dates from dates of legal verification.
+
+---
+
 ## Current UX contract
 
 When evaluating a future UI change, ask in this order:
