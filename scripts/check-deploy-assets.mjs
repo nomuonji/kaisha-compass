@@ -1,7 +1,9 @@
 import { existsSync, readdirSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
 
-const output = resolve("dist");
+// Astro with the Cloudflare adapter writes pre-rendered HTML to dist/client.
+// Wrangler assets.directory must point to this exact directory.
+const output = resolve("dist", "client");
 const mustExist = [
   "index.html",
   "practice/index.html",
@@ -12,7 +14,7 @@ const mustExist = [
 ];
 const errors = [];
 for (const path of mustExist) {
-  if (!existsSync(join(output, path))) errors.push("Missing generated asset: dist/" + path);
+  if (!existsSync(join(output, path))) errors.push("Missing generated asset: dist/client/" + path);
 }
 for (const [directory, expected] of [["practice", 25], ["company-law", 15]]) {
   const dir = join(output, directory);
@@ -24,13 +26,7 @@ for (const [directory, expected] of [["practice", 25], ["company-law", 15]]) {
   if (count < expected) errors.push("Generated " + directory + " pages: " + count + " (expected at least " + expected + ")");
 }
 if (errors.length) {
-  console.error("Generated output layout:", readdirSync(output, {withFileTypes:true}).map(entry=>entry.name).join(", "));
-  for (const part of ["client","server"]) {
-    const folder=join(output,part);
-    if (existsSync(folder)) {
-      console.error("Generated "+part+" layout:",readdirSync(folder).slice(0,30).join(", "));
-    }
-  }
+  console.error("Generated output layout:", existsSync(output) ? readdirSync(output, {withFileTypes:true}).map(entry=>entry.name).join(", ") : "(missing dist/client)");
   console.error("Deployment asset check failed:\n" + errors.join("\n"));
   process.exit(1);
 }
