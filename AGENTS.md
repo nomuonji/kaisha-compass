@@ -62,6 +62,13 @@ Fallback summaries are allowed for coverage, but major sources used in journey c
 Do not regress resource pages into:
 `title + one sentence + external link`.
 
+### 4a. Resource summaries are reader-first explanations
+
+- All `/resources/[id]/` pages show **この資料で分かること → 確認ポイント → 会社のどんなときに使う？ → 4 原典** in that order. Keep publisher, time and verification metadata once, in readable type.
+- A curated digest may say it summarizes the specific resource. For other resources, describe generic points as **原典で確認したいこと** and do not imply detailed human review.
+- Source page typography must be practical at 390px and 1440px; preserve the blue level-3 treatment, dashed neutral level-4 external link and readable links back to model company scenes.
+- Related topics and further reading support the page, never compete with the core explanation. See `docs/UX_DECISIONS.md` D010.
+
 ### 5. Scene pages are articles, not result sets
 
 Journey pages must read as chapters:

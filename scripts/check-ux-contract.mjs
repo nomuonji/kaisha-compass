@@ -39,8 +39,10 @@ requireText("src/pages/journey/[id].astro", "4 原典", "external source destina
 
 // Resource pages must summarize before external exit.
 requireText("src/pages/resources/[id].astro", "digestForResource", "resource page lost internal digest");
-requireText("src/pages/resources/[id].astro", "資料の要点", "resource page lost summary-first structure");
-requireText("src/pages/resources/[id].astro", "original-source", "external original section is missing");
+requireText("src/pages/resources/[id].astro", "この資料で分かること", "resource page lost the up-front source explanation");
+requireText("src/pages/resources/[id].astro", "原典で確認したいこと", "generic fallback is not distinguished from curated content");
+requireText("src/pages/resources/[id].astro", "会社のどんなときに使う？", "practical application section is missing");
+requireText("src/pages/resources/[id].astro", "source-reader-original", "external original section is missing");
 requireText("src/pages/resources/[id].astro", "4 原典", "external exit is no longer labeled");
 
 // Resource cards must differentiate internal summary from external source.
@@ -51,7 +53,9 @@ requireText("src/components/ResourceCard.astro", "4 原典", "resource-card exte
 forbidText("src/pages/journey/[id].astro", "原典を開かなくても", "rhetorical source-summary heading was reintroduced");
 forbidText("src/pages/resources/[id].astro", "30秒で把握する", "promotional/editorial summary heading was reintroduced");
 requireText("src/pages/journey/[id].astro", "section-kind source-kind", "semantic section label is missing");
-requireText("src/pages/resources/[id].astro", "section-kind external-kind", "external-original semantic section label is missing");
+requireText("src/pages/resources/[id].astro", 'class="dest-tag external"', "external-original semantic label is missing");
+requireText("src/styles/resource-reader.css", ".source-reader-original", "source-reader original-source styling is missing");
+requireText("src/styles/resource-reader.css", "border: 2px dashed", "external originals must remain dashed");
 requireText("src/styles/global.css", "--level-scene", "scene color token is missing");
 requireText("src/styles/global.css", "--level-topic", "topic color token is missing");
 requireText("src/styles/global.css", "--level-source", "source-summary color token is missing");
@@ -60,6 +64,7 @@ requireText("src/styles/global.css", "--level-external", "external-source token 
 // Future agents must have durable context.
 requireText("AGENTS.md", "Non-regression UX contract", "agent UX contract missing");
 requireText("docs/UX_DECISIONS.md", "D007", "plain-language visual-semantics decision is missing");
+requireText("docs/UX_DECISIONS.md", "D010", "resource digest redesign decision is missing");
 
 if (failures.length) {
   console.error("\nUX CONTRACT FAILED\n");
