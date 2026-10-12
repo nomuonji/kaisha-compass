@@ -1,25 +1,8 @@
 {
   "name": "kaisha-compass",
-  "main": "@astrojs/cloudflare/entrypoints/server",
+  "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-09",
   "compatibility_flags": [
     "nodejs_compat"
-  ],
-  "assets": {
-    "directory": "./dist/client",
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "build": {
-    "command": "npm run build && node scripts/check-deploy-assets.mjs"
-  },
-  "routes": [
-    {
-      "pattern": "kaisha-compass.antonbase.com",
-      "custom_domain": true
-    }
-  ],
-  "workers_dev": true
+  ]
 }
