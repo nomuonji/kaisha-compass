@@ -27,6 +27,9 @@ jobs:
             "https://kaisha-compass.antonbase.com/practice/"
             "https://kaisha-compass.antonbase.com/practice/kk-or-gk/"
             "https://kaisha-compass.antonbase.com/company-law/"
+            "https://kaisha-compass.antonbase.com/resources/nta-new-corporation/"
+            "https://kaisha-compass.antonbase.com/resources/moj-incorporation/"
+            "https://kaisha-compass.antonbase.com/resources/houmukyoku-head-office-online/"
           )
           for attempt in $(seq 1 10); do
             failed=0
@@ -37,6 +40,9 @@ jobs:
               if [[ "$status" != "200" ]]; then
                 failed=1
                 cat /tmp/kaisha-compass-curl-error || true
+              elif [[ "$url" == *"/resources/"* ]] && ! grep -Fq "この資料で分かること" /tmp/kaisha-compass-response; then
+                echo "Resource reader content missing: $url"
+                failed=1
               fi
             done
             if [[ $failed -eq 0 ]]; then
@@ -45,5 +51,5 @@ jobs:
             fi
             if [[ $attempt -lt 10 ]]; then sleep 15; fi
           done
-          echo "::error::Cloudflare production does not serve all expected pages. Check Worker Builds, route binding and deployed commit."
+          echo "::error::Cloudflare production does not serve all expected pages. Check Cloudflare Pages deployment, output directory and deployed commit."
           exit 1
