@@ -148,7 +148,7 @@ export const practicalGuidesA:PracticalGuide[]=[
       "事業目的の説明文",
       "定款に基づく決定機関の一覧"
     ],
-    "statute": "会社法27条・107条・466条・911条。",
+    "statute": "定款の絶対的記載事項は会社法27条、株式の譲渡制限は107条等、事後の定款変更は466条、登記事項は911条が基本です。必須記載・任意記載・登記事項を分けます。",
     "trap": "定款に記載した事項のすべてが商業登記簿へ載るわけではありません。",
     "quiz": "会社法27条の絶対的記載事項と会社の登記事項は完全に一致するか。",
     "answer": "一致しません。両方の列挙を別々に確認します。",
@@ -190,7 +190,7 @@ export const practicalGuidesA:PracticalGuide[]=[
       "選任・就任承諾関係書面",
       "登記申請書"
     ],
-    "statute": "会社法49条、商業登記法・商業登記規則。",
+    "statute": "株式会社が成立する時点は会社法49条の設立登記です。商業登記法・商業登記規則および会社の機関構成に応じた添付書面の規定を併せて確認します。",
     "trap": "Web上の別の機関構成の設立テンプレートをそのまま使わないこと。",
     "quiz": "公証人による定款認証だけで株式会社は成立するか。",
     "answer": "いいえ。本店所在地での設立登記によって成立します。",
@@ -247,6 +247,10 @@ export const practicalGuidesA:PracticalGuide[]=[
       [
         "会社法",
         "https://laws.e-gov.go.jp/law/417AC0000000086"
+      ],
+      [
+        "日本年金機構・新規適用届",
+        "https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/20150311.html"
       ]
     ],
     "relatedLaw": "articles-of-incorporation"
@@ -391,7 +395,7 @@ export const practicalGuidesA:PracticalGuide[]=[
       "毎月の報酬支払表",
       "社会保険料を含めた人件費試算"
     ],
-    "statute": "会社法361条と法人税法34条を分けて確認します。",
+    "statute": "会社法361条の取締役報酬決定と、法人税法34条の損金算入制限を別々に検討します。決議の有効性だけで税務上の損金算入は確定しません。",
     "trap": "株主総会で可決された役員報酬＝全額損金算入可能、ではありません。",
     "quiz": "取締役報酬が定款に定められていない場合、原則として何で決めるか。",
     "answer": "株主総会の決議です。税務上の損金算入は別に判断します。",
@@ -444,6 +448,14 @@ export const practicalGuidesA:PracticalGuide[]=[
       [
         "国税庁・設立後給与に関する手続",
         "https://www.nta.go.jp/publication/pamph/koho/kurashi/html/07_3.htm"
+      ],
+      [
+        "厚生労働省・労働条件通知書などの公式様式",
+        "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/roudoukijunkankei.html"
+      ],
+      [
+        "日本年金機構・事業所の新規適用",
+        "https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/20150311.html"
       ]
     ],
     "relatedLaw": "corporate-organs"
