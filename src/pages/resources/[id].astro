@@ -1,132 +1,138 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import { resources,events,topicMeta,sourceLabels,sortResources,type Resource } from "../../lib/data";
-import { digestForResource } from "../../lib/resourceDigests";
+import { resources, events, topicMeta, sourceLabels, sortResources, type Resource } from "../../lib/data";
+import { digestFor, digestForResource } from "../../lib/resourceDigests";
+import "../../styles/resource-reader.css";
 
-export function getStaticPaths(){
-  return resources.map(resource=>({params:{id:resource.id},props:{resource}}));
+export function getStaticPaths() {
+  return resources.map(resource => ({ params: { id: resource.id }, props: { resource } }));
 }
 
-const { resource }=Astro.props as { resource:Resource };
-const digest=digestForResource(resource);
-const relatedEvents=events.filter(event=>resource.eventIds.includes(event.id));
-const relatedResources=sortResources(
-  resources.filter(candidate=>
-    candidate.id!==resource.id &&
-    candidate.topics.some(topic=>resource.topics.includes(topic))
+const { resource } = Astro.props as { resource: Resource };
+const digest = digestForResource(resource);
+const curated = Boolean(digestFor(resource.id));
+const relatedEvents = events.filter(event => resource.eventIds.includes(event.id));
+const relatedResources = sortResources(
+  resources.filter(candidate =>
+    candidate.id !== resource.id &&
+    candidate.topics.some(topic => resource.topics.includes(topic))
   )
-).slice(0,5);
+).slice(0, 3);
 
-const summary=digest.summary;
-const points=digest.points;
-const schema={"@context":"https://schema.org","@type":"LearningResource",name:resource.title,description:summary,provider:{"@type":"Organization",name:resource.provider},url:resource.url,inLanguage:"ja"};
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  name: resource.title,
+  description: digest.summary,
+  provider: { "@type": "Organization", name: resource.provider },
+  url: resource.url,
+  inLanguage: "ja"
+};
 ---
-<BaseLayout title={resource.title} description={summary} schema={schema} level="source" levelDetail={resource.title}>
-  <Breadcrumbs items={[{label:"資料一覧",href:"/resources/"},{label:resource.title}]}/>
+<BaseLayout title={resource.title} description={digest.summary} schema={schema} level="source" levelDetail={resource.title}>
+  <Breadcrumbs items={[{ label: "資料一覧", href: "/resources/" }, { label: resource.title }]}/>
 
-  <article class="source-article shell">
-    <header class="source-article-header">
-      <p class="page-type-label source-type">レベル3 / 資料要約 · {sourceLabels[resource.sourceType]} · {resource.provider}</p>
-      <h1>{resource.title}</h1>
-      <p class="source-article-lead">{summary}</p>
+  <article class="source-article source-reader shell">
+    <header class="source-reader-header">
+      <div class="source-reader-heading">
+        <p class="source-reader-label"><span class="dest-tag source">3 資料要約</span><span>{sourceLabels[resource.sourceType]}</span></p>
+        <h1>{resource.title}</h1>
+        <p class="source-reader-publisher">{resource.provider}の資料を、会社を運営する人向けに整理しています。</p>
+      </div>
+      <div class="source-reader-answer">
+        <h2>この資料で分かること</h2>
+        <p>{digest.summary}</p>
+      </div>
+      <dl class="source-reader-facts">
+        <div><dt>発行・掲載元</dt><dd>{resource.provider}</dd></div>
+        <div><dt>読む目安</dt><dd>{resource.time} · {resource.difficulty}</dd></div>
+        <div><dt>リンク確認日</dt><dd>{resource.lastCheckedAt ?? "記録なし"}</dd></div>
+        {resource.validAsOf && <div><dt>資料の適用時点</dt><dd>{resource.validAsOf}</dd></div>}
+      </dl>
     </header>
 
-    <nav class="chapter-in-page resource-in-page shell" aria-label="資料要約の目次">
-      <strong>この資料の読み方</strong>
-      <a href="#source-summary">資料の要点 ↓</a>
-      {relatedEvents.length>0&&<a href="#source-scenes">使う場面 ↓</a>}
-      <a href="#source-topics">専門領域 ↓</a>
-      <a href="#source-original">外部原典 ↗</a>
+    <nav class="source-reader-navigation" aria-label="この記事の内容">
+      <strong>この記事の内容</strong>
+      <a href="#source-summary">確認ポイント</a>
+      <a href="#source-use">実務での使い方</a>
+      <a href="#source-original">元の資料を見る ↗</a>
     </nav>
-    <div class="source-at-a-glance">
-      <div><span class="dest-tag source">3 資料要約</span><strong>参照資料について</strong><p>元の資料の役割と要点を先に確認し、必要な場合に外部の原典へ進んでください。</p></div>
-      <dl><div><dt>掲載元</dt><dd>{resource.provider}</dd></div><div><dt>資料の種類</dt><dd>{sourceLabels[resource.sourceType]}</dd></div><div><dt>最終確認日</dt><dd>{resource.lastCheckedAt??"記録なし"}</dd></div></dl>
-    </div>
-    <div class="source-article-layout">
-      <aside class="source-meta-rail">
-        <dl>
-          <div><dt>種類</dt><dd>{sourceLabels[resource.sourceType]}</dd></div>
-          <div><dt>難易度</dt><dd>{resource.difficulty}</dd></div>
-          <div><dt>目安</dt><dd>{resource.time}</dd></div>
-          <div><dt>確認日</dt><dd>{resource.lastCheckedAt??"—"}</dd></div>
-          {resource.validAsOf&&<div><dt>適用時点</dt><dd>{resource.validAsOf}</dd></div>}
-        </dl>
-      </aside>
 
-      <div class="source-article-body">
-        <section class="article-section first" id="source-summary">
-          <p class="section-kind summary-kind"><span>01</span> 概要</p>
-          <h2>資料の要点</h2>
-          <p class="source-summary">{summary}</p>
-          <ul class="source-key-points">
-            {points.map(point=><li>{point}</li>)}
-          </ul>
-        </section>
+    <div class="source-reader-main">
+      <section class="source-reader-section" id="source-summary">
+        <div class="source-reader-section-heading">
+          <span class="source-reader-step">01 / 内容</span>
+          <h2>{curated ? "ここで押さえる3つのポイント" : "原典で確認したいこと"}</h2>
+        </div>
+        {curated
+          ? <p class="source-reader-explanation">この資料について、会社の実務に関係する重要な点を整理しました。</p>
+          : <p class="source-reader-explanation">この資料は内容別の詳細な解説をまだ用意していません。次の項目は、原典を読む際の確認ポイントです。</p>}
+        <ol class="source-reader-points">
+          {digest.points.map((point, index) =>
+            <li><span class="source-reader-point-index">{String(index + 1).padStart(2, "0")}</span><p>{point}</p></li>
+          )}
+        </ol>
+      </section>
 
-        <section class="article-section" id="source-scenes">
-          <p class="section-kind scene-kind"><span>02</span> 関連場面</p>
-          <h2>この資料が関係する場面</h2>
-          <p class="section-intro">この資料が関係する会社運営上の場面です。</p>
-          <div class="inline-scenes">
-            {relatedEvents.map(event=>
-              <a class="typed-link scene-destination" href={"/journey/"+event.id+"/"}>
-                <small><span class="dest-tag scene">1 場面</span>{event.month}</small>
-                <div>
-                  <strong>{event.title}</strong>
-                  <span>{event.summary}</span>
-                </div>
-                <b>→</b>
+      <section class="source-reader-section" id="source-use">
+        <div class="source-reader-section-heading">
+          <span class="source-reader-step">02 / 実務</span>
+          <h2>会社のどんなときに使う？</h2>
+        </div>
+        <p class="source-reader-purpose">{resource.why}</p>
+
+        {relatedEvents.length > 0 && <>
+          <h3 class="source-reader-subheading">該当する会社運営の場面</h3>
+          <div class="source-reader-scenes">
+            {relatedEvents.map(event =>
+              <a class="source-reader-scene" href={"/journey/" + event.id + "/"}>
+                <span class="source-reader-scene-meta"><span class="dest-tag scene">1 場面</span>{event.month}</span>
+                <span class="source-reader-scene-content"><strong>{event.title}</strong><span>{event.summary}</span></span>
+                <span class="source-reader-arrow" aria-hidden="true">→</span>
               </a>
             )}
           </div>
-        </section>
+        </>}
 
-        <section class="article-section" id="source-topics">
-          <p class="section-kind topic-kind"><span>03</span> 専門領域</p>
-          <h2>関連する専門領域</h2>
-          <div class="topic-text-links">
-            {resource.topics.map(topic=>
-              <a class="typed-link topic-destination" href={"/topics/"+topic+"/"}>
-                <strong><span class="dest-tag topic">2 領域</span>{topicMeta[topic].label}</strong>
-                <span>{topicMeta[topic].description}</span>
-              </a>
+        <div class="source-reader-topics">
+          <h3>関連する専門領域</h3>
+          <div>
+            {resource.topics.map(topic =>
+              <a href={"/topics/" + topic + "/"}><span class="dest-tag topic">2 領域</span>{topicMeta[topic].label} <span aria-hidden="true">→</span></a>
             )}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="article-section original-source" id="source-original">
-          <p class="section-kind external-kind"><span>04</span> 外部原典</p>
-          <h2>参照元の公式・実務資料</h2>
-          <p>手続、金額、期限、適用要件を確定する場合は、参照元の最新情報を確認してください。</p>
-          <a class="original-source-link" href={resource.url} target="_blank" rel="noopener noreferrer">
-            <span>
-              <small>{resource.provider}</small>
-              <strong>{resource.title}</strong>
-            </span>
-            <b><span class="dest-tag external">4 原典</span>外部サイトを開く ↗</b>
-          </a>
-        </section>
+      <section class="source-reader-section source-reader-original" id="source-original">
+        <div class="source-reader-section-heading">
+          <span class="source-reader-step">03 / 原典</span>
+          <h2>元の資料で確認する</h2>
+        </div>
+        <p>申請書、要件、金額、期限などを実際に使うときは、原典の最新情報を確認してください。この記事の最終確認日は、制度全体の現行性を保証するものではありません。</p>
+        <a class="source-reader-outbound" href={resource.url} target="_blank" rel="noopener noreferrer">
+          <span class="source-reader-outbound-text"><small>{resource.provider} · {sourceLabels[resource.sourceType]}</small><strong>{resource.title}</strong></span>
+          <span class="source-reader-outbound-action"><span class="dest-tag external">4 原典</span>公式・実務サイトで読む <span aria-hidden="true">↗</span></span>
+        </a>
+      </section>
 
-        {relatedResources.length>0&&
-          <section class="article-section next-reading">
-            <p class="section-kind related-kind"><span>05</span> 関連資料</p>
-            <h2>関連する資料要約</h2>
-            <div class="text-source-list">
-              {relatedResources.map(item=>
-                <div class="text-source-row">
-                  <div>
-                    <small>{sourceLabels[item.sourceType]} / {item.provider}</small>
-                    <strong>{item.title}</strong>
-                    <p>{digestForResource(item).summary}</p>
-                  </div>
-                  <a class="typed-link" href={"/resources/"+item.id+"/"}><span class="dest-tag source">3 資料要約</span>概要を見る →</a>
-                </div>
-              )}
-            </div>
-          </section>
-        }
-      </div>
+      {relatedResources.length > 0 && <aside class="source-reader-more" aria-label="次に読む資料">
+        <div class="source-reader-section-heading">
+          <span class="source-reader-step">続けて学ぶ</span>
+          <h2>関連する資料</h2>
+        </div>
+        <div class="source-reader-more-list">
+          {relatedResources.map(item =>
+            <a href={"/resources/" + item.id + "/"} class="source-reader-more-link">
+              <span class="dest-tag source">3 資料要約</span>
+              <span><small>{item.provider}</small><strong>{item.title}</strong><span class="source-reader-more-description">{item.why}</span></span>
+              <span aria-hidden="true">→</span>
+            </a>
+          )}
+        </div>
+        <a class="source-reader-back" href="/resources/">資料一覧に戻る →</a>
+      </aside>}
     </div>
   </article>
 </BaseLayout>
