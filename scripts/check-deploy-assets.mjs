@@ -24,6 +24,13 @@ for (const [directory, expected] of [["practice", 25], ["company-law", 15]]) {
   if (count < expected) errors.push("Generated " + directory + " pages: " + count + " (expected at least " + expected + ")");
 }
 if (errors.length) {
+  console.error("Generated output layout:", readdirSync(output, {withFileTypes:true}).map(entry=>entry.name).join(", "));
+  for (const part of ["client","server"]) {
+    const folder=join(output,part);
+    if (existsSync(folder)) {
+      console.error("Generated "+part+" layout:",readdirSync(folder).slice(0,30).join(", "));
+    }
+  }
   console.error("Deployment asset check failed:\n" + errors.join("\n"));
   process.exit(1);
 }
