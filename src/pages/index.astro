@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/company-law.css";
 import CompassHero from "../components/CompassHero.astro";
 import CompanyCase from "../components/CompanyCase.astro";
 import ReadingJourney from "../components/ReadingJourney.astro";
@@ -15,6 +16,19 @@ const schema={"@context":"https://schema.org","@type":"WebSite",name:"Kaisha Com
   <CompassHero/>
   <CompanyCase/>
   <ReadingJourney/>
+  <section class="shell law-home-feature" aria-labelledby="home-law-title">
+    <div>
+      <p class="section-type-label topic-type">レベル2 / 専門領域内の学習記事</p>
+      <h2 id="home-law-title">会社法・商業登記を、司法書士試験の視点で。</h2>
+      <p>「公開会社って何か」「普通決議と特別決議をどう見分けるか」「重任でも登記がいるのはなぜか」。会社の一年で出てきた論点を、条文・事例・確認問題で掘り下げます。</p>
+      <a href="/company-law/"><span class="dest-tag topic">2 領域</span>会社法の学習記事を読む →</a>
+    </div>
+    <aside aria-label="学べる論点">
+      <strong>主な学習分野</strong><span>設立・定款と会社の分類</span>
+      <span>機関設計・役員任期</span><span>株主総会・株式の制度</span>
+      <span>役員変更登記・添付書面</span>
+    </aside>
+  </section>
 
   <section class="topic-after-story">
     <div class="shell">
