@@ -22,3 +22,5 @@ jobs:
         run: npm run check:ux
       - name: Build
         run: npm run build
+      - name: Check deployable public routes
+        run: node scripts/check-deploy-assets.mjs
