@@ -11,6 +11,10 @@ const mustExist = [
   "practice/annual-shareholders-meeting/index.html",
   "company-law/index.html",
   "company-law/articles-of-incorporation/index.html",
+  "company-law/new-shares/index.html",
+  "explore/events/index.html",
+  "explore/practice/index.html",
+  "explore/law/index.html",
 ];
 const errors = [];
 for (const path of mustExist) {

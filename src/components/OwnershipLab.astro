@@ -1,0 +1,49 @@
+---
+import "../styles/interactive-lessons.css";
+import {ownershipAt} from "../lib/interactiveModels.mjs";
+const initial=ownershipAt(50);
+const pct=(v:number)=>v.toFixed(1)+"%";
+---
+<section class="kc-lab kc-owner-lab" data-kc-ownership aria-label="新株発行で持株比率が変わる仕組みを操作する">
+ <header class="kc-lab-header">
+  <div>
+   <p class="kc-kicker">02 <span>/</span> 会社の持ち主を動かす</p>
+   <h2>株数は変わらない。<br/><em>でも、持ち分は減る。</em></h2>
+   <p class="kc-lab-lede">創業者Aが70株、共同創業者Bが30株。新しい投資家に株式を発行すると、誰の割合がどう変わるでしょうか。</p>
+  </div>
+  <div class="kc-owner-before"><small>発行前 / 100株</small><div><i style="width:70%"></i><b style="width:30%"></b></div><p>創業者A 70% <span>／</span> 共同創業者B 30%</p></div>
+ </header>
+ <div class="kc-owner-work">
+  <div class="kc-owner-controls">
+   <label for="kc-new-shares">投資家に新しく発行する株式数</label>
+   <div class="kc-sliderline"><input type="range" id="kc-new-shares" min="0" max="200" step="10" value="50" data-share-slider aria-controls="kc-share-result"/><output data-share-output for="kc-new-shares">50株</output></div>
+   <div class="kc-owner-preset" role="group" aria-label="発行株数の例">
+    <button data-share-preset="0" type="button">発行なし</button>
+    <button data-share-preset="50" type="button" aria-pressed="true">50株追加</button>
+    <button data-share-preset="100" type="button">100株追加</button>
+   </div>
+   <p>既存のAの70株とBの30株は変わりません。新しく株式が増えることで、全体に占める割合が変化します。</p>
+  </div>
+  <div class="kc-owner-circle">
+   <svg viewBox="0 0 260 260" class="kc-donut" role="img" aria-label="発行後の株式の割合を円グラフで表示。数値は右側でも確認できます。">
+    <circle cx="130" cy="130" r="83" stroke="#ddd6c9" stroke-width="35" fill="none"/>
+    <circle data-share-arc="founder" cx="130" cy="130" r="83" stroke="#276650" stroke-width="35" fill="none" stroke-dasharray="243.4 521.5" stroke-dashoffset="0" transform="rotate(-90 130 130)"/>
+    <circle data-share-arc="partner" cx="130" cy="130" r="83" stroke="#cc805d" stroke-width="35" fill="none" stroke-dasharray="104.3 521.5" stroke-dashoffset="-243.4" transform="rotate(-90 130 130)"/>
+    <circle data-share-arc="investor" cx="130" cy="130" r="83" stroke="#668ebc" stroke-width="35" fill="none" stroke-dasharray="173.8 521.5" stroke-dashoffset="-347.7" transform="rotate(-90 130 130)"/>
+    <text x="130" y="124" fill="#53685c" font-size="14" text-anchor="middle">発行後</text>
+    <text x="130" y="151" fill="#1d4233" font-size="29" font-weight="700" text-anchor="middle" data-share-total>150株</text>
+   </svg>
+  </div>
+  <div class="kc-owner-results" id="kc-share-result" aria-live="polite">
+   <div><span><i class="kc-dot kc-dot-a"></i>創業者A <small>70株</small></span><strong data-share-a>{pct(initial.founder)}</strong></div>
+   <div><span><i class="kc-dot kc-dot-b"></i>共同創業者B <small>30株</small></span><strong data-share-b>{pct(initial.partner)}</strong></div>
+   <div><span><i class="kc-dot kc-dot-c"></i>投資家 <small data-share-count>50株</small></span><strong data-share-c>{pct(initial.investor)}</strong></div>
+   <aside><strong data-share-conclusion>創業者Aの持株比率は70% → 46.7%。</strong><p data-share-detail>Aの株数は70株のままですが、全体が増えたため過半数を下回りました。</p></aside>
+  </div>
+ </div>
+ <footer class="kc-lab-footer">
+  <p>普通株式1株に議決権1個、自己株式・議決権制限等なしと仮定。割合だけで個別の決議可否は判断できません。実際の新株発行には法定の手続が必要です。株価・会社評価額は計算していません。</p>
+  <a href="/company-law/new-shares/"><span class="dest-tag topic">2 領域</span>募集株式の発行を詳しく読む →</a>
+ </footer>
+</section>
+<script>import "../scripts/interactive-explainers.js";</script>

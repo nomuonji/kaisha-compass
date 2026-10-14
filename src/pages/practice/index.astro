@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
-import WorldExplorer from "../../components/WorldExplorer.astro";
+import OwnershipLab from "../../components/OwnershipLab.astro";
 import {practicalGuides,practicePhases,practicalGuideHref,practiceLastEdited} from "../../lib/practicalGuides";
 import "../../styles/practice.css";
 const schema={"@context":"https://schema.org","@type":"CollectionPage",name:"会社を作って運営する実務ケース",description:"一つの仮想会社の創業と経営を題材に、会社法・商業登記・税務・契約を実務から学ぶ連続教材",inLanguage:"ja"};
@@ -18,7 +18,7 @@ const schema={"@context":"https://schema.org","@type":"CollectionPage",name:"会
       </div>
       <aside class="practice-cover-note"><div class="practice-note-head">教材の主人公</div><strong>株式会社<br/>コンパスワークス</strong><p>代表者1人から始まるWeb制作・小規模SaaSの仮想会社。設立後に出会う経営判断を順に考えます。</p><dl><div><dt>事業</dt><dd>Web制作・SaaS</dd></div><div><dt>設立時資本金</dt><dd>300万円</dd></div><div><dt>決算期</dt><dd>3月</dd></div></dl><small>状況は学習用の架空の事例です。実際の手続は会社の条件と最新資料を確認してください。</small></aside>
     </header>
-    <WorldExplorer mode="practice" />
+    <OwnershipLab />
     <section class="practice-reading-guide" aria-label="学習方法">
       <div><b>01</b><strong>困った場面から入る</strong><span>会社に何が起きたのか</span></div>
       <div><b>02</b><strong>実際の手順を考える</strong><span>決定・書類・お金の流れ</span></div>

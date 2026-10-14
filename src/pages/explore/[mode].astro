@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WorldExplorer from "../../components/WorldExplorer.astro";
+export function getStaticPaths(){return ["events","practice","law"].map(mode=>({params:{mode},props:{mode}}));}
+const {mode}=Astro.props as {mode:"events"|"practice"|"law"};
+const title=mode==="events"?"会社の一年":mode==="practice"?"経営の25ケース":"会社法の論点";
+---
+<BaseLayout title={title+"の3D探索"} description="会社コンパスの既存教材を、3Dの関係図から探す補助ビュー。" level={mode==="events"?"scene":"topic"} levelDetail="3D探索">
+  <Breadcrumbs items={[{label:"概要",href:"/"},{label:"3D探索"}]}/>
+  <div class="shell" style="padding-top:32px">
+    <p>ここは任意の3D探索モードです。会社のお金と株式の仕組みを知りたい場合は、トップページの操作できる図解がおすすめです。</p>
+    <nav aria-label="3Dビューの種類" style="display:flex;flex-wrap:wrap;gap:16px;margin:16px 0">
+      <a href="/explore/events/">会社の一年</a>
+      <a href="/explore/practice/">実務25ケース</a>
+      <a href="/explore/law/">会社法の論点</a>
+    </nav>
+    <p><a href="/">← 分かりやすい図解に戻る</a></p>
+  </div>
+  <WorldExplorer mode={mode}/>
+</BaseLayout>
