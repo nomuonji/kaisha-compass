@@ -159,18 +159,18 @@ The principal user-visible innovation is a **working visual explanation of a cau
 - Three.js is optional on \`/explore/[mode]/\` only. It must not displace cash-flow or ownership introductions on the homepage or article indexes.
 - Editorial, CMS, SEO and Cloudflare Pages boundaries stay unchanged. See UX_DECISIONS D012.
 
-## Additive company-law study library
+## Optional 3D spatial exploration (D011, superseded in placement by D012)
 
-## 3D spatial exploration (2026-10-14)
-
-- The Three.js viewer is a navigation and conceptual visualization of real existing content, **not** a gamified business simulator or a replacement for the textual chapters.
-- Home: the model company is introduced in plain language before the spatial timeline. The full existing \`ReadingJourney\` remains intact.
+- The Three.js viewer is an optional navigation and conceptual visualization of existing content, **not** a gamified business simulator or a replacement for textual chapters.
+- The viewer is accessible only through the optional /explore/[mode]/ routes; the homepage teaches cash flow directly and preserves the existing ReadingJourney.
 - \`WorldExplorer.astro\` draws its points directly from the canonical \`events\`, \`practicalGuides\`, and \`lawStudyGroups\` data; do not maintain a duplicate editorial database for the scene.
 - Keep item descriptions, original routes, semantic hierarchy and destination labels in the HTML. Canvas is progressive enhancement: all destinations remain keyboard navigable without WebGL, motion, or JavaScript.
 - Use lazy loading, reduced-motion behavior, sensible GPU limits, no external CDN, and paused rendering when offscreen. Never load Three.js on source/resource pages that do not need it.
 - The 3D graph illustrates relationships/sequence; distance, object size and movement are not quantitative financial/legal measurements. Do not imply actual simulations.
 - Do not change the Cloudflare Pages static output, source-of-truth boundaries or canonical URLs.
 
+
+## Additive company-law study library
 
 - `/company-law/` and `/company-law/[slug]/` are level-2 topic learning routes for judicial-scrivener candidates.
 - The canonical edited lesson data is `src/lib/companyLawLessons.ts`. The original 15-scene company year remains the primary narrative path.
