@@ -63,3 +63,12 @@ The current canonical hierarchy is:
 `0 Overview → 1 Scene → 2 Topic → 3 Source summary → 4 Original source (external)`
 
 Intentional changes to this model must update the decision log, agent contract, and automated check together.
+
+
+## Interactive 3D curriculum (2026-10-14)
+
+The homepage, practice index, company-law index and company-year chapters have a Three.js spatial explorer. It uses the same editorial data as the existing articles rather than creating a second database. Rotate/zoom the company model, choose a numbered event or topic, and continue into its original article.
+
+The canvas is an enhancement only: full titles, summaries and links remain server-rendered HTML, with buttons to navigate if WebGL or motion is unavailable. The Three.js bundle is loaded only when the explorer approaches the viewport; rendering is paused when offscreen.
+
+The visual relationships are educational, not a numerical simulation. Source and article URLs, canonical hierarchy and Cloudflare Pages static deployment remain unchanged. See D011 in \`docs/UX_DECISIONS.md\`.

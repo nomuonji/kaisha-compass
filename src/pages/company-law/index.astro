@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import WorldExplorer from "../../components/WorldExplorer.astro";
 import {companyLawLessons,lawStudyGroups,lawStudyUpdatedAt,lawLessonPath} from "../../lib/companyLawLessons";
 import "../../styles/company-law.css";
 const first=companyLawLessons.slice(0,3);
@@ -27,6 +28,7 @@ const schema={"@context":"https://schema.org","@type":"CollectionPage",name:"会
         <p class="law-date">記事編集日：{lawStudyUpdatedAt}　※法改正・判例・最新の登記先例等は原典で再確認してください。</p>
       </aside>
     </section>
+    <WorldExplorer mode="law" />
     <section class="law-intro-rail" aria-label="学習経路の選択">
       <div><span class="law-rail-number">A</span><strong>会社の一年から</strong><p>「設立した」「役員が変わった」という出来事から制度を学ぶ。</p><a href="/#journey"><span class="dest-tag scene">1 場面</span>会社の一年を読む →</a></div>
       <div><span class="law-rail-number">B</span><strong>試験の論点から</strong><p>機関・株主総会・株式・登記を横断して弱点を整理する。合同会社の設立と運営も独立した論点群として読めます。</p><a href="#lessons"><span class="dest-tag topic">2 領域</span>記事一覧へ進む ↓</a> <a href="/company-law/llc-company/"><span class="dest-tag topic">2 領域</span>合同会社の基礎から学ぶ →</a></div>

@@ -1,0 +1,92 @@
+---
+import {events, topicMeta, topicsForEvent} from "../lib/data";
+import {practicalGuides, practicalGuideHref, practicePhases} from "../lib/practicalGuides";
+import {companyLawLessons, lawStudyGroups, lawLessonPath} from "../lib/companyLawLessons";
+import "../styles/world-explorer.css";
+
+interface Props {
+  mode?: "events" | "practice" | "law";
+  initialId?: string;
+}
+const {mode = "events", initialId} = Astro.props;
+const eventNodes = events.map((event, index) => {
+  const topics = topicsForEvent(event.id);
+  return {
+    id: event.id, title: event.title, eyebrow: event.month,
+    description: event.summary, href: "/journey/" + event.id + "/",
+    destination: "1 場面",
+    color: topics.length ? topicMeta[topics[0]].color : "#b85d36",
+    group: "会社の一年", index
+  };
+});
+const practiceNodes = practicalGuides.map((item, index) => ({
+  id: item.slug, title: item.title, eyebrow: item.phase,
+  description: item.lead, href: practicalGuideHref(item.slug),
+  destination: "2 領域", color: ["#b85d36", "#486a7c", "#52705d", "#b28a48"][
+    Math.max(0, practicePhases.findIndex(phase => phase.name === item.phase))
+  ], group: item.phase, index
+}));
+const lawNodes = lawStudyGroups.map((group, index) => {
+  const items = companyLawLessons.filter(lesson => lesson.group === group);
+  return {
+    id: "law-" + index, title: group, eyebrow: items.length + "記事",
+    description: items.length ? items.slice(0,3).map(item => item.title).join("・") : "会社法の関連教材",
+    href: "/company-law/#law-group-" + (index + 1), destination: "2 領域",
+    color: ["#8cbca8", "#c78969", "#d7b76b", "#88acc0", "#baa0c5", "#a9c58e"][index % 6],
+    group: "会社法の論点", index
+  };
+});
+const nodes = mode === "practice" ? practiceNodes : mode === "law" ? lawNodes : eventNodes;
+const selected = Math.max(0, nodes.findIndex(node => node.id === initialId));
+const start = nodes[selected];
+const headline = mode === "practice" ? "経営判断を、立体的にたどる。" : mode === "law" ? "会社のルールを、構造から見る。" : "会社の一年を、触って探る。";
+const introduction = mode === "practice" ? "設立・取引・採用・資金調達・決算。25の実務ケースがどのようにつながるか、模型を回して確認できます。" : mode === "law" ? "会社の機関、株式、登記、合同会社。別々に見える制度を、ひとつの会社の周囲に配置しました。" : "中央は架空の会社「コンパスワークス」。周囲の光る点は、設立から決算までの15の出来事です。点を選ぶと、何が起きたか分かります。";
+---
+<section class="world-explorer" id="company-world" data-world-explorer data-mode={mode} data-selected={String(selected)} aria-label="会社運営の3D探索">
+  <script type="application/json" class="world-explorer-data" set:html={JSON.stringify(nodes).replace(/</g, "\\u003c")} />
+  <div class="world-heading">
+    <div>
+      <p class="world-overline">COMPANY COMPASS <span>/</span> INTERACTIVE EXPLORER</p>
+      <h2>{headline}</h2>
+      <p>{introduction}</p>
+    </div>
+    <span class="world-index">{String(nodes.length).padStart(2,"0")} <small>CONNECTED POINTS</small></span>
+  </div>
+  <div class="world-workspace">
+    <div class="world-viewport">
+      <canvas class="world-canvas" aria-label="会社を中心に出来事が浮かぶ3D模型" aria-hidden="true"></canvas>
+      <div class="world-placeholder" data-world-placeholder>
+        <span class="world-placeholder-mark" aria-hidden="true">◇</span>
+        <strong>会社の関係図</strong>
+        <p>3Dを読み込めない場合も、右側の選択リストからすべての記事を開けます。</p>
+      </div>
+      <div class="world-compass" aria-hidden="true"><span>N</span><i></i><span>S</span></div>
+      <div class="world-viewport-note">DRAG TO ORBIT <span>·</span> SCROLL TO ZOOM <span>·</span> SELECT A POINT</div>
+      <button class="world-motion" type="button" data-world-motion aria-pressed="false">回転を停止</button>
+    </div>
+    <div class="world-inspector" aria-live="polite">
+      <p class="world-inspector-caption">SELECTED / <span data-world-progress>{String(selected+1).padStart(2,"0")}—{String(nodes.length).padStart(2,"0")}</span></p>
+      <div class="world-inspector-id" data-world-number>{String(selected+1).padStart(2,"0")}</div>
+      <p class="world-inspector-eyebrow" data-world-eyebrow>{start.eyebrow}</p>
+      <h3 data-world-title>{start.title}</h3>
+      <p class="world-inspector-description" data-world-description>{start.description}</p>
+      <a class="world-read" data-world-link href={start.href}><span class="dest-tag" data-world-destination class:list={{scene:mode === "events",topic:mode !== "events"}}>{start.destination}</span><span>この記事を読む →</span></a>
+      <div class="world-arrows">
+        <button type="button" data-world-prev aria-label="前の項目を選ぶ">← <span>PREV</span></button>
+        <button type="button" data-world-next aria-label="次の項目を選ぶ"><span>NEXT</span> →</button>
+      </div>
+      <details class="world-item-list">
+        <summary>全{nodes.length}件から選ぶ <span aria-hidden="true">＋</span></summary>
+        <ol>
+          {nodes.map((node,index) => <li>
+            <button type="button" data-world-select={String(index)} aria-pressed={index===selected}>
+              <span>{String(index+1).padStart(2,"0")}</span>{node.title}
+            </button>
+          </li>)}
+        </ol>
+      </details>
+      <p class="world-accessibility-note">模型を操作しなくても、一覧・前後ボタンから同じ教材に進めます。</p>
+    </div>
+  </div>
+</section>
+<script>import "../scripts/world-explorer.js";</script>
