@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import CashFlowLab from "../../components/CashFlowLab.astro";
+import OwnershipLab from "../../components/OwnershipLab.astro";
 import {practicalGuides,practicalGuideHref,practiceSceneBySlug,practiceLastEdited,type PracticalGuide} from "../../lib/practicalGuides";
 import "../../styles/practice.css";
 export function getStaticPaths(){return practicalGuides.map(guide=>({params:{slug:guide.slug},props:{guide}}));}
@@ -20,6 +22,8 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:gu
       <p class="practice-article-lede">{guide.lead}</p>
       <span class="practice-edit-date">編集日 {practiceLastEdited} / ケース教材</span>
     </header>
+    {["profit-versus-cash","first-client-contract"].includes(guide.slug) && <CashFlowLab/>}
+    {["capital-and-ownership","investment-new-shares"].includes(guide.slug) && <OwnershipLab/>}
     <div class="practice-article-layout">
       <aside class="practice-article-nav"><strong>この記事の順番</strong><nav>
         <a href="#situation">会社に起きたこと</a>

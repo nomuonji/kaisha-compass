@@ -72,3 +72,10 @@ The homepage, practice index, company-law index and company-year chapters have a
 The canvas is an enhancement only: full titles, summaries and links remain server-rendered HTML, with buttons to navigate if WebGL or motion is unavailable. The Three.js bundle is loaded only when the explorer approaches the viewport; rendering is paused when offscreen.
 
 The visual relationships are educational, not a numerical simulation. Source and article URLs, canonical hierarchy and Cloudflare Pages static deployment remain unchanged. See D011 in \`docs/UX_DECISIONS.md\`.
+
+
+## Interactive explanatory UI (D012)
+
+The homepage is led by an interactive cash-flow lesson, showing separately how a first customer order becomes sales, an account receivable, a vendor cash payment, and a customer deposit. The ownership lesson shows new share issuance diluting founders' percentages. Both reuse pure, numerically tested illustrative models and link to existing, source-aware articles. CSS/SVG and minimal JS were chosen instead of more complex frameworks for these specific tasks.
+
+Optional Three.js curriculum maps remain available at \`/explore/events/\`, \`/explore/practice/\` and \`/explore/law/\` and are no longer the primary onboarding UI. Run \`node scripts/test-interactive-models.mjs\`, \`npm run check:ux\` and \`npm run build\`. See \`docs/UX_DECISIONS.md\` D012.

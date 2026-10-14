@@ -149,6 +149,16 @@ Do not introduce decorative colors with conflicting semantic meaning.
 
 Before considering a UX change complete, run the UX contract check and Astro build.
 
+## Interactive learning contract (D012, 2026-10-14)
+
+The principal user-visible innovation is a **working visual explanation of a causal mechanism**, not decorating an index of article titles. Cash-flow and share-ownership explainers use SVG/HTML/CSS plus minimal JavaScript and tested pure model functions. Additional libraries may be selected per interaction when genuinely justified, but never choose a technology before specifying what the reader learns by manipulating it.
+
+- Cash and shareholder models are explicitly educational, with assumptions and limitations beside the visualization. Do not invent real tax or corporate-law obligations from simplified numbers.
+- Keep the full article and official sources readable; interactive explanations supplement, never replace, the text or hierarchy labels.
+- Maintain accessible controls, SSR initial state, numerical tests, 390px mobile readability, and reduced-motion behavior.
+- Three.js is optional on \`/explore/[mode]/\` only. It must not displace cash-flow or ownership introductions on the homepage or article indexes.
+- Editorial, CMS, SEO and Cloudflare Pages boundaries stay unchanged. See UX_DECISIONS D012.
+
 ## Additive company-law study library
 
 ## 3D spatial exploration (2026-10-14)

@@ -1,12 +1,15 @@
 ---
-import WorldExplorer from "./WorldExplorer.astro";
+import CashFlowLab from "./CashFlowLab.astro";
 ---
-<div class="world-landing">
-  <div class="world-landing-intro shell">
-    <p class="world-landing-eyebrow">KAISHA COMPASS / 見て、触れて、会社を理解する</p>
-    <h1>会社は、<br/><em>見えない仕組み</em>で動いている。</h1>
-    <p>架空の会社「コンパスワークス」の設立、初受注、採用、資金調達、決算。ひとつの会社で起こる出来事を3Dで探索しながら、会社運営に必要な知識とつなげます。</p>
-    <a href="#case">モデル会社の説明と、一年間の読み物へ ↓</a>
+<div class="kc-interactive-opening">
+ <div class="kc-opening">
+  <p class="kc-kicker">KAISHA COMPASS <span>/</span> 会社の仕組みを、触って学ぶ</p>
+  <h1>会社は、<br/><em>何で動いている？</em></h1>
+  <p>架空のWeb制作会社「コンパスワークス」を追いかけます。仕事を受け、お金が入り、人を雇い、株主が決める。会社で起こる出来事を、動く図解から理解していきます。</p>
+  <div class="kc-opening-links">
+   <a href="#case">モデル会社を知る ↓</a>
+   <a href="#journey">会社の一年を読む ↓</a>
   </div>
-  <WorldExplorer mode="events" />
+ </div>
+ <CashFlowLab />
 </div>

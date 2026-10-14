@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import OwnershipLab from "../../components/OwnershipLab.astro";
 import {companyLawLessons,lawLessonPath,lawStudyUpdatedAt,type CompanyLawLesson} from "../../lib/companyLawLessons";
 import "../../styles/company-law.css";
 export function getStaticPaths(){return companyLawLessons.map(lesson=>({params:{slug:lesson.slug},props:{lesson}}));}
@@ -20,6 +21,7 @@ const schema={"@context":"https://schema.org","@type":"LearningResource",name:le
       <p class="law-article-lede">{lesson.lead}</p>
       <div class="law-article-meta"><span>根拠：{lesson.refs}</span><span>編集日：{lawStudyUpdatedAt}</span></div>
     </div>
+    {lesson.slug==="new-shares" && <OwnershipLab/>}
     <div class="law-reading-grid">
       <aside class="law-article-side" aria-label="記事内目次">
         <strong>この記事で確認すること</strong>

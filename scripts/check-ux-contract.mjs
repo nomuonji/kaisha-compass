@@ -66,14 +66,19 @@ requireText("AGENTS.md", "Non-regression UX contract", "agent UX contract missin
 requireText("docs/UX_DECISIONS.md", "D007", "plain-language visual-semantics decision is missing");
 requireText("docs/UX_DECISIONS.md", "D010", "resource digest redesign decision is missing");
 
-// The spatial learning feature must be functional progressive enhancement, not a canvas-only gate.
-requireText("src/components/CompassHero.astro", "WorldExplorer", "homepage 3D company exploration was removed");
-requireText("src/components/WorldExplorer.astro", "data-world-select", "non-WebGL keyboard navigation missing");
-requireText("src/components/WorldExplorer.astro", "world-explorer-data", "curriculum to scene data link missing");
-requireText("src/pages/practice/index.astro", 'mode="practice"', "practice viewer was removed");
-requireText("src/pages/company-law/index.astro", 'mode="law"', "company-law viewer was removed");
-requireText("src/pages/journey/[id].astro", "initialId={event.id}", "chapter-specific 3D focus removed");
-requireText("docs/UX_DECISIONS.md", "D011", "3D design decision missing");
+// D012: meaningful interactive explainers supersede the mandatory 3D-first placement.
+requireText("src/components/CompassHero.astro","CashFlowLab","homepage lost the first cash-flow interaction");
+forbidText("src/components/CompassHero.astro","WorldExplorer","3D indexing displaced first-time understanding");
+requireText("src/pages/index.astro","OwnershipLab","ownership explanation was removed from the home curriculum");
+requireText("src/pages/journey/[id].astro","CashFlowLab","cash-flow context disappeared from relevant chapters");
+requireText("src/pages/practice/[slug].astro","OwnershipLab","practical share-issue pages lost ownership explanation");
+requireText("src/pages/company-law/[slug].astro","new-shares","interactive share example no longer links to its legal lesson");
+requireText("src/pages/company-law/index.astro","OwnershipLab","company-law index lost share diagram");
+requireText("src/pages/practice/index.astro","OwnershipLab","practice index lost share diagram");
+requireText("src/components/CashFlowLab.astro","data-cash-step","cash explainer buttons missing");
+requireText("src/components/OwnershipLab.astro","data-share-slider","ownership explainer slider missing");
+requireText("src/pages/explore/[mode].astro","WorldExplorer","optional 3D exploration was removed");
+requireText("docs/UX_DECISIONS.md","D012","3D-to-interaction decision missing");
 
 if (failures.length) {
   console.error("\nUX CONTRACT FAILED\n");

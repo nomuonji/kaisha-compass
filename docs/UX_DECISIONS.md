@@ -345,3 +345,33 @@ The experience is an *explanatory diagram*, not a game or a numerical business s
 - a dashboard/game replacing narrative articles;
 - an inaccessible canvas-only navigation;
 - a heavy always-running renderer on every source page.
+
+
+---
+
+## 2026-10-14 — D012: Interactive mechanisms, not spatial content indexes, become the primary experience
+
+**Status:** Accepted after evaluating D011 in production. Supersedes D011's *placement* requirements, not the optional 3D implementation.
+
+### Problem and evidence
+
+The 3D graph made the site more playful but did not make company operations notably easier to understand: putting 15 events or legal concepts in space adds navigation but does not show causal mechanisms. Readers who do not yet know what a company does need to see how an action changes revenue, cash, ownership, or legal responsibilities. The user's feedback on the production implementation explicitly identified this gap.
+
+### Decision
+
+Use **SVG + HTML + minimal native JavaScript/CSS**, selected for the information being explained, rather than enforcing Three.js, GSAP, D3 or Rive as a default. Start with two working subject-specific lessons:
+
+1. Cash flow: stage-wise order → delivery/sale and receivable → vendor payment → customer collection; show revenue, receivable, and bank cash separately.
+2. Shares: founding holdings of 70/30; issue new shares to a third investor; update denominator, percentages and founder majority indicator. Do not conflate percentage with statutory resolution requirements.
+
+The homepage introduces the fictional company and directly embeds the cash-flow explainer; the ownership example follows the company-year curriculum. Place relevant lessons in practice and law articles where they clarify existing content, not throughout unrelated pages. Other existing chapters, official source digests, legal hierarchy and URLs remain intact.
+
+Keep the D011 3D viewer as **optional** routes at \`/explore/events/\`, \`/explore/practice/\` and \`/explore/law/\`; no longer make it the initial onboarding interface or a compulsory step in the reading flow.
+
+### Quality and maintenance
+
+- Server-render all essential introductions, labels, amounts, context, links, and legal/accounting caveats. JS updates are progressive enhancements.
+- Source visual models from a reusable pure \`interactiveModels.mjs\` with numerical tests: ensure internal consistency as readers change options.
+- This is illustrative education, not a full accounting tool or legal simulator. Equity stakes are not automatically the vote needed for every resolution.
+- Prefer low-cost vector transitions, keyboard-accessible controls, motion-reduction support, and mobile readability to a GPU-heavy canvas.
+- Future interactive modules should visualize something meaningful in their specific article; no blanket widget insertion or a new parallel editorial database.
