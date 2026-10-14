@@ -66,6 +66,15 @@ requireText("AGENTS.md", "Non-regression UX contract", "agent UX contract missin
 requireText("docs/UX_DECISIONS.md", "D007", "plain-language visual-semantics decision is missing");
 requireText("docs/UX_DECISIONS.md", "D010", "resource digest redesign decision is missing");
 
+// The spatial learning feature must be functional progressive enhancement, not a canvas-only gate.
+requireText("src/components/CompassHero.astro", "WorldExplorer", "homepage 3D company exploration was removed");
+requireText("src/components/WorldExplorer.astro", "data-world-select", "non-WebGL keyboard navigation missing");
+requireText("src/components/WorldExplorer.astro", "world-explorer-data", "curriculum to scene data link missing");
+requireText("src/pages/practice/index.astro", 'mode="practice"', "practice viewer was removed");
+requireText("src/pages/company-law/index.astro", 'mode="law"', "company-law viewer was removed");
+requireText("src/pages/journey/[id].astro", "initialId={event.id}", "chapter-specific 3D focus removed");
+requireText("docs/UX_DECISIONS.md", "D011", "3D design decision missing");
+
 if (failures.length) {
   console.error("\nUX CONTRACT FAILED\n");
   for (const failure of failures) console.error("- " + failure);

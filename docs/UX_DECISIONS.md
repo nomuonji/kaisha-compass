@@ -313,3 +313,35 @@ Show each data point only once. Reading text and tap targets must work on deskto
 - equal visual priority for metadata, topic cards, reading points, and outbound links;
 - presenting generic fallback bullets as if they were manually researched specific content;
 - removing the visible provider, source type, external-link treatment, or last-checked context.
+
+
+---
+
+## 2026-10-14 — D011: 3D exploration for the existing company curriculum
+
+**Status:** Accepted at the user's request.
+
+### Problem
+
+The detailed legal and operational lessons can be difficult to picture for beginners. A second catalogue or a quiz does not make company operations spatially intelligible.
+
+### Decision
+
+Introduce a Three.js spatial explorer bound directly to the existing year events, 25 practice cases and the company-law groups. A reader can rotate the miniature company's surroundings, select a point, read its existing summary, and enter the canonical long-form article. The homepage leads with this distinctive interactive view **after** explaining the model-company premise, while keeping the company-year reading sequence immediately below.
+
+The experience is an *explanatory diagram*, not a game or a numerical business simulator. It changes the opening visual hierarchy, but does not remove the story-first curriculum, the original 0→1→2→3→4 content hierarchy or the source summaries.
+
+### Constraints
+
+- Static Astro build; three is bundled locally, loaded only when a viewer becomes visible.
+- Search engines and keyboard-only / WebGL-disabled users can reach all destinations from HTML controls.
+- Motion can be stopped, and reduced-motion preferences are respected. Rendering stops when offscreen.
+- Existing practice cases, law lessons, scene articles, official links and editorial ownership remain untouched.
+- No new legal claims are inferred from geometry, colors or proximity.
+
+### Do not regress to
+
+- A decorative 3D animation with no real article connections;
+- a dashboard/game replacing narrative articles;
+- an inaccessible canvas-only navigation;
+- a heavy always-running renderer on every source page.

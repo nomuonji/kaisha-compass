@@ -151,6 +151,17 @@ Before considering a UX change complete, run the UX contract check and Astro bui
 
 ## Additive company-law study library
 
+## 3D spatial exploration (2026-10-14)
+
+- The Three.js viewer is a navigation and conceptual visualization of real existing content, **not** a gamified business simulator or a replacement for the textual chapters.
+- Home: the model company is introduced in plain language before the spatial timeline. The full existing \`ReadingJourney\` remains intact.
+- \`WorldExplorer.astro\` draws its points directly from the canonical \`events\`, \`practicalGuides\`, and \`lawStudyGroups\` data; do not maintain a duplicate editorial database for the scene.
+- Keep item descriptions, original routes, semantic hierarchy and destination labels in the HTML. Canvas is progressive enhancement: all destinations remain keyboard navigable without WebGL, motion, or JavaScript.
+- Use lazy loading, reduced-motion behavior, sensible GPU limits, no external CDN, and paused rendering when offscreen. Never load Three.js on source/resource pages that do not need it.
+- The 3D graph illustrates relationships/sequence; distance, object size and movement are not quantitative financial/legal measurements. Do not imply actual simulations.
+- Do not change the Cloudflare Pages static output, source-of-truth boundaries or canonical URLs.
+
+
 - `/company-law/` and `/company-law/[slug]/` are level-2 topic learning routes for judicial-scrivener candidates.
 - The canonical edited lesson data is `src/lib/companyLawLessons.ts`. The original 15-scene company year remains the primary narrative path.
 - Use shared destination vocabulary and dashed level-4 links for original law sources; do not introduce a new hierarchy level.
