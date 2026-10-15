@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run check:ux && node scripts/test-interactive-models.mjs && astro build && node scripts/check-deploy-assets.mjs",
     "preview": "astro preview",
     "check:ux": "node scripts/check-ux-contract.mjs"
   },
